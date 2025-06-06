@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.header {
+    background-color: #1d503a !important;
+    padding: 20px 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+.header .logo {
+    color: #faf5ee !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-family: 'Poppins', Arial !important;
+}
+
+.header .nav-container {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.header .nav__links {
+    list-style: none !important;
+    display: flex !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.header .nav__links li a {
+    color: #faf5ee !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    transition: color 0.3s ease !important;
+}
+
+.header .nav__links li a:hover {
+    color: #ffd700 !important;
+}
+
+.header .nav__links li a i {
+    font-size: 18px !important;
+}
+
+.header .cart-counter {
+    background-color: #ffd700 !important;
+    color: #1d503a !important;
+    border-radius: 50% !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+    position: relative !important;
+    top: -5px !important;
+}
+
+.header .auth-buttons {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.header .auth-buttons button {
+    padding: 8px 16px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-family: 'Poppins', Arial !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.header .auth-buttons .sign-up {
+    background-color: #ffd700 !important;
+    color: #1d503a !important;
+}
+
+.header .auth-buttons .sign-up:hover {
+    background-color: #faf5ee !important;
+    color: #1d503a !important;
+}
+
+.header .auth-buttons .login {
+    background-color: transparent !important;
+    color: #faf5ee !important;
+    border: 1px solid #faf5ee !important;
+}
+
+.header .auth-buttons .login:hover {
+    background-color: #faf5ee !important;
+    color: #1d503a !important;
+}
+
+.header .burger {
+    display: none !important;
+    color: #faf5ee !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+}
+
+.header .mobile-menu {
+    display: none !important;
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #1d503a !important;
+    padding: 20px !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    z-index: 999 !important;
+}
+
+.header .mobile-menu.active {
+    display: flex !important;
+}
+
+.header .mobile-menu .nav__links {
+    flex-direction: column !important;
+    gap: 15px !important;
+}
+
+.header .mobile-menu .nav__links li a {
+    font-size: 18px !important;
+}
+
+.header .auth-buttons-mobile {
+    display: flex !important;
+    gap: 10px !important;
+    justify-content: center !important;
+}
+
+.header .auth-buttons-mobile button {
+    padding: 8px 16px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-family: 'Poppins', Arial !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.header .modal {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000 !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.header .modal-content {
+    background-color: #fff !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    width: 90% !important;
+    max-width: 500px !important;
+}
+
+.header .close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    color: #1d503a !important;
+}
+
+.header .search-input {
+    width: 100% !important;
+    padding: 10px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    font-family: 'Poppins', Arial !important;
+    font-size: 14px !important;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px !important;
+    }
+
+    .header .logo {
+        font-size: 20px !important;
+    }
+
+    .header .nav-container {
+        display: none !important;
+    }
+
+    .header .auth-buttons {
+        display: none !important;
+    }
+
+    .header .burger {
+        display: block !important;
+    }
+
+    .header .mobile-menu {
+        top: 60px !important;
+        padding: 15px !important;
+    }
+
+    .header .mobile-menu .nav__links li a {
+        font-size: 16px !important;
+    }
+
+    .header .auth-buttons-mobile button {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px !important;
+    }
+
+    .header .logo {
+        font-size: 18px !important;
+    }
+
+    .header .burger {
+        font-size: 20px !important;
+    }
+
+    .header .mobile-menu {
+        top: 50px !important;
+        padding: 10px !important;
+    }
+
+    .header .mobile-menu .nav__links li a {
+        font-size: 14px !important;
+    }
+
+    .header .auth-buttons-mobile button {
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+    }
+
+    .header .modal-content {
+        padding: 15px !important;
+        max-width: 300px !important;
+    }
+
+    .header .search-input {
+        font-size: 12px !important;
+        padding: 8px !important;
+    }
+}

@@ -1,6 +1,33 @@
 {%extends "main/base.html" %}
+{%load static%}
 
-{%block title%}Catalog{%endblock title%}
+
+{%block link%}
+    <link type="text/css" href="{% static 'main/css/catalog.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/pagination.css' %}" rel="stylesheet">
+{%endblock%}
+
 {%block content%}
-каккойто контент
-{%endblock content%}
+    <h1 class="catalog">Catalog</h1>
+    <div class="conteiner conteiner__cards">
+        {%for product in products%}
+            <div class="card">
+                <div class="card__top">
+                    <img src="img/image2.png" alt="Nike x Jakob">
+                </div>
+                <div class="card__bottom">
+                    <a href="#" class="card__title">{{product.name}}</a>
+                    <div class="card__prices">
+                        <div class="card__price card__price--discount">${{product.price}}</div>
+                    </div>
+                </div>
+                <button class="card__btn">Add to Cart</button>
+            </div>
+        {%endfor%}
+    </div>
+    <div class="pagination">
+        <button class="pagination-btn prev" disabled><i class='bx bx-chevron-left'></i> Prev</button>
+        <div class="pagination-numbers"></div>
+        <button class="pagination-btn next"><i class='bx bx-chevron-right'></i> Next</button>
+    </div>
+{%endblock%}

@@ -1,8 +1,4 @@
-from zoneinfo import available_timezones
-
 from django.shortcuts import render,get_object_or_404
-from unicodedata import category
-
 from main.models import Category, Product
 
 def product_list(request, category_slug=None):
