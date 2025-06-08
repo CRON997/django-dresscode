@@ -6,18 +6,18 @@
     <link type="text/css" href="{% static 'main/css/detail.css' %}" rel="stylesheet">
 {%endblock%}
 
-{%block title%}product.name{%endblock%}
+{%block title%}{{product.name}}{%endblock%}
 
 {%block content%}
     <section class="product-details">
         <div class="product-container">
             <div class="product-image">
-                <img src="product.image.url" alt="">
+                <img src="{{product.image.url}}" alt="">
             </div>
             <div class="product-info">
                 <h1 class="product-title">{{product.name}}</h1>
                 <div class="product-prices">
-                    <span class="price-discount">{{product.price}}</span>
+                    <span class="price-discount">${{product.price}}</span>
                 </div>
                 <p class="product-description">{{product.description}}</p>
                 <div class="product-size">

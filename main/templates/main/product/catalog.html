@@ -18,7 +18,7 @@
                     <img src="{{product.image.url}}" alt="">
                 </div>
                 <div class="card__bottom">
-                    <a href="main:product_detail" class="card__title">{{product.name}}</a>
+                    <a href="{%url 'main:product_detail' product.id product.slug%}" class="card__title">{{product.name}}</a>
                     <div class="card__prices">
                         <div class="card__price card__price--discount">${{product.price}}</div>
                     </div>
