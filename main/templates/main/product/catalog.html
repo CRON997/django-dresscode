@@ -7,16 +7,18 @@
     <link type="text/css" href="{% static 'main/css/pagination.css' %}" rel="stylesheet">
 {%endblock%}
 
+{%block title%}Catalog{%endblock%}
+
 {%block content%}
     <h1 class="catalog">Catalog</h1>
     <div class="conteiner conteiner__cards">
         {%for product in products%}
             <div class="card">
                 <div class="card__top">
-                    <img src="img/image2.png" alt="Nike x Jakob">
+                    <img src="{{product.image.url}}" alt="">
                 </div>
                 <div class="card__bottom">
-                    <a href="#" class="card__title">{{product.name}}</a>
+                    <a href="main:product_detail" class="card__title">{{product.name}}</a>
                     <div class="card__prices">
                         <div class="card__price card__price--discount">${{product.price}}</div>
                     </div>
@@ -31,3 +33,4 @@
         <button class="pagination-btn next"><i class='bx bx-chevron-right'></i> Next</button>
     </div>
 {%endblock%}
+
