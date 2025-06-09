@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 class Category(models.Model):
@@ -23,6 +24,16 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)#будет автоматичесски добавляться
     updated = models.DateTimeField(auto_now=True)
+
+
+    status_discount = models.BooleanField(default=False)
+    percent = models.IntegerField(default=0,validators=[MinValueValidator(0), MaxValueValidator(100)],blank=True,help_text='Процент скидки от 1-100%')
+
+    def get_discount_price(self):
+        if self.status_discount and self.percent > 0:
+            discount = self.price * (self.percent / 100)
+            return self.price - discount
+        return 0
 
     class Meta:
         ordering = ('name',)

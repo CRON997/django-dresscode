@@ -1,5 +1,5 @@
 from django.urls import path
-
-app_name = 'cart'
-
-urlpatterns=[]
+from . import views
+app_name='cart'
+urlpatterns = [
+]
