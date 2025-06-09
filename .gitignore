@@ -8,3 +8,4 @@ __pycache__/
 db.sqllite3
 media/
 products/
+fixtures/
