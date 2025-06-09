@@ -1,0 +1,58 @@
+{%extends "main/base.html" %}
+{%load static%}
+
+
+{%block link%}
+    <link type="text/css" href="{% static 'main/css/about.css' %}" rel="stylesheet">
+{%endblock%}
+
+{%block title%}About{%endblock%}
+
+{%block content%}
+     <div class="about-page">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>About DressCode</h1>
+                <p>Discover our story and passion for fashion.</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h1>About DressCode</h1>
+            <p>
+                At DressCode, we believe fashion is more than just clothing—it's a way to express who you are. Founded in 2020, our mission is to bring stylish, sustainable, and affordable apparel to everyone. We curate high-quality pieces that blend timeless designs with modern trends, ensuring you look and feel your best.
+            </p>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Sustainability</h3>
+                    <p>We prioritize eco-friendly materials and ethical production to minimize our environmental impact.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Quality</h3>
+                    <p>Every piece is crafted with care, ensuring durability and comfort for everyday wear.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Inclusivity</h3>
+                    <p>Our collections are designed for all, celebrating diversity in style and size.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial">
+                <p>"DressCode has transformed my wardrobe! The quality is amazing, and I love their sustainable approach."</p>
+                <p><strong>— Sarah M.</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"The best shopping experience I've had online. Fast shipping and perfect fits every time!"</p>
+                <p><strong>— James T.</strong></p>
+            </div>
+        </section>
+    </div>
+{%endblock%}
+

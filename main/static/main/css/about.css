@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.about-page body {
+    margin: 0 !important;
+    font-family: 'Poppins', Arial !important;
+    background-color: #faf5ee !important;
+}
+
+.about-page p {
+    color: #1d503a !important;
+    line-height: 1.6 !important;
+}
+
+.about-page .hero-section {
+    position: relative !important;
+    height: 400px !important;
+    background-image: url('img/wallpaper.png') !important; /* Replace with your image path */
+    background-size: cover !important;
+    background-position: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    color: #faf5ee !important;
+    margin-bottom: 40px !important;
+}
+
+.about-page .hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(29, 80, 58, 0.6) !important; /* #1d503a with opacity */
+}
+
+.about-page .hero-content {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.about-page .hero-content h1 {
+    font-size: 48px !important;
+    margin-bottom: 20px !important;
+}
+
+.about-page .hero-content p {
+    font-size: 18px !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    color: #faf5ee !important;
+}
+
+.about-page .about-section {
+    padding: 40px 10% !important;
+    text-align: center !important;
+}
+
+.about-page .about-section h2 {
+    color: #1d503a !important;
+    font-size: 28px !important;
+    margin-bottom: 20px !important;
+}
+
+.about-page .about-section p {
+    max-width: 800px !important;
+    margin: 0 auto 40px !important;
+    font-size: 16px !important;
+}
+
+.about-page .values-section {
+    padding: 40px 10% !important;
+    background-color: #fff !important;
+}
+
+.about-page .values-section h2 {
+    color: #1d503a !important;
+    font-size: 28px !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.about-page .values-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 20px !important;
+}
+
+.about-page .value-card {
+    background-color: #faf5ee !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+}
+
+.about-page .value-card h3 {
+    color: #1d503a !important;
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.about-page .testimonials-section {
+    padding: 40px 10% !important;
+    background-color: #f5f5f5 !important;
+}
+
+.about-page .testimonials-section h2 {
+    color: #1d503a !important;
+    font-size: 28px !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.about-page .testimonial {
+    background-color: white !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    max-width: 500px !important;
+    margin: 0 auto 20px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+.about-page .testimonial p {
+    font-style: italic !important;
+}
+
+@media (max-width: 768px) {
+    .about-page .hero-section {
+        height: 300px !important;
+    }
+
+    .about-page .hero-content h1 {
+        font-size: 36px !important;
+    }
+
+    .about-page .hero-content p {
+        font-size: 16px !important;
+    }
+
+    .about-page .about-section h2 {
+        font-size: 24px !important;
+    }
+
+    .about-page .values-section h2,
+    .about-page .testimonials-section h2 {
+        font-size: 24px !important;
+    }
+
+    .about-page .values-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-page .hero-section {
+        height: 250px !important;
+    }
+
+    .about-page .hero-content h1 {
+        font-size: 28px !important;
+    }
+
+    .about-page .hero-content p {
+        font-size: 14px !important;
+    }
+
+    .about-page .about-section {
+        padding: 20px 5% !important;
+    }
+
+    .about-page .values-section {
+        padding: 20px 5% !important;
+    }
+
+    .about-page .testimonials-section {
+        padding: 20px 5% !important;
+    }
+}

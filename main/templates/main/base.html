@@ -51,7 +51,6 @@
     {%endblock header%}
 
     {%block content%}
-
     {%endblock content%}
 
     {%block footer%}
@@ -60,7 +59,7 @@
                 <div class="footer-section">
                     <h3 class="footer-h3">Quick Links</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="{% url 'main:about' %}">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
