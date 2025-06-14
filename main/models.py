@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -31,7 +33,7 @@ class Product(models.Model):
 
     def get_discount_price(self):
         if self.status_discount and self.percent > 0:
-            discount = self.price * (self.percent / 100)
+            discount = (self.price * Decimal(self.percent) / Decimal(100))
             return self.price - discount
         return 0
 
