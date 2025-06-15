@@ -10,11 +10,138 @@ h1
 {
     text-align: center;
 }
-.conteiner {
+
+.conteiner
+{
     width: 100%;
     max-width: 1400px;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+.filter-section
+{
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-title
+{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1d503a;
+    margin: 0;
+}
+
+.filter-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1d503a;
+    cursor: pointer;
+    display: none;
+}
+
+.filter-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #1d503a;
+    background-color: transparent;
+    color: #1d503a;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Poppins', Arial;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+.filter-btn.active {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+.clear-filters {
+    padding: 8px 16px;
+    background-color: #b22e2e;
+    color: #faf5ee;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Poppins', Arial;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.clear-filters:hover {
+    background-color: #9a2626;
+}
+
+/* Hidden card state */
+.card.hidden {
+    display: none;
+}
+
+/* Mobile responsiveness for filter */
+@media (max-width: 768px) {
+    .filter-toggle {
+        display: block;
+    }
+
+    .filter-content {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .filter-content.show {
+        display: flex;
+    }
+
+    .filter-group {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-group {
+        justify-content: center;
+    }
+
+    .filter-btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
 }
 
 .conteiner__cards {

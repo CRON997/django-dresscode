@@ -11,6 +11,23 @@
 
 {%block content%}
 <h1 class="catalog">Catalog</h1>
+<div class="conteiner">
+    <div class="filter-section">
+        <div class="filter-header">
+            <h3 class="filter-title">Filters</h3>
+        </div>
+        <div class="filter-content">
+            <div class="filter-group">
+                {%for category in categories%}
+                <a href="{{category.get_absolute_url}}">
+                    <button class="filter-btn" data-category="jerseys">{{category.name}}</button>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="conteiner conteiner__cards">
     {%for product in products%}
     <div class="card">
@@ -18,7 +35,7 @@
             <img src="{{product.image.url}}" alt="">
         </div>
         <div class="card__bottom">
-            <a href="{%url 'main:product_detail' product.id product.slug%}" class="card__title">{{product.name}}</a>
+            <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
             {%if product.status_discount%}
             <div class="card__label">{{product.percent}}%</div>
             <div class="card__prices">
