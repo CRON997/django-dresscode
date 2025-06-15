@@ -3,51 +3,56 @@
 
 
 {%block link%}
-    <link type="text/css" href="{% static 'main/css/detail.css' %}" rel="stylesheet">
+<link type="text/css" href="{% static 'main/css/detail.css' %}" rel="stylesheet">
 {%endblock%}
 
 {%block title%}{{product.name}}{%endblock%}
 
 {%block content%}
-    <section class="product-details">
-        <div class="product-container">
-            <div class="product-image">
-                <img src="{{product.image.url}}" alt="">
+<section class="product-details">
+    <div class="product-container">
+        <div class="product-image">
+            <img src="{{product.image.url}}" alt="">
+        </div>
+        <div class="product-info">
+            <h1 class="product-title">{{product.name}}</h1>
+            <div class="product-prices">
+                <span class="price-discount">${{product.price}}</span>
             </div>
-            <div class="product-info">
-                <h1 class="product-title">{{product.name}}</h1>
-                <div class="product-prices">
-                    <span class="price-discount">${{product.price}}</span>
-                </div>
-                <p class="product-description">{{product.description}}</p>
-                <div class="product-size">
-                    <label for="size-select">Select Size:</label>
-                    <select id="size-select">
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                    </select>
-                </div>
+            <p class="product-description">{{product.description}}</p>
+            <div class="product-size">
+                <label for="size-select">Select Size:</label>
+                <select id="size-select">
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                </select>
+            </div>
+            <form action="{%url 'cart:cart_add' product.id%}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="override" value="false">
                 <button class="add-to-cart">Add to Cart</button>
-            </div>
+            </form>
         </div>
+    </div>
 
-        <div class="comments-section">
-            <h2>Customer Reviews</h2>
-            <div class="comment-form">
-                <textarea id="comment-input" placeholder="Write your review..." rows="4"></textarea>
-                <button id="submit-comment">Submit Review</button>
-            </div>
-            <div class="comments-list" id="comments-list">
-                <div class="comment">
-                    <p class="comment-author">Alex M.</p>
-                    <p class="comment-date">June 02, 2025, 10:17 PM EEST</p>
-                    <p class="comment-text">Great jersey! Fits perfectly and the material feels high quality.</p>
-                </div>
+    <div class="comments-section">
+        <h2>Customer Reviews</h2>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="Write your review..." rows="4"></textarea>
+            <button id="submit-comment">Submit Review</button>
+        </div>
+        <div class="comments-list" id="comments-list">
+            <div class="comment">
+                <p class="comment-author">Alex M.</p>
+                <p class="comment-date">June 02, 2025, 10:17 PM EEST</p>
+                <p class="comment-text">Great jersey! Fits perfectly and the material feels high quality.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {%endblock%}
 
 
