@@ -33,18 +33,31 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # будет автоматичесски добавляться
     updated = models.DateTimeField(auto_now=True)
 
+    original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True,
+                                         help_text='Исходная цена до скидки (заполняется автоматически при наличии скидки)')
     status_discount = models.BooleanField(default=False)
     percent = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)], blank=True,
                                   help_text='Процент скидки от 1-100%')
 
     def get_discount_price(self):
-        if self.status_discount and self.percent > 0:
-            discount = (self.price * Decimal(self.percent) / Decimal(100))
-            return self.price - discount
-        return 0
+        discount = (self.price / Decimal(100)) * Decimal(self.percent)
+        return self.price - discount
+
+    def save(self, *args, **kwargs):
+        if self.status_discount and self.percent:
+            if not self.original_price:
+                self.original_price = self.price
+            self.price = self.get_discount_price()
+        else:
+            if self.original_price:
+                self.price = self.original_price
+                self.original_price = None
+            self.percent = 0
+            self.status_discount = False
+        super().save(*args, **kwargs)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('name', 'status_discount',)
 
     def __str__(self):
         return f'{self.name}'

@@ -16,18 +16,25 @@
         </div>
         <div class="product-info">
             <h1 class="product-title">{{product.name}}</h1>
+            {%if product.status_discount%}
             <div class="product-prices">
                 <span class="price-discount">${{product.price}}</span>
+                <span class="price-common">${{product.original_price}}</span>
+                <span class="discount-label">{{product.percent}} OFF</span>
             </div>
+            {%else%}
+            <div class="product-prices">
+                <span class="price-discount">${{product.price}}</span></div>
+            {%endif%}
             <p class="product-description">{{product.description}}</p>
             <div class="product-size">
                 <label for="size-select">Select Size:</label>
-                <select id="size-select">
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
-                </select>
+                <div class="size-buttons">
+                    <button class="size-btn" data-size="s">S</button>
+                    <button class="size-btn" data-size="m">M</button>
+                    <button class="size-btn" data-size="l">L</button>
+                    <button class="size-btn" data-size="xl">XL</button>
+                </div>
             </div>
             <form action="{%url 'cart:cart_add' product.id%}" method="post">
                 {% csrf_token %}

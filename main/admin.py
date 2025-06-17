@@ -1,16 +1,18 @@
 from django.contrib import admin
-from .models import Category,Product
+from .models import Category, Product
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name','slug']
-    prepopulated_fields = {'slug':('name',)}
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name','category','price','available','created_at','updated']
-    list_filter = ['available','created_at','updated','category'] #для админки
-    list_editable = ['price','available']
+    list_display = ['name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
+                    'status_discount', 'percent']
+    list_filter = ['available', 'created_at', 'updated', 'category', 'status_discount']  # для админки
+    list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
-
-# Register your models here.
+    readonly_fields = ('original_price',)

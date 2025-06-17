@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.html import strip_tags
 
 
-class CustomerUserManger(BaseUserManager):
+class CustomUserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, password=None, **extra_fields):
         if not email:
             raise ValueError('The email must be set')
@@ -24,7 +24,7 @@ class CustomerUserManger(BaseUserManager):
         return self.create_user(email, first_name, last_name, password, **extra_fields)
 
 
-class CustomerUser(AbstractUser):
+class CustomUser(AbstractUser):
     email = models.EmailField(unique=True, max_length=66)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
@@ -40,7 +40,7 @@ class CustomerUser(AbstractUser):
 
     username = models.CharField(max_length=150, unique=True, null=True)
 
-    objects = CustomerUserManger()
+    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']

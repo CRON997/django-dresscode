@@ -40,9 +40,9 @@ class CustomUserCreationForm(UserCreationForm):
         return user
 
 
-class CustomerUserLoginForm(AuthenticationForm):
-    email = forms.CharField(label='Email', widget=forms.TextInput(
+class CustomUserLoginForm(AuthenticationForm):
+    email = forms.CharField(label='Email', widget=forms.EmailInput(
         attrs={'autofocus': True, 'class': 'input-box', 'placeholder': 'Your email'}))
 
     password = forms.CharField(label='Password', widget=forms.TextInput(
-        attrs={'autofocus': True, 'class': 'input-box', 'placeholder': 'Your email'}))
+        attrs={'autofocus': True, 'class': 'input-box', 'placeholder': 'Your password'}))
