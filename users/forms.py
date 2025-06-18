@@ -16,10 +16,10 @@ class CustomUserCreationForm(UserCreationForm):
     last_name = forms.CharField(required=True, max_length=50,
                                 widget=forms.TextInput(attrs={'class': 'input-box', 'placeholder': 'Enter last name'}))
     password1 = forms.CharField(required=True,
-                                widget=forms.TextInput(
+                                widget=forms.PasswordInput(
                                     attrs={'class': 'input-box', 'placeholder': 'Enter your password'}))
     password2 = forms.CharField(required=True,
-                                widget=forms.TextInput(
+                                widget=forms.PasswordInput(
                                     attrs={'class': 'input-box', 'placeholder': 'Confirm your password'}))
 
     class Meta:
@@ -41,8 +41,20 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserLoginForm(AuthenticationForm):
-    email = forms.CharField(label='Email', widget=forms.EmailInput(
-        attrs={'autofocus': True, 'class': 'input-box', 'placeholder': 'Your email'}))
+    username = forms.EmailField(label='Email', widget=forms.EmailInput(
+        attrs={'autofocus': True, 'class': '', 'placeholder': 'Enter your email'}))
 
-    password = forms.CharField(label='Password', widget=forms.TextInput(
-        attrs={'autofocus': True, 'class': 'input-box', 'placeholder': 'Your password'}))
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(
+        attrs={'autofocus': True, 'class': '', 'placeholder': 'Enter your password'}))
+
+    def clean(self):
+        email = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+
+        if email and password:
+            self.user_cache = authenticate(self.request, email=email, password=password)
+            if self.user_cache is None:
+                raise forms.ValidationError('Invalid email or password')
+            elif not self.user_cache.is_active:
+                raise forms.ValidationError('This account is inactive')
+        return self.cleaned_data

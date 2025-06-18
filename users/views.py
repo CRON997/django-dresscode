@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import CustomUser
 from .forms import CustomUserCreationForm, CustomUserLoginForm
@@ -9,7 +11,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user, backend='django.contrib.backends.ModelBackend')
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('users:profile')
     else:
         form = CustomUserCreationForm()
@@ -22,4 +24,22 @@ def login_view(request):
         form = CustomUserLoginForm(request=request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            login(request, user, backend='django.contrib.backends.ModelBackend')
+            login(request, user)
+            return redirect('users:profile')
+        else:
+            messages.error(request, 'Ошибка входа в систему')
+            print("Form errors:", form.errors)  # Для отладки
+    else:
+        form = CustomUserLoginForm()
+    return render(request, 'users/login.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    user = CustomUser.objects.get(id=request.user.id)
+    return render(request, 'users/profile.html', {'user': user})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('main:product_list')

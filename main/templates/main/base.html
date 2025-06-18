@@ -18,7 +18,11 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="{%url 'main:product_list'%}">Catalog</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{%url 'users:profile'%}">Profile</a></li>
+                    {%else%}
+                    <li class="nav__disabled">Profile (войдите в систему)</li>
+                    {%endif%}
                     <li><a href="{%url 'cart:cart_detail'%}">Basket <span id="cart-counter" class="cart-counter">
                         {%with total_items=cart|length %}
                             {%if total_items%}
@@ -32,8 +36,12 @@
             </nav>
         </div>
         <div class="auth-buttons">
-            <a href="registration.html"><button class="sign-up">Sign Up</button></a>
-            <a href="login.html"><button class="login">Login</button></a>
+            <a href="{%url 'users:register'%}">
+                <button class="sign-up">Sign Up</button>
+            </a>
+            <a href="{%url 'users:login'%}">
+                <button class="login">Login</button>
+            </a>
         </div>
         <i class='bx bx-menu burger'></i>
         <div class="mobile-menu">
@@ -47,7 +55,9 @@
             </ul>
             <div class="auth-buttons-mobile">
                 <a href="registration.html"><button class="sign-up">Sign Up</button></a>
-                <a href="login.html"><button class="login">Login</button></a>
+                <a href="{%url 'users:login'%}">
+                    <button class="login">Login</button>
+                </a>
             </div>
         </div>
         <div id="searchModal" class="modal">

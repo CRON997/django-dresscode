@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, ShoesSize, ClothingSize
 
 
 @admin.register(Category)
@@ -16,3 +16,13 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('original_price',)
+
+
+@admin.register(ClothingSize)
+class ClothingSizeAdmin(admin.ModelAdmin):
+    list_display = ['name', 'order']
+
+
+@admin.register(ShoesSize)
+class ClothingSizeAdmin(admin.ModelAdmin):
+    list_display = ['name', ]

@@ -1,5 +1,4 @@
 from decimal import Decimal
-
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
@@ -32,7 +31,8 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)  # будет автоматичесски добавляться
     updated = models.DateTimeField(auto_now=True)
-
+    clothing_sizes = models.ManyToManyField('ClothingSize', blank=True)
+    shoes_sizes = models.ManyToManyField('ShoesSize', blank=True)
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True,
                                          help_text='Исходная цена до скидки (заполняется автоматически при наличии скидки)')
     status_discount = models.BooleanField(default=False)
@@ -40,8 +40,10 @@ class Product(models.Model):
                                   help_text='Процент скидки от 1-100%')
 
     def get_discount_price(self):
-        discount = (self.price / Decimal(100)) * Decimal(self.percent)
-        return self.price - discount
+        if self.original_price:
+            discount = (self.original_price / Decimal(100)) * Decimal(self.percent)
+            return self.original_price - discount
+        return self.price
 
     def save(self, *args, **kwargs):
         if self.status_discount and self.percent:
@@ -64,3 +66,26 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('main:product_detail', args=[self.id, self.slug])
+
+
+class ClothingSize(models.Model):
+    name = models.CharField(max_length=10, unique=True)
+    order = models.PositiveIntegerField(help_text="Для правильной сортировки")
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Clothing Sizes'
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class ShoesSize(models.Model):
+    name = models.CharField(max_length=10, unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Shoes Sizes'
+
+    def __str__(self):
+        return f'{self.name}'
