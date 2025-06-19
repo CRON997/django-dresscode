@@ -22,7 +22,7 @@
                     {% if user.is_authenticated %}
                     <li><a href="{%url 'users:profile'%}">Profile</a></li>
                     {%else%}
-                    <li class="nav__disabled">Profile (войдите в систему)</li>
+                    <li><a style="pointer-events: none;cursor: default; opacity: 0.67;">Profile</a></li>
                     {%endif%}
                     <li><a href="{%url 'cart:cart_detail'%}">Basket <span id="cart-counter" class="cart-counter">
                         {%with total_items=cart|length %}
