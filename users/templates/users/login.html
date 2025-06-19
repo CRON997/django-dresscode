@@ -1,4 +1,5 @@
 {%extends "users/base.html"%}
+{%load socialaccount%}
 {%load static%}
 
 {%block title%}Login{%endblock%}
@@ -35,9 +36,11 @@
         </div>
     </form>
     <div class="google-login">
-        <button id="google-login-btn" class="google-btn">
-            <i class='bx bxl-google'></i> Login with Google
-        </button>
+        <a href="{%provider_login_url 'google' %}">
+            <button id="google-login-btn" class="google-btn">
+                <i class='bx bxl-google'></i> Login with Google
+            </button>
+        </a>
     </div>
 </div>
 {%endblock%}
