@@ -1,0 +1,49 @@
+{%extends "users/base.html"%}
+{%load static%}
+
+{%block title%}Registration{%endblock%}
+
+{%block link%}
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'users/css/register.css' %}">
+{%endblock%}
+
+{%block content%}
+<div class="wrapper">
+    <form id="registration-form" action="#" method="POST">
+        {%csrf_token%}
+        <h1>Registration</h1>
+        <div id="error-message" class="error-message"></div>
+        <div class="grid">
+            <div class="input-box">
+                <label for="{{ form.first_name.id_for_lable }}">First Name</label>
+                {{form.first_name}}
+            </div>
+            <div class="input-box">
+                <label for="{{ form.first_name.id_for_lable }}">Last Name</label>
+                {{form.last_name}}
+            </div>
+            <div class="input-box">
+                <label for="{{ form.email.id_for_lable }}">Email</label>
+                {{form.email}}
+            </div>
+            <div class="input-box">
+                <label for="{{ form.password1.id_for_lable }}">Password 1</label>
+                {{form.password1}}
+            </div>
+            <div class="input-box">
+                <label for="{{ form.password2.id_for_lable }}">Password 2</label>
+                {{form.password2}}
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn">Create an Account</button>
+        </div>
+        <div class="link-auth">
+            <a href="{%url 'users:login'%}">Already have an account? Authorize</a>
+        </div>
+    </form>
+</div>
+{%endblock%}
+
+

@@ -16,6 +16,9 @@ def product_list(request, category_slug=None):
     context = {'categories': categories, 'products': products, 'category': category,
                ' cart_product_form': cart_product_form}
 
+    if request.htmx:
+        return render(request, 'main/product/product_list_partial.html', context)
+
     return render(request, 'main/product/catalog.html', context)
 
 

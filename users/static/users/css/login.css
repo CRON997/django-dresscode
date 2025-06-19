@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial;
+    background-color: #faf5ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #1d503a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: #d32f2f;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+.input-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: #1d503a;
+    font-weight: 500;
+}
+
+.input-box input {
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', Arial;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+    outline: none;
+    border-color: #1d503a;
+    box-shadow: 0 0 5px rgba(29, 80, 58, 0.3);
+}
+
+.input-box input.error {
+    border-color: #d32f2f;
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
+}
+
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 58%;
+    transform: translateY(-10%);
+    color: #1d503a;
+    font-size: 18px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #1d503a;
+}
+
+.remember input {
+    margin: 0;
+}
+
+.remember a {
+    margin-left: auto;
+    color: #1d503a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.remember a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 12px;
+    background-color: #1d503a;
+    color: #faf5ee;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', Arial;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffd700;
+    color: #1d503a;
+}
+
+.register-link {
+    text-align: center;
+}
+
+.register-link p {
+    font-size: 14px;
+    color: #1d503a;
+    margin: 0;
+}
+
+.register-link a {
+    color: #1d503a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+.google-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.google-btn {
+    padding: 12px;
+    background-color: #fff;
+    color: #1d503a;
+    border: 2px solid #1d503a;
+    border-radius: 5px;
+    font-family: 'Poppins', Arial;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.google-btn i {
+    font-size: 18px;
+}
+
+.google-btn:hover {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .btn, .google-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .input-box label {
+        font-size: 12px;
+    }
+
+    .input-box input {
+        padding: 8px 8px 8px 35px;
+        font-size: 12px;
+    }
+
+    .input-box i {
+        font-size: 16px;
+        left: 8px;
+    }
+
+    .remember {
+        font-size: 12px;
+    }
+
+    .btn, .google-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .register-link p {
+        font-size: 12px;
+    }
+}

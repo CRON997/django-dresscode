@@ -1,0 +1,45 @@
+{%extends "users/base.html"%}
+{%load static%}
+
+{%block title%}Login{%endblock%}
+
+{%block link%}
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+{%endblock%}
+
+{%block content%}
+<div class="wrapper">
+    <form id="login-form" action="#" method="POST">
+        {%csrf_token%}
+        <h1>Login</h1>
+        <div id="error-message" class="error-message"></div>
+        <div class="input-box">
+            <label for="{{ form.username.id_for_lable }}">Email</label>
+            {{form.username}}
+            <i class='bx bx-envelope'></i>
+        </div>
+        <div class="input-box">
+            <label for="{{ form.password.id_for_lable }}">Password</label>
+            {{form.password}}
+            <i class='bx bx-lock'></i>
+        </div>
+        <div class="remember">
+            <input id="remember" type="checkbox">
+            <label for="remember">Remember me</label>
+            <a href="forgot-password.html">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="register-link">
+            <p>Don't have an account? <a href="{%url 'users:register'%}">Register</a></p>
+        </div>
+    </form>
+    <div class="google-login">
+        <button id="google-login-btn" class="google-btn">
+            <i class='bx bxl-google'></i> Login with Google
+        </button>
+    </div>
+</div>
+{%endblock%}
+
+

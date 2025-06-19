@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial;
+    background-color: #faf5ee;
+    color: #000000;
+}
+
+.profile-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    color: #000000;
+    margin: 10px 0 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    margin-bottom: 10px;
+}
+
+.menu-item a {
+    display: block;
+    padding: 10px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item a:hover {
+    background-color: #ffd700;
+    color: #000000;
+}
+
+.menu-item.active a {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+.profile-content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-section {
+    display: none;
+}
+
+.profile-section.active {
+    display: block;
+}
+
+.profile-section h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.profile-info {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.order-table th,
+.order-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-table th {
+    background-color: #4f2222;
+    color: #faf5ee;
+}
+
+.order-table td {
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        margin: 10px auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .sidebar-header h2 {
+        font-size: 16px;
+    }
+
+    .menu-item a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .profile-content {
+        padding: 15px;
+    }
+
+    .profile-section h1 {
+        font-size: 20px;
+    }
+
+    .profile-info {
+        font-size: 14px;
+    }
+
+    .order-table th,
+    .order-table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 0 10px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .sidebar-header h2 {
+        font-size: 14px;
+    }
+
+    .menu-item a {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .profile-content {
+        padding: 10px;
+    }
+
+    .profile-section h1 {
+        font-size: 18px;
+    }
+
+    .profile-info {
+        font-size: 12px;
+    }
+
+    .order-table th,
+    .order-table td {
+        padding: 6px;
+        font-size: 11px;
+    }
+}

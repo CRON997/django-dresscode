@@ -1,0 +1,40 @@
+{%extends 'main/base.html'%}
+{%load static%}
+
+{%block title%}Profile{%endblock title%}
+
+{%block link%}
+<link type="text/css" href="{% static 'users/css/profile.css' %}" rel="stylesheet">
+{%endblock link%}
+
+{%block content%}
+<h1>Profile</h1>
+<div class="profile-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class='bx bx-user-circle' style="font-size: 40px; color: #1d503a;"></i>
+            <h2>User Profile</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active"><a href="#profile">Profile</a></li>
+            <li class="menu-item"><a href="#orders">Order History</a></li>
+            <li class="menu-item"><a href="{%url 'users:logout'%}">Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="profile-content">
+        <section id="profile" class="profile-section active">
+            <h1>Welcome, {{user.first_name}}!</h1>
+            <p class="profile-info">Email: {{user.email}}</p>
+            <p class="profile-info">Joined: {{user.date_joined}}</p>
+            <p class="profile-info">Last Login: {{user.last_login}}</p>
+        </section>
+
+        <section id="orders" class="profile-section">
+            <h1>Order History</h1>
+        </section>
+    </main>
+</div>
+{%endblock content%}
+
+{%block footer%}{%endblock footer%}

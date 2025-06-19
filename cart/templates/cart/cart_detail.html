@@ -1,0 +1,84 @@
+{%extends "main/base.html" %}
+{%load static%}
+{%block link%}
+<link type="text/css" href="{% static 'cart/css/cart.css' %}" rel="stylesheet">
+{%endblock%}
+
+{%block title%}Cart{%endblock%}
+
+{%block content%}
+<div class="small-container cart-page">
+    <table class="cart-table">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for item in cart%}
+        <tr class="cart-item">
+            <td>
+                <div class="cart-info">
+                    <img src="{{item.product.image.url}}" alt="{{item.product.name}}">
+                    <div>
+                        <small>{{item.product.name}}</small>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="quantity-controls">
+                    <form action="{% url 'cart:cart_remove' item.product.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="qty-btn minus-btn" aria-label="Decrease quantity">-</button>
+                    </form>
+
+                    <span class="quantity">{{item.quantity}}</span>
+
+                    <form action="{% url 'cart:cart_add' item.product.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="override" value="false">
+                        <button type="submit" class="qty-btn plus-btn" aria-label="Increase quantity">+</button>
+                    </form>
+                </div>
+            </td>
+            <td id="subtotal-{{item.product.id}}">${{item.total_price}}</td>
+            <td>
+                <form action="{% url 'cart:cart_remove' item.product.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="remove_all" value="true">
+                    <button class="remove-btn" data-item="3" aria-label="Remove Air Jordan 1 Low OG 'Obsidian'"><i
+                            class='bx bx-trash'></i></button>
+                </form>
+            </td>
+        </tr>
+        {%empty%}
+        <tr>
+            <td colspan="4" style="text-align: center;">
+                Basket is empty
+            </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+
+    {%if cart%}
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Total</td>
+                <td id="total-price">${{cart.get_total_price}}</td>
+            </tr>
+        </table>
+        <a>
+            <button class="checkout-btn" aria-label="Proceed to Checkout">Checkout</button>
+        </a>
+    </div>
+    {%endif%}
+</div>
+{%endblock%}
+
+{%block footer%}{%endblock%}

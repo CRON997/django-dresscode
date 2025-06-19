@@ -18,48 +18,34 @@
         <div class="filter-content">
             <div class="filter-group">
                 {%for category in categories%}
-                <a href="{{category.get_absolute_url}}">
-                    <button class="filter-btn" data-category="jerseys">{{category.name}}</button>
-                </a>
+                <!-- Используем HTMX вместо обычных ссылок -->
+                <button class="filter-btn"
+                        hx-get="{{category.get_absolute_url}}"
+                        hx-target="#product-container"
+                        hx-indicator="#loading"
+                        data-category="{{category.slug}}">
+                    {{category.name}}
+                </button>
                 {%endfor%}
+                <!-- Кнопка для показа всех товаров -->
+                <button class="filter-btn"
+                        hx-get="{% url 'main:product_list' %}"
+                        hx-target="#product-container"
+                        hx-indicator="#loading">
+                    All Products
+                </button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="conteiner conteiner__cards">
-    {%for product in products%}
-    <div class="card">
-        <div class="card__top">
-            <img src="{{product.image.url}}" alt="{{product.name}}">
-        </div>
-        <div class="card__bottom">
-            <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
-            {%if product.status_discount%}
-            <div class="card__label">{{product.percent}}%</div>
-            <div class="card__prices">
-                <div class="card__price card__price--discount">${{product.price}}</div>
-                <div class="card__price card__price--common">${{product.original_price}}</div>
-            </div>
-            {%else%}
-            <div class="card__prices">
-                <div class="card__price card__price--discount">${{product.price}}</div>
-            </div>
-            {%endif%}
-        </div>
-        <form action="{%url 'cart:cart_add' product.id%}" method="post">
-            {% csrf_token %}
-            <!-- Скрытые поля для формы -->
-            <input type="hidden" name="quantity" value="1">
-            <input type="hidden" name="override" value="false">
-            <button class="card__btn" type="submit">Add to Cart</button>
-        </form>
-    </div>
-    {%endfor%}
+<!-- Индикатор загрузки -->
+<div id="loading" class="htmx-indicator" style="display: none;">
+    Loading...
 </div>
-<div class="pagination">
-    <button class="pagination-btn prev" disabled><i class='bx bx-chevron-left'></i> Prev</button>
-    <div class="pagination-numbers"></div>
-    <button class="pagination-btn next"><i class='bx bx-chevron-right'></i> Next</button>
+
+<!-- Контейнер для продуктов -->
+<div id="product-container">
+    {% include 'main/product/product_list_partial.html' %}
 </div>
 {%endblock%}
