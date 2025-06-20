@@ -105,7 +105,11 @@ h1
 .clear-filters:hover {
     background-color: #9a2626;
 }
-
+.card__sizes {
+    color: #827e7e;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
 /* Hidden card state */
 .card.hidden {
     display: none;

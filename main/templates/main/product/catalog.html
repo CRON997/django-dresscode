@@ -18,7 +18,6 @@
         <div class="filter-content">
             <div class="filter-group">
                 {%for category in categories%}
-                <!-- Используем HTMX вместо обычных ссылок -->
                 <button class="filter-btn"
                         hx-get="{{category.get_absolute_url}}"
                         hx-target="#product-container"
@@ -27,7 +26,6 @@
                     {{category.name}}
                 </button>
                 {%endfor%}
-                <!-- Кнопка для показа всех товаров -->
                 <button class="filter-btn"
                         hx-get="{% url 'main:product_list' %}"
                         hx-target="#product-container"
@@ -39,12 +37,10 @@
     </div>
 </div>
 
-<!-- Индикатор загрузки -->
 <div id="loading" class="htmx-indicator" style="display: none;">
     Loading...
 </div>
 
-<!-- Контейнер для продуктов -->
 <div id="product-container">
     {% include 'main/product/product_list_partial.html' %}
 </div>

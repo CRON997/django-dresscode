@@ -2,12 +2,11 @@
     {%for product in products%}
     <div class="card">
         <div class="card__top">
-            <a href="{{product.get_absolute_url}}">
-                <img src="{{product.image.url}}" alt="{{product.name}}">
-            </a>
+            <img src="{{product.image.url}}" alt="{{product.name}}">
         </div>
         <div class="card__bottom">
             <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
+            <div class="card__sizes">Sizes:{%for size in product.clothing_sizes.all%} {{size.name}} {%endfor%}</div>
             {%if product.status_discount%}
             <div class="card__label">{{product.percent}}%</div>
             <div class="card__prices">
