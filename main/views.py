@@ -1,4 +1,9 @@
+from django.contrib.admin.utils import construct_change_message
 from django.shortcuts import render, get_object_or_404
+
+from comments.models import Comment
+from comments.forms import CommentForm
+
 from main.models import Category, Product
 from cart.forms import CartAddProductForm
 
@@ -24,7 +29,9 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    context = {'product': product}
+    comments = Comment.objects.filter(product=product)
+    form = CommentForm()
+    context = {'product': product, 'comments': comments, 'form': form}
 
     return render(request, 'main/product/detail.html', context)
 

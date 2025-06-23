@@ -58,16 +58,19 @@
 
     <div class="comments-section">
         <h2>Customer Reviews</h2>
-        <div class="comment-form">
-            <textarea id="comment-input" placeholder="Write your review..." rows="4"></textarea>
+        <form class="comment-form" action="{%url 'comments:add_comment' product.id product.slug%}" method="post">
+            {%csrf_token%}
+            {{form.text}}
             <button id="submit-comment">Submit Review</button>
-        </div>
+        </form>
         <div class="comments-list" id="comments-list">
+            {%for comment in comments%}
             <div class="comment">
-                <p class="comment-author">Alex M.</p>
-                <p class="comment-date">June 02, 2025, 10:17 PM EEST</p>
-                <p class="comment-text">Great jersey! Fits perfectly and the material feels high quality.</p>
+                <p class="comment-author">{{comment.user.first_name}} {{comment.user.last_name}}</p>
+                <p class="comment-date">{{comment.created_at}}</p>
+                <p class="comment-text">{{comment.text}}</p>
             </div>
+            {%endfor%}
         </div>
     </div>
 </section>

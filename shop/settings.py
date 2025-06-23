@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'main',
     'cart',
     'users',
+    'comments',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
