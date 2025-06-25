@@ -12,7 +12,7 @@ def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.add(product)
-    return redirect('main:product_list')
+    return redirect('cart:cart_detail')
 
 
 @require_POST
