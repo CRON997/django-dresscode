@@ -6,13 +6,7 @@
         </div>
         <div class="card__bottom">
             <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
-            <div class="card__sizes">Sizes:{%for size in product.clothing_sizes.all.order_by%}
-                {{size.name}}
-                {%endfor%}
-                {%for size in product.shoes_sizes.all%}
-                {{size.name}}
-                {%endfor%}
-            </div>
+            <div class="card__sizes">Sizes:{%for size in product.clothing_sizes.all%} {{size.name}} {%endfor%}</div>
             {%if product.status_discount%}
             <div class="card__label">{{product.percent}}%</div>
             <div class="card__prices">
@@ -36,6 +30,6 @@
 </div>
 <div class="pagination">
     <button class="pagination-btn prev" disabled><i class='bx bx-chevron-left'></i> Prev</button>
-    <div class="pagination-numbers">1</div>
+    <div class="pagination-numbers"></div>
     <button class="pagination-btn next"><i class='bx bx-chevron-right'></i> Next</button>
 </div>
