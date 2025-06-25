@@ -16,5 +16,9 @@ def add_comment(request, product_id, product_slug):
             comment.user = request.user
             comment.product = product
             comment.save()
-            return redirect('main:product_detail', id=product_id, slug=product_slug)
+
+            if request.htmx:
+                comments = product.comments.all().order_by('-created_at')
+                return render(request, 'main/product/comments_list.html', {'comments': comments})
+
     return redirect('main:product_detail', id=product_id, slug=product_slug)

@@ -58,19 +58,14 @@
 
     <div class="comments-section">
         <h2>Customer Reviews</h2>
-        <form class="comment-form" action="{%url 'comments:add_comment' product.id product.slug%}" method="post">
+        <form class="comment-form" hx-post="{%url 'comments:add_comment' product.id product.slug%}"
+              hx-target="#comments-list" hx-on:htmx:after-request="this.reset()">
             {%csrf_token%}
             {{form.text}}
-            <button id="submit-comment">Submit Review</button>
+            <button type="submit" id="submit-comment">Submit Review</button>
         </form>
         <div class="comments-list" id="comments-list">
-            {%for comment in comments%}
-            <div class="comment">
-                <p class="comment-author">{{comment.user.first_name}} {{comment.user.last_name}}</p>
-                <p class="comment-date">{{comment.created_at}}</p>
-                <p class="comment-text">{{comment.text}}</p>
-            </div>
-            {%endfor%}
+            {% include 'main/product/comments_list.html' %}
         </div>
     </div>
 </section>
