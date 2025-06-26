@@ -19,7 +19,8 @@
             </div>
             {%endif%}
         </div>
-        <form action="{%url 'cart:cart_add' product.id%}" method="post">
+        <form hx-post="{%url 'cart:cart_add' product.id%}"
+              hx-target="#cart-counter">
             {% csrf_token %}
             <input type="hidden" name="quantity" value="1">
             <input type="hidden" name="override" value="false">
