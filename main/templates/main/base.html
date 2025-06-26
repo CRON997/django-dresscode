@@ -24,8 +24,7 @@
                     {%else%}
                     <li><a style="pointer-events: none;cursor: default; opacity: 0.67;">Profile</a></li>
                     {%endif%}
-                    <li><a href="{%url 'cart:cart_detail'%}">Basket <span id="cart-counter" class="cart-counter">
-                        {% with total_items=cart|length %}{{ total_items|default:0 }}{% endwith %}</span></a></li>
+                    <li><a href="{%url 'cart:cart_detail'%}">Basket <span id="cart-counter" class="cart-counter">{% include 'cart/count.html' %}</span></a></li>
                     <li><a id="openSearch" href="#"><i class='bx bx-search'></i></a></li>
                 </ul>
             </nav>

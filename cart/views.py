@@ -13,6 +13,8 @@ def cart_add(request, product_id):
     current_page = request.META.get('HTTP_REFERER')
     product = get_object_or_404(Product, id=product_id)
     cart.add(product)
+    if request.htmx:
+        return render(request, 'cart/count.html', )
     return redirect(current_page)
 
 
