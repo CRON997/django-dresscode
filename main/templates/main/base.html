@@ -4,11 +4,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}{%endblock title%}</title>
     <link type="text/css" href="{% static 'main/css/header.css' %}" rel="stylesheet">
     <link type="text/css" href="{% static 'main/css/footer.css' %}" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     {%block link%}{%endblock link%}
 </head>
 <body>
@@ -41,15 +41,15 @@
         <i class='bx bx-menu burger'></i>
         <div class="mobile-menu">
             <ul class="nav__links">
-                <li><a href="main.html">Catalog</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="{%url 'cart:cart_detail'%}">Basket <span id="cart-counter-mobile"
-                                                                      class="cart-counter">0</span></a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="{%url 'main:product_list'%}">Catalog</a></li>
+                <li><a href="{%url 'users:profile'%}">Profile</a></li>
+                <li><a href="{%url 'cart:cart_detail'%}">Basket {% include 'cart/count.html' %}</a></li>
                 <li><a id="openSearchMobile" href="#"><i class='bx bx-search'></i></a></li>
             </ul>
             <div class="auth-buttons-mobile">
-                <a href="registration.html"><button class="sign-up">Sign Up</button></a>
+                <a href="{%url 'users:register'%}">
+                    <button class="sign-up">Sign Up</button>
+                </a>
                 <a href="{%url 'users:login'%}">
                     <button class="login">Login</button>
                 </a>
@@ -97,5 +97,8 @@
             </div>
         </footer>
     {%endblock footer%}
+    <script src="{% static 'main/js/burger.js' %}"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
 </body>
 </html>

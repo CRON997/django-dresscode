@@ -1,4 +1,3 @@
-from django.contrib.admin.utils import construct_change_message
 from django.shortcuts import render, get_object_or_404
 
 from comments.models import Comment

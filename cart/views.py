@@ -10,9 +10,12 @@ from .forms import CartAddProductForm
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
+    current_page = request.META.get('HTTP_REFERER')
     product = get_object_or_404(Product, id=product_id)
     cart.add(product)
-    return redirect('main:product_list')
+    if request.htmx:
+        return render(request, 'cart/count.html')
+    return redirect(current_page)
 
 
 @require_POST
