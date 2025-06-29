@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
-from comments.models import Comment
-from comments.forms import CommentForm
-
-from main.models import Category, Product
 from cart.forms import CartAddProductForm
+from comments.forms import CommentForm
+from comments.models import Comment
+from main.models import Category, Product
 
 
 def product_list(request, category_slug=None):
