@@ -69,6 +69,44 @@
             {% include 'main/product/comments_list.html' %}
         </div>
     </div>
+
+
+    {%if related_products%}
+    <div class="recommended-products">
+        <h2>Recommended Products</h2>
+        <div class="products-grid">
+            {% for recommended_product in related_products %}
+            <div class="product-card">
+                <div class="product-card-image">
+                    <a href="{% url 'main:product_detail' recommended_product.id recommended_product.slug %}">
+                        <img src="{{ recommended_product.image.url }}" alt="{{ recommended_product.name }}">
+                    </a>
+                </div>
+                <div class="product-card-info">
+                    <h3 class="product-card-title">
+                        <a href="{% url 'main:product_detail' recommended_product.id recommended_product.slug %}">{{recommended_product.name}}</a>
+                    </h3>
+                    <div class="product-card-prices">
+                        {% if recommended_product.status_discount %}
+                        <span class="price-discount">${{ recommended_product.price }}</span>
+                        <span class="price-common">${{ recommended_product.original_price }}</span>
+                        <span class="discount-label">{{ recommended_product.percent }} OFF</span>
+                        {% else %}
+                        <span class="price-discount">${{ recommended_product.price }}</span>
+                        {% endif %}
+                    </div>
+                    <form>
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="override" value="false">
+                        <button class="add-to-cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {%endif%}
 </section>
 {%endblock%}
 

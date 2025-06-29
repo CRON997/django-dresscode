@@ -11,10 +11,9 @@
 
 {%block content%}
 <div class="wrapper">
-    <form id="login-form" action="#" method="POST">
+    <form id="login-form" method="POST">
         {%csrf_token%}
         <h1>Login</h1>
-        <div id="error-message" class="error-message"></div>
         <div class="input-box">
             <label for="{{ form.username.id_for_lable }}">Email</label>
             {{form.username}}
@@ -23,6 +22,9 @@
         <div class="input-box">
             <label for="{{ form.password.id_for_lable }}">Password</label>
             {{form.password}}
+            {%if form.password.errors%}
+            <div id="error-message" class="error-message">{{form.password.error}}</div>
+            {%endif%}
             <i class='bx bx-lock'></i>
         </div>
         <div class="remember">

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from unicodedata import category
 
 from comments.models import Comment
 from comments.forms import CommentForm
@@ -30,8 +31,9 @@ def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     comments = Comment.objects.filter(product=product)
     form = CommentForm()
-    context = {'product': product, 'comments': comments, 'form': form}
-
+    related_products = Product.objects.filter(category=product.category, available=True).exclude(id=product.id)[:4]
+    context = {'product': product, 'comments': comments, 'related_products': related_products, 'form': form}
+    
     return render(request, 'main/product/detail.html', context)
 
 
