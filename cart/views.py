@@ -14,7 +14,7 @@ def cart_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart.add(product)
     if request.htmx:
-        return render(request, 'cart/count.html')
+        return render(request, 'cart/partial/count.html')
     return redirect(current_page)
 
 

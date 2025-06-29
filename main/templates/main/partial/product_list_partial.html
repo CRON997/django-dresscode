@@ -7,7 +7,7 @@
         <div class="card__bottom">
             <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
             <div class="card__sizes">Sizes:
-                {%for size in product.clothing_sizes.all%}
+                {%for size in product.clothing_sizes.all.order_by%}
                 {{size.name}}
                 {%endfor%}
                 {%for size in product.shoes_sizes.all%}

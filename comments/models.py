@@ -4,7 +4,6 @@ from django.db import models
 from main.models import Product
 
 
-# Create your models here.
 class Comment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
