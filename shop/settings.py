@@ -110,6 +110,7 @@ LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
     ('ru', _('Russian')),
+    ('uk', _('Ukrainian')),
 ]
 LOCALE_PATHS = [
     BASE_DIR / 'locale'
