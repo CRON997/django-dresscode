@@ -1,5 +1,6 @@
 {%extends "main/base.html" %}
 {%load static%}
+{%load i18n%}
 
 {%block link%}
 <link type="text/css" href="{% static 'main/css/catalog.css' %}" rel="stylesheet">
@@ -9,7 +10,7 @@
 {%block title%}Catalog{%endblock%}
 
 {%block content%}
-<h1 class="catalog">Catalog</h1>
+<h1 class="catalog">{%trans 'Catalog'%}</h1>
 <div class="conteiner">
     <div class="filter-section">
         <div class="filter-header">

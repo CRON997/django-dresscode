@@ -1,6 +1,7 @@
 {%extends "users/base.html"%}
 {%load socialaccount%}
 {%load static%}
+{%load i18n%}
 
 {%block title%}Login{%endblock%}
 
@@ -15,12 +16,12 @@
         {%csrf_token%}
         <h1>Login</h1>
         <div class="input-box">
-            <label for="{{ form.username.id_for_lable }}">Email</label>
+            <label for="{{ form.username.id_for_label }}">Email</label>
             {{form.username}}
             <i class='bx bx-envelope'></i>
         </div>
         <div class="input-box">
-            <label for="{{ form.password.id_for_lable }}">Password</label>
+            <label for="{{ form.password.id_for_label }}">Password</label>
             {{form.password}}
             <i class='bx bx-lock'></i>
         </div>
@@ -31,13 +32,13 @@
         </div>
         <button type="submit" class="btn">Login</button>
         <div class="register-link">
-            <p>Don't have an account? <a href="{%url 'users:register'%}">Register</a></p>
+            <p>Don't have an account?<a href="{%url 'users:register'%}">Register</a></p>
         </div>
     </form>
     <div class="google-login">
         <a href="{%provider_login_url 'google' %}">
             <button id="google-login-btn" class="google-btn">
-                <i class='bx bxl-google'></i> Login with Google
+                <i class='bx bxl-google'></i>Login with Google
             </button>
         </a>
     </div>

@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy as _
 from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL
 from dotenv import load_dotenv
 
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'cart',
     'users',
     'comments',
+    'rosetta',
 
     'allauth',
     'allauth.account',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -43,6 +45,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -103,7 +106,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
 
 TIME_ZONE = 'Europe/Kyiv'
 

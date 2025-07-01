@@ -3,10 +3,11 @@ from decimal import Decimal
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True)
+    name = models.CharField(_('name'), max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True)
 
     class Meta:
@@ -26,7 +27,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True)
     image = models.ImageField(upload_to='product/%Y/%m/%d', blank=True)  # blank значит не обезательное добавление
-    description = models.TextField(blank=True)
+    description = models.TextField(_('description'), blank=True)
     price = models.DecimalField(max_digits=10,
                                 decimal_places=2)  # decimal_places максимальное кол-во чискл после запятой
     available = models.BooleanField(default=True)
