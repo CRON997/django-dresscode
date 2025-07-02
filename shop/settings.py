@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'users',
     'comments',
     'rosetta',
+    'parler',
 
     'allauth',
     'allauth.account',
@@ -139,3 +140,15 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'ru'},
+        {'code': 'uk'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
