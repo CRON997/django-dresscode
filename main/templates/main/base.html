@@ -60,24 +60,24 @@
         <i class='bx bx-menu burger'></i>
         <div class="mobile-menu">
             <ul class="nav__links">
-                <li><a href="{%url 'main:product_list'%}">Catalog</a></li>
-                <li><a href="{%url 'users:profile'%}">Profile</a></li>
-                <li><a href="{%url 'cart:cart_detail'%}">Basket {% include 'cart/partial/count.html' %}</a></li>
+                <li><a href="{%url 'main:product_list'%}">{%trans 'Catalog'%}</a></li>
+                <li><a href="{%url 'users:profile'%}">{%trans 'Profile'%}</a></li>
+                <li><a href="{%url 'cart:cart_detail'%}">{%trans 'Basket'%} {% include 'cart/partial/count.html' %}</a></li>
                 <li><a id="openSearchMobile" href="#"><i class='bx bx-search'></i></a></li>
             </ul>
             <div class="auth-buttons-mobile">
                 <a href="{%url 'users:register'%}">
-                    <button class="sign-up">Sign Up</button>
+                    <button class="sign-up">{%trans 'Sign Up'%}</button>
                 </a>
                 <a href="{%url 'users:login'%}">
-                    <button class="login">Login</button>
+                    <button class="login">{%trans 'Login'%}</button>
                 </a>
             </div>
         </div>
         <div id="searchModal" class="modal">
             <div class="modal-content">
                 <span class="close">×</span>
-                <input type="text" class="search-input" placeholder="Search...">
+                <input type="text" class="search-input" placeholder="{%trans 'Search...'%}">
             </div>
         </div>
     </header>
@@ -90,20 +90,20 @@
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">
-                    <h3 class="footer-h3">Quick Links</h3>
+                    <h3 class="footer-h3">{%trans 'Quick Links'%}</h3>
                     <ul>
-                        <li><a href="{% url 'main:about' %}">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'main:about' %}">{%trans 'About Us'%}</a></li>
+                        <li><a href="contact.html">{%trans 'Contact'%}</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3 class="footer-h3">Contact Us</h3>
-                    <p class="footer-p">Email: support@dresscode.com</p>
-                    <p class="footer-p">Phone: +1-800-DRESSCODE</p>
-                    <p class="footer-p">Address: 123 Fashion St, Style City, SC 12345</p>
+                    <h3 class="footer-h3">{%trans 'Contact Us'%}</h3>
+                    <p class="footer-p">{%trans 'Email'%}: support@dresscode.com</p>
+                    <p class="footer-p">{%trans 'Phone'%}: +1-800-DRESSCODE</p>
+                    <p class="footer-p">{%trans 'Address'%}: 123 Fashion St, Style City, SC 12345</p>
                 </div>
                 <div class="footer-section">
-                    <h3 class="footer-h3">Follow Us</h3>
+                    <h3 class="footer-h3">{%trans 'Follow Us'%}</h3>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
                         <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 DressCode. All rights reserved. | Current time: <span id="current-time"></span></p>
+                <p>© 2025 DressCode. {%trans 'All rights reserved'%}. | {%trans 'Current time'%}: <span id="current-time"></span></p>
             </div>
         </footer>
     {%endblock footer%}

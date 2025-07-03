@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-02 00:41+0300\n"
+"POT-Creation-Date: 2025-07-02 15:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,22 +26,68 @@ msgstr "name"
 msgid "description"
 msgstr "description"
 
-#: .\main\templates\main\base.html:22 .\main\templates\main\catalog.html:13
+#: .\main\templates\main\base.html:22 .\main\templates\main\base.html:63
+#: .\main\templates\main\catalog.html:13
 msgid "Catalog"
 msgstr "Catalog"
 
 #: .\main\templates\main\base.html:24 .\main\templates\main\base.html:26
+#: .\main\templates\main\base.html:64
 msgid "Profile"
 msgstr "Profile"
 
-#: .\main\templates\main\base.html:28
+#: .\main\templates\main\base.html:28 .\main\templates\main\base.html:65
 msgid "Basket"
 msgstr "Basket"
 
-#: .\main\templates\main\base.html:54
+#: .\main\templates\main\base.html:54 .\main\templates\main\base.html:70
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: .\main\templates\main\base.html:57
+#: .\main\templates\main\base.html:57 .\main\templates\main\base.html:73
 msgid "Login"
 msgstr "Login"
+
+#: .\main\templates\main\base.html:80
+msgid "Search..."
+msgstr ""
+
+#: .\main\templates\main\base.html:93
+msgid "Quick Links"
+msgstr ""
+
+#: .\main\templates\main\base.html:95
+msgid "About Us"
+msgstr ""
+
+#: .\main\templates\main\base.html:96
+msgid "Contact"
+msgstr ""
+
+#: .\main\templates\main\base.html:100
+msgid "Contact Us"
+msgstr ""
+
+#: .\main\templates\main\base.html:101
+msgid "Email"
+msgstr ""
+
+#: .\main\templates\main\base.html:102
+msgid "Phone"
+msgstr ""
+
+#: .\main\templates\main\base.html:103
+msgid "Address"
+msgstr ""
+
+#: .\main\templates\main\base.html:106
+msgid "Follow Us"
+msgstr ""
+
+#: .\main\templates\main\base.html:115
+msgid "All rights reserved"
+msgstr ""
+
+#: .\main\templates\main\base.html:115
+msgid "Current time"
+msgstr ""

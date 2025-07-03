@@ -24,13 +24,14 @@
                 <div class="cart-info">
                     <img src="{{item.product.image.url}}" alt="{{item.product.name}}">
                     <div>
-                        <small>{{item.product.name}}</small>
+                        <small>{{item.product.name}} (Size:)</small>
                     </div>
                 </div>
             </td>
             <td>
                 <div class="quantity-controls">
-                    <form action="{% url 'cart:cart_remove' item.product.id %}" method="post" style="display: inline;">
+                    <form action="{% url 'cart:cart_remove_one_quan' item.product.id %}" method="post"
+                          style="display: inline;">
                         {% csrf_token %}
                         <button type="submit" class="qty-btn minus-btn" aria-label="Decrease quantity">-</button>
                     </form>

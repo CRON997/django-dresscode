@@ -27,6 +27,14 @@ class Cart:
     def save(self):
         self.session.modified = True
 
+    def remove_one_quan(self, product):
+        product_id = str(product.id)
+        if product_id in self.cart and self.cart[product_id]['quantity'] > 1:
+            self.cart[product_id]['quantity'] -= 1
+        else:
+            del self.cart[product_id]
+        self.save()
+
     def remove(self, product):
         product_id = str(product.id)
         if product_id in self.cart:

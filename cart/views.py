@@ -26,6 +26,14 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 
+@require_POST
+def cart_remove_one_quan(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove_one_quan(product)
+    return redirect('cart:cart_detail')
+
+
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
