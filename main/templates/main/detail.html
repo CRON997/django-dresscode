@@ -27,33 +27,31 @@
                 <span class="price-discount">${{product.price}}</span></div>
             {%endif%}
             <p class="product-description">{{product.description}}</p>
-            {% if product.clothing_sizes.exists %}
-            <div class="product-size">
-                <label for="size-select">Select Size:</label>
-                {%for size in product.clothing_sizes.all.order_by%}
-                <div class="size-buttons">
-                    <button class="size-btn" data-size="s">{{size.name}}</button>
-                </div>
-                {%endfor%}
-            </div>
-            {%endif%}
-            {% if product.shoes_sizes.exists %}
-            <div class="product-size">
-                <label for="size-select">Select Size:</label>
-                {%for size in product.shoes_sizes.all%}
-                <div class="size-buttons">
-                    <button class="size-btn" data-size="s">{{size.name}}</button>
-                </div>
-                {%endfor%}
-            </div>
-            {%endif%}
-            <form hx-post="{%url 'cart:cart_add' product.id%}"
-                  hx-target="#cart-counter">
+            <form hx-post="{% url 'cart:cart_add' product.id %}" hx-target="#cart-counter">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <input type="hidden" name="override" value="false">
-                <button class="add-to-cart">Add to Cart</button>
+                {% if product.shoes_sizes.exists or product.clothing_sizes.exists %}
+                <input type="hidden" name="size_required" value="true">
+                <div class="product-size">
+                    <label for="size-select">Select Size</label>
+                    <select name="size_id" id="size-select" required>
+                        <option value="" disabled selected>Choose a size</option>
+                        {% if product.shoes_sizes.exists %}
+                        {% for size in product.shoes_sizes.all %}
+                        <option value="{{ size.id }}">{{ size.name }}</option>
+                        {% endfor %}
+                        {% elif product.clothing_sizes.exists %}
+                        {% for size in product.clothing_sizes.all %}
+                        <option value="{{ size.id }}">{{ size.name }}</option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                {% endif %}
+                <button class="add-to-cart" type="submit">Add to Cart</button>
             </form>
+
         </div>
     </div>
 

@@ -10,7 +10,7 @@ urlpatterns = i18n_patterns(
     path(_('cart/'), include('cart.urls', namespace='cart')),
     path('', include('main.urls', namespace='main')),
     path('user/', include('users.urls', namespace='users')),
-    path('', include('comments.urls', namespace='comments')),
+    path('comments/', include('comments.urls', namespace='comments')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
 )
