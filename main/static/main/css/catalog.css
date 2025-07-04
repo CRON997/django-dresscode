@@ -202,7 +202,6 @@ h1
 
 .card__bottom {
     flex: 1 0 auto;
-    padding: 15px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -244,24 +243,6 @@ h1
     color: #999;
     text-decoration: line-through;
     font-size: 14px;
-}
-
-.card__btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #1d503a;
-    color: #faf5ee;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Poppins', Arial;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.card__btn:hover {
-    background-color: #ffd700;
-    color: #1d503a;
 }
 
 @media (max-width: 1024px) {

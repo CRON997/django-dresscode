@@ -1,7 +1,6 @@
 from django.test import TestCase
+
 from .models import Category, Product
-from .views import product_list
-from django.urls import reverse
 
 
 class CategoryModelTestCase(TestCase):

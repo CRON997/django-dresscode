@@ -33,6 +33,9 @@
                     <form action="{% url 'cart:cart_remove_one_quan' item.product.id %}" method="post"
                           style="display: inline;">
                         {% csrf_token %}
+                        {% if item.size %}
+                        <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                        {% endif %}
                         <button type="submit" class="qty-btn minus-btn" aria-label="Decrease quantity">-</button>
                     </form>
 
@@ -40,6 +43,9 @@
 
                     <form action="{% url 'cart:cart_add' item.product.id %}" method="post" style="display: inline;">
                         {% csrf_token %}
+                        {% if item.size %}
+                        <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                        {% endif %}
                         <input type="hidden" name="quantity" value="1">
                         <input type="hidden" name="override" value="false">
                         <button type="submit" class="qty-btn plus-btn" aria-label="Increase quantity">+</button>
@@ -50,6 +56,9 @@
             <td>
                 <form action="{% url 'cart:cart_remove' item.product.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
+                    {% if item.size %}
+                    <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                    {% endif %}
                     <input type="hidden" name="remove_all" value="true">
                     <button class="remove-btn" data-item="3" aria-label="Remove Air Jordan 1 Low OG 'Obsidian'"><i
                             class='bx bx-trash'></i></button>

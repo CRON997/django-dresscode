@@ -80,13 +80,15 @@ class Cart:
                     size_id = item['size']['id']
 
                     if size_type == 'ShoesSize':
-                        from main.models import ShoesSize  # импортируйте вашу модель
+                        from main.models import \
+                            ShoesSize  # импортируйте вашу модель
                         try:
                             item['size_object'] = ShoesSize.objects.get(id=size_id)
                         except ShoesSize.DoesNotExist:
                             item['size_object'] = None
                     elif size_type == 'ClothingSize':
-                        from main.models import ClothingSize  # импортируйте вашу модель
+                        from main.models import \
+                            ClothingSize  # импортируйте вашу модель
                         try:
                             item['size_object'] = ClothingSize.objects.get(id=size_id)
                         except ClothingSize.DoesNotExist:

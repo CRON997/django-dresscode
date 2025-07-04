@@ -25,5 +25,5 @@ class ClothingSizeAdmin(admin.ModelAdmin):
 
 
 @admin.register(ShoesSize)
-class ClothingSizeAdmin(admin.ModelAdmin):
+class ShoesSizeAdmin(admin.ModelAdmin):
     list_display = ['name', ]

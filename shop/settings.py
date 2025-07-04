@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
-from django.utils.translation import gettext_lazy as _
+
 from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL
+from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent

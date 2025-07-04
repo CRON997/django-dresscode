@@ -1,15 +1,12 @@
+from django.contrib import messages
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
-from main.models import Product, ClothingSize, ShoesSize
+from main.models import ClothingSize, Product, ShoesSize
 
 from .cart import Cart
 from .forms import CartAddProductForm
-
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.decorators.http import require_POST
-from django.http import JsonResponse
-from django.contrib import messages
 
 
 @require_POST
