@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.utils.html import strip_tags
 
 User = get_user_model()
 
@@ -56,3 +57,46 @@ class CustomUserLoginForm(AuthenticationForm):
             elif not self.user_cache.is_active:
                 raise forms.ValidationError('This account is inactive')
         return self.cleaned_data
+
+
+class CustomUserUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=50,
+                                 widget=forms.TextInput(
+                                     attrs={'class': ""}))
+    last_name = forms.CharField(max_length=50,
+                                widget=forms.TextInput(
+                                    attrs={'class': ""}))
+    email = forms.EmailField(max_length=66,
+                             widget=forms.EmailInput(
+                                 attrs={'class': ""}))
+    address1 = forms.CharField(max_length=66,
+                               widget=forms.TextInput(
+                                   attrs={'class': ''}))
+    address2 = forms.CharField(max_length=66,
+                               widget=forms.TextInput(
+                                   attrs={'class': ''}))
+    city = forms.CharField(max_length=66,
+                           widget=forms.TextInput(
+                               attrs={'class': ''}))
+    phone = forms.CharField(max_length=66,
+                            widget=forms.TextInput(
+                                attrs={'class': ''}))
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'address1', 'address2', 'city', 'phone')
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if email and User.objects.filter(email=email).exclude(id=self.instance.id).exists():
+            raise forms.ValidationError('Use')
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if not cleaned_data.get('email'):
+            cleaned_data['email'] = self.instance.email
+
+            for field in ['first_name', 'last_name', 'address1', 'address2', 'city', 'phone']:
+                if cleaned_data.get(field):
+                    cleaned_data[field] = strip_tags(cleaned_data[field])
+                return cleaned_data

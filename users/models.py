@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.utils.html import strip_tags
 
 
 class CustomUserManager(BaseUserManager):
@@ -16,9 +17,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
-        if extra_fields.get('is_staff'):
+        if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True')
-        if extra_fields.get('is_superuser'):
+        if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
 
         return self.create_user(email, first_name, last_name, password, **extra_fields)
@@ -47,3 +48,9 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    def clean(self):
+        for field in ['first_name', 'last_name', 'address1', 'address2', 'city', 'phone']:
+            value = getattr(self, field)
+            if value:
+                setattr(self, field, strip_tags(value))

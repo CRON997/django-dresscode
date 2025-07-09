@@ -1,3 +1,7 @@
 from django.test import TestCase
 
-# Create your tests here.
+from .models import Comment
+
+
+def setUp(self):
+    self.comment = Comment.objects.create(text='This is comment')
