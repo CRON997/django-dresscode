@@ -42,7 +42,6 @@ def profile(request):
 
 
 @login_required
-@login_required
 def profile_view(request):
     """Отображение профиля пользователя"""
     return render(request, 'users/profile.html', {

@@ -177,7 +177,7 @@
                             </div>
                             <div class="info-item">
                                 <label>Phone</label>
-                                <span>{% if user.profile.phone %}{{ user.profile.phone }}{% else %}Not specified{% endif %}</span>
+                                <span>{% if user.phone %}{{ user.phone }}{% else %}Not specified{% endif %}</span>
                             </div>
                         </div>
                     </div>
@@ -192,16 +192,16 @@
                         <div class="info-grid">
                             <div class="info-item">
                                 <label>City</label>
-                                <span>{% if user.profile.city %}{{ user.profile.city }}{% else %}Not specified{% endif %}</span>
+                                <span>{% if user.city %}{{ user.city }}{% else %}Not specified{% endif %}</span>
                             </div>
                             <div class="info-item full-width">
                                 <label>Primary Address</label>
-                                <span>{% if user.profile.address1 %}{{ user.profile.address1 }}{% else %}Not specified{% endif %}</span>
+                                <span>{% if user.address1 %}{{ user.address1 }}{% else %}Not specified{% endif %}</span>
                             </div>
                             <div class="info-item full-width">
                                 <label>Secondary Address</label>
-                                <input>{% if user.profile.address2 %}{{ user.profile.address2 }}{% else %}Not
-                                specified{% endif %}</input>
+                                <span>{% if user.address2 %}{{ user.address2 }}{% else %}Not
+                                specified{% endif %}<span>
                             </div>
                         </div>
                     </div>
