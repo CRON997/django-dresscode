@@ -11,7 +11,7 @@ urlpatterns = i18n_patterns(
     path('', include('main.urls', namespace='main')),
     path('user/', include('users.urls', namespace='users')),
     path('comments/', include('comments.urls', namespace='comments')),
-    # path('orders/', include('orders.urls', namespace='orders')),
+    path('orders/', include('orders.urls', namespace='orders')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
 )
