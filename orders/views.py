@@ -39,5 +39,7 @@ from orders.models import Order, OrderItem
 #         payment_provider = request.POST.get('payment_provider')
 #         if cart.get_total_items == 0:
 #             raise 'Cart is empty'
+
+
 def checkout_view(request):
     return render(request, 'orders/checkout.html')

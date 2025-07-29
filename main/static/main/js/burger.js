@@ -9,7 +9,6 @@ burger.addEventListener('click', () => {
 mobileMenu.classList.toggle('active');
 });
 
-        // Open search modal
 openSearch.addEventListener('click', (e) => {
 e.preventDefault();
 modal.style.display = 'block';

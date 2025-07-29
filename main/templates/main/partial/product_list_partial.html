@@ -1,36 +1,56 @@
-<div class="conteiner conteiner__cards">
-    {%for product in products%}
-    <div class="card">
-        <div class="card__top">
-            <a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+<div class="container">
+    <!-- Controls -->
+    <div class="controls">
+        <div class="filters">
+            <h3 class="controls-title">Category</h3>
+            <div class="filter-buttons">
+                {%for category in categories%}
+                <button class="filter-btn">
+                    <a href="{{category.get_absolute_url}}" style="text-decoration: none;">
+                        {{category.name}}
+                    </a>
+                </button>
+                {%endfor%}
+            </div>
         </div>
-        <div class="card__bottom">
-            <a href="{{product.get_absolute_url}}" class="card__title">{{product.name}}</a>
-            <div class="card__sizes">Sizes:
-                {%for size in product.clothing_sizes.all.order_by%}
-                {{size.name}}
-                {%endfor%}
-                {%for size in product.shoes_sizes.all%}
-                {{size.name}}
-                {%endfor%}
-            </div>
-            {%if product.status_discount%}
-            <div class="card__label">{{product.percent}}%</div>
-            <div class="card__prices">
-                <div class="card__price card__price--discount">${{product.price}}</div>
-                <div class="card__price card__price--common">${{product.original_price}}</div>
-            </div>
-            {%else%}
-            <div class="card__prices">
-                <div class="card__price card__price--discount">${{product.price}}</div>
-            </div>
-            {%endif%}
+
+        <div class="sort-section">
+            <h3 class="controls-title">Sort by</h3>
+            <select class="sort-select">
+                <option value="featured">Featured</option>
+                <option value="name">Name A-Z</option>
+                <option value="name">Name Z-A</option>
+            </select>
         </div>
     </div>
-    {%endfor%}
-</div>
-<div class="pagination">
-    <button class="pagination-btn prev" disabled><i class='bx bx-chevron-left'></i> Prev</button>
-    <div class="pagination-numbers"></div>
-    <button class="pagination-btn next"><i class='bx bx-chevron-right'></i> Next</button>
+
+
+    <div class="products-grid">
+        {%for product in products%}
+        <div class="product-card">
+            <div class="product-image-container">
+                <a href="{{product.get_absolute_url}}">
+                    <img src="{{product.image.url}}" alt="Premium Cotton T-Shirt"
+                         class="product-image">
+                </a>
+                <!--                <div class="discount-badge"></div>-->
+            </div>
+            <div class="product-info">
+                <div class="product-category">{{product.category}}</div>
+                <a href="{{product.get_absolute_url}}" style="text-decoration: none;">
+                    <h3 class="product-name">{{product.name}}</h3>
+                </a>
+                <p class="product-description"></p>
+                <div class="product-pricing">
+                    <span class="current-price">${{product.price}}</span>
+                    <span class="original-price"></span>
+                </div>
+                <!--                <button class="add-to-cart">-->
+                <!--                    <i class='bx bx-cart'></i>-->
+                <!--                    Add to Cart-->
+                <!--                </button>-->
+            </div>
+        </div>
+        {%endfor%}
+    </div>
 </div>
