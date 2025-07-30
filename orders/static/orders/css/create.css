@@ -42,13 +42,13 @@
         .checkout-wrapper .section-title {
             font-size: 18px !important;
             font-weight: 600 !important;
-            color: #1d503a !important;
+            color: #000000 !important;
             margin: 0 !important;
         }
 
         .checkout-wrapper .section-icon {
             font-size: 20px !important;
-            color: #1d503a !important;
+            color: #000000 !important;
         }
 
         .checkout-wrapper .form-grid {
@@ -90,7 +90,7 @@
 
         .checkout-wrapper .form-input:focus {
             outline: none !important;
-            border-color: #1d503a !important;
+            border-color: #000000 !important;
             background: #fff !important;
             box-shadow: 0 0 0 3px rgba(29, 80, 58, 0.1) !important;
         }
@@ -109,7 +109,7 @@
         .checkout-wrapper .checkbox-group input[type="checkbox"] {
             width: 16px !important;
             height: 16px !important;
-            accent-color: #1d503a !important;
+            accent-color: #000000 !important;
         }
 
         .checkout-wrapper .checkbox-group label {
@@ -201,7 +201,7 @@
         .checkout-wrapper .summary-title {
             font-size: 18px !important;
             font-weight: 600 !important;
-            color: #1d503a !important;
+            color: #000000 !important;
             margin: 0 !important;
         }
 
@@ -261,7 +261,7 @@
 
         .checkout-wrapper .item-price {
             font-weight: 600 !important;
-            color: #1d503a !important;
+            color: #000000 !important;
             font-size: 14px !important;
         }
 
@@ -275,7 +275,7 @@
         .checkout-wrapper .promo-title {
             font-size: 14px !important;
             font-weight: 600 !important;
-            color: #1d503a !important;
+            color: #000000 !important;
             margin-bottom: 12px !important;
         }
 
@@ -328,7 +328,7 @@
             margin-top: 15px !important;
             font-size: 18px !important;
             font-weight: 700 !important;
-            color: #1d503a !important;
+            color: #000000 !important;
         }
 
         .checkout-wrapper .place-order-btn {

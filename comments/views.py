@@ -8,7 +8,7 @@ from .forms import CommentForm
 
 
 @require_POST
-@login_required
+@login_required(login_url='/users/login')
 def add_comment(request, product_id, product_slug):
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':

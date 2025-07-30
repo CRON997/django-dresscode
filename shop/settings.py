@@ -154,3 +154,5 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+STRIPE_TEST_PUBLIC_KEY = os.getenv('STRIPE_TEST_PUBLIC_KEY')
+STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY')

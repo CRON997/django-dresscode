@@ -93,12 +93,6 @@
                         <span class="price-discount">${{ recommended_product.price }}</span>
                         {% endif %}
                     </div>
-                    <form>
-                        {% csrf_token %}
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="override" value="false">
-                        <button class="add-to-cart">Add to Cart</button>
-                    </form>
                 </div>
             </div>
             {% endfor %}
