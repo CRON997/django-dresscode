@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   background-color: #faf5ee;
   color: #000000;
   line-height: 1.6;
