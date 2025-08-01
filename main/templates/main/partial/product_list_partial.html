@@ -33,7 +33,9 @@
                     <img src="{{product.image.url}}" alt="Premium Cotton T-Shirt"
                          class="product-image">
                 </a>
-                <!--                <div class="discount-badge"></div>-->
+                {%if product.status_discount%}
+                <div class="discount-badge">-{{product.percent}}%</div>
+                {%endif%}
             </div>
             <div class="product-info">
                 <div class="product-category">{{product.category}}</div>
@@ -42,8 +44,12 @@
                 </a>
                 <p class="product-description"></p>
                 <div class="product-pricing">
+                    {%if product.status_discount%}
                     <span class="current-price">${{product.price}}</span>
-                    <span class="original-price"></span>
+                    <span class="original-price">${{product.original_price}}</span>
+                    {%else%}
+                    <span class="current-price">${{product.price}}</span>
+                    {%endif%}
                 </div>
                 <!--                <button class="add-to-cart">-->
                 <!--                    <i class='bx bx-cart'></i>-->

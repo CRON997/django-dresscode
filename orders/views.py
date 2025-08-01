@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 
-from main.models import ClothingSize
+from main.models import Size
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
@@ -29,7 +29,7 @@ def order_create(request):
             order.save()
 
         for item in cart:
-            size_instance = item.get('size_object')
+            size_instance = Size.objects.get(name=item['size']['name'])
             OrderItem.objects.create(
                 order=order,
                 product=item['product'],
@@ -69,6 +69,7 @@ def order_create(request):
         'last_name': request.user.last_name,
         'email': request.user.email,
         'address1': request.user.address1,
+        'city': request.user.city,
         'phone': request.user.phone,
         'postal_code': request.user.postal_code
     })

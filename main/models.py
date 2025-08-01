@@ -22,6 +22,22 @@ class Category(models.Model):
         return reverse('main:product_list_by_category', args=[self.slug])
 
 
+class Size(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class ProductSize(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='product_sizes')
+    size = models.ForeignKey('Size', on_delete=models.CASCADE)
+    stock = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.size.name} ({self.stock} in stock ) for {self.product.name}"
+
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
@@ -33,8 +49,7 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)  # будет автоматичесски добавляться
     updated = models.DateTimeField(auto_now=True)
-    clothing_sizes = models.ManyToManyField('ClothingSize', blank=True)
-    shoes_sizes = models.ManyToManyField('ShoesSize', blank=True)
+
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True,
                                          help_text='Исходная цена до скидки (заполняется автоматически при наличии скидки)')
     status_discount = models.BooleanField(default=False)
@@ -68,26 +83,3 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('main:product_detail', args=[self.id, self.slug])
-
-
-class ClothingSize(models.Model):
-    name = models.CharField(max_length=10, unique=True)
-    order = models.PositiveIntegerField(help_text="Для правильной сортировки")
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name_plural = 'Clothing Sizes'
-
-    def __str__(self):
-        return f'{self.name}'
-
-
-class ShoesSize(models.Model):
-    name = models.CharField(max_length=10, unique=True)
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name_plural = 'Shoes Sizes'
-
-    def __str__(self):
-        return f'{self.name}'

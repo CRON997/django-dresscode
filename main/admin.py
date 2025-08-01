@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Category, ClothingSize, Product, ShoesSize
+from .models import Category, Product, Size, ProductSize
+
+
+class ProductSizeInline(admin.TabularInline):
+    model = ProductSize
+    extra = 1
 
 
 @admin.register(Category)
@@ -13,17 +18,13 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
                     'status_discount', 'percent']
-    list_filter = ['available', 'created_at', 'updated', 'category', 'status_discount']  # для админки
+    list_filter = ['available', 'created_at', 'updated', 'category', 'status_discount']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('original_price',)
+    inlines = [ProductSizeInline]
 
 
-@admin.register(ClothingSize)
-class ClothingSizeAdmin(admin.ModelAdmin):
-    list_display = ['name', 'order']
-
-
-@admin.register(ShoesSize)
-class ShoesSizeAdmin(admin.ModelAdmin):
-    list_display = ['name', ]
+@admin.register(Size)
+class SizeAdmin(admin.ModelAdmin):
+    list_display = ['name']

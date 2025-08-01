@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
-from main.models import ClothingSize, Product, ShoesSize
+from main.models import Size, Product, ProductSize
 
 from .cart import Cart
 from .forms import CartAddProductForm
@@ -16,20 +16,11 @@ def cart_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
     # Проверяем, нужен ли размер для этого товара
-    size_required = product.clothing_sizes.exists() or product.shoes_sizes.exists()
+    size_required = product.product_sizes.exists()
     size_id = request.POST.get('size_id')
 
-    size = None
-    if size_required:
-        if not size_id:
-            messages.error(request, 'Пожалуйста, выберите размер.')
-            if request.htmx:
-                return JsonResponse({'error': 'Размер не выбран'}, status=400)
-            return redirect(current_page)
-
-        # Определяем модель размера
-        size_model = ClothingSize if product.clothing_sizes.exists() else ShoesSize
-        size = get_object_or_404(size_model, id=size_id)
+    size_model = Size
+    size = get_object_or_404(size_model, id=size_id)
 
     cart.add(product, size)
     messages.success(request, 'Товар добавлен в корзину!')

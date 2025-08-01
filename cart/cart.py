@@ -19,7 +19,7 @@ class Cart:
             size_data = {
                 'id': size.id,
                 'name': size.name,
-                'type': size.__class__.__name__  # 'ShoesSize' или 'ClothingSize'
+                'type': size.__class__.__name__
             }
 
         # Создаем уникальный ключ для товара с размером

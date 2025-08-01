@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from cart.forms import CartAddProductForm
 from comments.forms import CommentForm
 from comments.models import Comment
-from main.models import Category, Product
+from main.models import Category, Product, Size, ProductSize
 
 
 def product_list(request, category_slug=None):
@@ -29,8 +29,10 @@ def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     comments = Comment.objects.filter(product=product)
     form = CommentForm()
+    sizes = Size.objects.filter(productsize__product=product)
     related_products = Product.objects.filter(category=product.category, available=True).exclude(id=product.id)[:4]
-    context = {'product': product, 'comments': comments, 'related_products': related_products, 'form': form}
+    context = {'product': product, 'comments': comments, 'related_products': related_products, 'form': form,
+               'sizes': sizes}
 
     return render(request, 'main/detail.html', context)
 

@@ -31,24 +31,16 @@
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <input type="hidden" name="override" value="false">
-                {% if product.shoes_sizes.exists or product.clothing_sizes.exists %}
                 <input type="hidden" name="size_required" value="true">
                 <div class="product-size">
                     <label for="size-select">Select Size</label>
                     <select name="size_id" id="size-select" required>
                         <option value="" disabled selected>Choose a size</option>
-                        {% if product.shoes_sizes.exists %}
-                        {% for size in product.shoes_sizes.all %}
+                        {%for size in sizes%}
                         <option value="{{ size.id }}">{{ size.name }}</option>
-                        {% endfor %}
-                        {% elif product.clothing_sizes.exists %}
-                        {% for size in product.clothing_sizes.all %}
-                        <option value="{{ size.id }}">{{ size.name }}</option>
-                        {% endfor %}
-                        {% endif %}
+                        {%endfor%}
                     </select>
                 </div>
-                {% endif %}
                 <button class="add-to-cart" type="submit">Add to Cart</button>
             </form>
 
