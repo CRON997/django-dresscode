@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL
+from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL, EMAIL_HOST_PASSWORD
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
@@ -60,6 +60,7 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     }
 }
+
 SITE_ID = 1
 ROOT_URLCONF = 'shop.urls'
 
@@ -115,6 +116,7 @@ LANGUAGES = [
     ('ru', _('Russian')),
     ('uk', _('Ukrainian')),
 ]
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale'
 ]
@@ -141,7 +143,12 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'login'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 PARLER_LANGUAGES = {
     None: (
@@ -154,5 +161,6 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
 STRIPE_TEST_PUBLIC_KEY = os.getenv('STRIPE_TEST_PUBLIC_KEY')
 STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY')
