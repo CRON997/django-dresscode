@@ -38,9 +38,7 @@ def cart_remove(request, product_id):
 
     size = None
     if size_id:
-        # Определяем модель размера
-        size_model = ClothingSize if product.clothing_sizes.exists() else ShoesSize
-        size = get_object_or_404(size_model, id=size_id)
+        size = get_object_or_404(Size, id=size_id)
 
     cart.remove(product, size)
     return redirect('cart:cart_detail')
@@ -54,10 +52,8 @@ def cart_remove_one_quan(request, product_id):
 
     size = None
     if size_id:
-        size_model = ClothingSize if product.clothing_sizes.exists() else ShoesSize
-        size = get_object_or_404(size_model, id=size_id)
+        size = get_object_or_404(Size, id=size_id)
 
-    # Уменьшаем количество на 1
     product_id_str = str(product.id)
     cart_key = f"{product_id_str}_{size.id}" if size else product_id_str
 

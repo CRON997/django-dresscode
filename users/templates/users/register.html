@@ -13,7 +13,7 @@
     <form id="registration-form" action="#" method="POST">
         {%csrf_token%}
         <h1>Registration</h1>
-        <div id="error-message" class="error-message"></div>
+        <div id="error-message" class="error-message">{{form.errors}}</div>
         <div class="grid">
             <div class="input-box">
                 <label for="{{ form.first_name.id_for_label }}">First Name</label>

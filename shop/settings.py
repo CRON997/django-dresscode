@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'orders',
     'rosetta',
     'parler',
+    'coupons',
 
     'allauth',
     'allauth.account',
@@ -48,7 +49,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -149,6 +149,7 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 PARLER_LANGUAGES = {
     None: (

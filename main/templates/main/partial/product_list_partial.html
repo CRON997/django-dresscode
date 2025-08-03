@@ -1,12 +1,11 @@
 <div class="container">
-    <!-- Controls -->
     <div class="controls">
         <div class="filters">
             <h3 class="controls-title">Category</h3>
             <div class="filter-buttons">
                 {%for category in categories%}
                 <button class="filter-btn">
-                    <a href="{{category.get_absolute_url}}" style="text-decoration: none;">
+                    <a href="{{category.get_absolute_url}}" style="all: unset; cursor: pointer;">
                         {{category.name}}
                     </a>
                 </button>
@@ -23,7 +22,6 @@
             </select>
         </div>
     </div>
-
 
     <div class="products-grid">
         {%for product in products%}

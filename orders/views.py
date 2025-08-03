@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 
+from coupons.forms import CouponApplyForm
 from main.models import Size
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
@@ -12,7 +13,7 @@ stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
 
 def order_create(request):
     cart = Cart(request)
-    total_price = sum(item['total_price'] for item in cart)
+    total_price = sum(item['price'] for item in cart)
 
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
@@ -47,7 +48,7 @@ def order_create(request):
                             'product_data': {
                                 'name': item['product'].name,
                             },
-                            'unit_amount': int(item['total_price'] * 100),
+                            'unit_amount': int(item['price'] * 100),
                         },
                         'quantity': item['quantity'],
                     } for item in cart
@@ -73,11 +74,13 @@ def order_create(request):
         'phone': request.user.phone,
         'postal_code': request.user.postal_code
     })
+    coupon_form = CouponApplyForm()
 
     return render(request, 'orders/create.html', {
         'form': form,
         'cart': cart,
         'total_price': total_price,
+        'coupon_form': coupon_form
     })
 
 

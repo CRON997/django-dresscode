@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 
-from cart.forms import CartAddProductForm
 from comments.forms import CommentForm
 from comments.models import Comment
-from main.models import Category, Product, Size, ProductSize
+from main.models import Category, Product, Size
 
 
 def product_list(request, category_slug=None):
@@ -15,9 +14,7 @@ def product_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
 
-    cart_product_form = CartAddProductForm()
-    context = {'categories': categories, 'products': products, 'category': category,
-               ' cart_product_form': cart_product_form}
+    context = {'categories': categories, 'products': products, 'category': category}
 
     if request.htmx:
         return render(request, 'main/partial/product_list_partial.html', context)
