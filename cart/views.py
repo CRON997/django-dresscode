@@ -15,7 +15,6 @@ def cart_add(request, product_id):
     current_page = request.META.get('HTTP_REFERER')
     product = get_object_or_404(Product, id=product_id)
 
-    # Проверяем, нужен ли размер для этого товара
     size_required = product.product_sizes.exists()
     size_id = request.POST.get('size_id')
 
@@ -25,8 +24,6 @@ def cart_add(request, product_id):
     cart.add(product, size)
     messages.success(request, 'Товар добавлен в корзину!')
 
-    if request.htmx:
-        return render(request, 'cart/partial/count.html')
     return redirect(current_page)
 
 

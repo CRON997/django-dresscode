@@ -1,354 +1,700 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
-font-family: 'Montserrat', sans-serif !important;
+/* Container isolation */
+.dresscode-header-container {
+    position: relative !important;
+    z-index: 1000 !important;
+    contain: layout style !important;
 }
-.header {
+
+/* Reset only for header elements */
+.dresscode-header-container * {
+    box-sizing: border-box !important;
+}
+
+.dresscode-header-container ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.dresscode-header-container a {
+    text-decoration: none !important;
+}
+
+.dresscode-header-container button {
+    border: none !important;
+    background: none !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+}
+
+/* Header Styles */
+.dresscode-header {
     background-color: #1d503a !important;
-    padding: 20px 30px !important;
+    padding: 0 30px !important;
+    height: 70px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     position: sticky !important;
     top: 0 !important;
     z-index: 1000 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
-.header .logo {
+/* Logo */
+.dresscode-logo {
     color: #faf5ee !important;
     font-size: 24px !important;
     font-weight: 700 !important;
     text-decoration: none !important;
+    transition: color 0.3s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
-.header .nav-container {
+.dresscode-logo:hover {
+    color: #ffd700 !important;
+}
+
+/* Desktop Navigation */
+.dresscode-nav-container {
     display: flex !important;
     align-items: center !important;
 }
 
-.header .nav__links {
-    list-style: none !important;
+.dresscode-nav-links {
     display: flex !important;
-    gap: 20px !important;
+    align-items: center !important;
+    gap: 30px !important;
+    list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.header .nav__links li a {
-    color: #faf5ee !important;
-    text-decoration: none !important;
-    font-size: 16px !important;
-    transition: color 0.3s ease !important;
+.dresscode-nav-links li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.header .nav__links li a:hover {
+.dresscode-nav-links li a {
+    color: #faf5ee !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+    padding: 8px 0 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-decoration: none !important;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+}
+
+.dresscode-nav-links li a:hover {
     color: #ffd700 !important;
 }
 
-.header .nav__links li a i {
-    font-size: 18px !important;
+.dresscode-nav-links li a i {
+    font-size: 20px !important;
 }
 
-.header .cart-counter {
-    background-color: #b22e2e !important;
-    color: #ffffff !important;
+/* Cart Counter */
+.dresscode-cart-counter {
+    background-color: #e74c3c !important;
+    color: white !important;
     border-radius: 50% !important;
     padding: 2px 6px !important;
-    font-size: 12px !important;
-    position: relative !important;
-    top: -5px !important;
-}
-
-.header .auth-buttons {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    position: absolute !important;
+    top: -8px !important;
+    right: -8px !important;
+    min-width: 18px !important;
+    height: 18px !important;
     display: flex !important;
-    gap: 10px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    animation: dresscode-pulse 2s infinite !important;
 }
 
-.header .auth-buttons button {
-    padding: 8px 16px !important;
-    border: none !important;
-    border-radius: 5px !important;
+@keyframes dresscode-pulse {
+    0% { transform: scale(1) !important; }
+    50% { transform: scale(1.1) !important; }
+    100% { transform: scale(1) !important; }
+}
+
+.dresscode-cart-link {
+    position: relative !important;
+}
+
+/* Desktop Controls */
+.dresscode-desktop-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+/* Language Dropdown */
+.dresscode-language-dropdown {
+    position: relative !important;
+}
+
+.dresscode-language-toggle {
+    background: rgba(250, 245, 238, 0.1) !important;
+    border: 1px solid rgba(250, 245, 238, 0.3) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
     font-size: 14px !important;
+    color: #faf5ee !important;
     cursor: pointer !important;
-    transition: background-color 0.3s ease, color 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 60px !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
-.header .auth-buttons .sign-up {
+.dresscode-language-toggle:hover {
+    background: rgba(250, 245, 238, 0.2) !important;
+    border-color: #ffd700 !important;
+}
+
+.dresscode-dropdown-arrow {
+    font-size: 16px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.dresscode-language-menu {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    border: 1px solid #e1e5e9 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.3s ease !important;
+    z-index: 1001 !important;
+    overflow: hidden !important;
+}
+
+.dresscode-language-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-decoration: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+.dresscode-language-item:hover {
+    background-color: #f8f9fa !important;
+}
+
+.dresscode-language-item.active {
+    background-color: #1d503a !important;
+    color: white !important;
+}
+
+.dresscode-language-dropdown:hover .dresscode-language-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.dresscode-language-dropdown:hover .dresscode-dropdown-arrow {
+    transform: rotate(180deg) !important;
+}
+
+/* Auth Buttons */
+.dresscode-auth-buttons {
+    display: flex !important;
+    gap: 12px !important;
+}
+
+.dresscode-btn {
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.dresscode-btn-signup {
     background-color: #ffd700 !important;
     color: #1d503a !important;
+    border: 2px solid #ffd700 !important;
 }
 
-.header .auth-buttons .sign-up:hover {
+.dresscode-btn-signup:hover {
     background-color: #faf5ee !important;
-    color: #1d503a !important;
+    border-color: #faf5ee !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3) !important;
 }
 
-.header .auth-buttons .login {
+.dresscode-btn-login {
     background-color: transparent !important;
     color: #faf5ee !important;
-    border: 1px solid #faf5ee !important;
+    border: 2px solid #faf5ee !important;
 }
 
-.header .auth-buttons .login:hover {
+.dresscode-btn-login:hover {
     background-color: #faf5ee !important;
     color: #1d503a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(250, 245, 238, 0.3) !important;
 }
 
-.header .burger {
+/* Burger Menu */
+.dresscode-burger-container {
     display: none !important;
-    color: #faf5ee !important;
-    font-size: 24px !important;
-    cursor: pointer !important;
 }
 
-.header .mobile-menu {
-    display: none !important;
-    position: absolute !important;
-    top: 70px !important;
-    left: 0 !important;
-    width: 100% !important;
-    background-color: #1d503a !important;
-    padding: 20px !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    z-index: 999 !important;
-}
-
-.header .mobile-menu.active {
-    display: flex !important;
-}
-
-.header .mobile-menu .nav__links {
-    flex-direction: column !important;
-    gap: 15px !important;
-}
-
-.header .mobile-menu .nav__links li a {
-    font-size: 18px !important;
-}
-
-.header .auth-buttons-mobile {
-    display: flex !important;
-    gap: 10px !important;
-    justify-content: center !important;
-}
-
-.header .auth-buttons-mobile button {
-    padding: 8px 16px !important;
+.dresscode-burger {
+    background: none !important;
     border: none !important;
-    border-radius: 5px !important;
-    font-size: 14px !important;
     cursor: pointer !important;
-    transition: background-color 0.3s ease, color 0.3s ease !important;
+    padding: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    transition: all 0.3s ease !important;
 }
 
-.header .modal {
-    display: none !important;
+.dresscode-burger-line {
+    width: 25px !important;
+    height: 3px !important;
+    background-color: #faf5ee !important;
+    border-radius: 2px !important;
+    transition: all 0.3s ease !important;
+    transform-origin: center !important;
+}
+
+.dresscode-burger.active .dresscode-burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px) !important;
+}
+
+.dresscode-burger.active .dresscode-burger-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+}
+
+.dresscode-burger.active .dresscode-burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px) !important;
+}
+
+/* Mobile Menu */
+.dresscode-mobile-overlay {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    z-index: 1000 !important;
-    justify-content: center !important;
-    align-items: center !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 1001 !important;
 }
 
-.header .modal-content {
-    background-color: #fff !important;
+.dresscode-mobile-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.dresscode-mobile-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 320px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    background: white !important;
+    z-index: 1002 !important;
+    transition: right 0.3s ease !important;
+    overflow-y: auto !important;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.dresscode-mobile-menu.active {
+    right: 0 !important;
+}
+
+.dresscode-mobile-menu-header {
+    background: #1d503a !important;
     padding: 20px !important;
-    border-radius: 10px !important;
-    position: relative !important;
-    width: 90% !important;
-    max-width: 500px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    color: white !important;
 }
 
-.header .close {
-    position: absolute !important;
-    top: 10px !important;
-    right: 15px !important;
+.dresscode-mobile-logo {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #faf5ee !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.dresscode-mobile-close {
+    background: none !important;
+    border: none !important;
+    color: #faf5ee !important;
     font-size: 24px !important;
     cursor: pointer !important;
+    padding: 4px !important;
+    transition: color 0.3s ease !important;
+}
+
+.dresscode-mobile-close:hover {
+    color: #ffd700 !important;
+}
+
+.dresscode-mobile-menu-content {
+    padding: 20px !important;
+}
+
+/* Mobile Navigation */
+.dresscode-mobile-nav-links {
+    margin-bottom: 30px !important;
+    list-style: none !important;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+}
+
+.dresscode-mobile-nav-links li {
+    margin-bottom: 8px !important;
+    list-style: none !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+}
+
+.dresscode-mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 15px !important;
+    color: #333 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-decoration: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+.dresscode-mobile-nav-link:hover {
+    background: #f8f9fa !important;
     color: #1d503a !important;
 }
 
-.header .search-input {
+.dresscode-mobile-nav-link i {
+    font-size: 20px !important;
+    width: 24px !important;
+}
+
+.dresscode-mobile-cart-counter {
+    background: #e74c3c !important;
+    color: white !important;
+    border-radius: 50% !important;
+    padding: 2px 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    margin-left: auto !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Mobile Language */
+.dresscode-mobile-language {
+    margin-bottom: 30px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.dresscode-mobile-language h3 {
+    color: #1d503a !important;
+    font-size: 16px !important;
+    margin-bottom: 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 0 0 15px 0 !important;
+}
+
+.dresscode-mobile-language-options {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.dresscode-mobile-lang-btn {
+    background: none !important;
+    border: 2px solid #e9ecef !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    color: #666 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: left !important;
+}
+
+.dresscode-mobile-lang-btn:hover {
+    border-color: #1d503a !important;
+    color: #1d503a !important;
+}
+
+.dresscode-mobile-lang-btn.active {
+    background: #1d503a !important;
+    border-color: #1d503a !important;
+    color: white !important;
+}
+
+/* Mobile Auth */
+.dresscode-mobile-auth {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.dresscode-mobile-btn {
     width: 100% !important;
-    padding: 10px !important;
-    border: 1px solid #ddd !important;
-    border-radius: 5px !important;
+    padding: 15px !important;
+    font-size: 16px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+/* Search Modal */
+.dresscode-search-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-top: 10vh !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 1003 !important;
+}
+
+.dresscode-search-modal.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.dresscode-search-modal-content {
+    background: white !important;
+    border-radius: 12px !important;
+    width: 90% !important;
+    max-width: 500px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-20px) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.dresscode-search-modal.active .dresscode-search-modal-content {
+    transform: translateY(0) !important;
+}
+
+.dresscode-search-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px 20px 0 !important;
+}
+
+.dresscode-search-header h3 {
+    color: #1d503a !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.dresscode-search-close {
+    background: none !important;
+    border: none !important;
+    font-size: 24px !important;
+    color: #666 !important;
+    cursor: pointer !important;
+    padding: 4px !important;
+    transition: color 0.3s ease !important;
+}
+
+.dresscode-search-close:hover {
+    color: #1d503a !important;
+}
+
+.dresscode-search-input-container {
+    position: relative !important;
+    padding: 20px !important;
+}
+
+.dresscode-search-icon {
+    position: absolute !important;
+    left: 35px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #666 !important;
+    font-size: 18px !important;
+}
+
+.dresscode-search-input {
+    width: 100% !important;
+    padding: 15px 50px 15px 50px !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: border-color 0.3s ease !important;
+    outline: none !important;
+    background: white !important;
+}
+
+.dresscode-search-input:focus {
+    outline: none !important;
+    border-color: #1d503a !important;
+}
+
+.dresscode-search-clear {
+    position: absolute !important;
+    right: 35px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    color: #666 !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    padding: 4px !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.dresscode-search-clear.visible {
+    opacity: 1 !important;
+}
+
+.dresscode-search-suggestions {
+    padding: 0 20px 20px !important;
+}
+
+.dresscode-suggestion-item {
+    padding: 10px 15px !important;
+    color: #666 !important;
+    cursor: pointer !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
     font-size: 14px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.dresscode-suggestion-item:hover {
+    background: #f8f9fa !important;
+    color: #1d503a !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dresscode-header {
+        padding: 0 20px !important;
+    }
+
+    .dresscode-nav-links {
+        gap: 20px !important;
+    }
+
+    .dresscode-desktop-controls {
+        gap: 15px !important;
+    }
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 20px !important;
+    .dresscode-header {
+        padding: 0 20px !important;
+        height: 60px !important;
     }
 
-    .header .logo {
+    .dresscode-logo {
         font-size: 20px !important;
     }
 
-    .header .nav-container {
+    .dresscode-nav-container,
+    .dresscode-desktop-controls {
         display: none !important;
     }
 
-    .header .auth-buttons {
-        display: none !important;
-    }
-
-    .header .burger {
+    .dresscode-burger-container {
         display: block !important;
-    }
-
-    .header .mobile-menu {
-        top: 60px !important;
-        padding: 15px !important;
-    }
-
-    .header .mobile-menu .nav__links li a {
-        font-size: 16px !important;
-    }
-
-    .header .auth-buttons-mobile button {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
     }
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: 10px 15px !important;
+    .dresscode-header {
+        padding: 0 15px !important;
+        height: 55px !important;
     }
 
-    .header .logo {
+    .dresscode-logo {
         font-size: 18px !important;
     }
 
-    .header .burger {
-        font-size: 20px !important;
+    .dresscode-mobile-menu {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    .header .mobile-menu {
-        top: 50px !important;
-        padding: 10px !important;
+    .dresscode-mobile-menu-content {
+        padding: 15px !important;
     }
 
-    .header .mobile-menu .nav__links li a {
+    .dresscode-search-modal-content {
+        width: 95% !important;
+        margin: 0 10px !important;
+    }
+
+    .dresscode-search-input-container {
+        padding: 15px !important;
+    }
+
+    .dresscode-search-input {
+        padding: 12px 45px 12px 45px !important;
         font-size: 14px !important;
     }
-
-    .header .auth-buttons-mobile button {
-        padding: 5px 10px !important;
-        font-size: 11px !important;
-    }
-
-    .header .modal-content {
-        padding: 15px !important;
-        max-width: 300px !important;
-    }
-
-    .header .search-input {
-        font-size: 12px !important;
-        padding: 8px !important;
-    }
 }
-.dropdown {
-            position: relative;
-            display: inline-block;
-        }
 
-        .dropdown-toggle {
-            background: white;
-            border: 1px solid #e1e5e9;
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 14px;
-            color: #333;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            min-width: 60px;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-toggle:hover {
-            border-color: #c1c7cd;
-        }
-
-        .dropdown-toggle:focus {
-            outline: none;
-            border-color: #4ade80;
-            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
-        }
-
-        .dropdown-arrow {
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #666;
-            transition: transform 0.2s ease;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e1e5e9;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-            z-index: 1000;
-            margin-top: 4px;
-        }
-
-        .dropdown-item {
-            display: block;
-            width: 100%;
-            padding: 8px 12px;
-            font-size: 14px;
-            color: #333;
-            text-decoration: none;
-            border: none;
-            background: none;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .dropdown-item:hover {
-            background-color: #f1f5f9;
-        }
-
-        .dropdown-item.active {
-            background-color: #dcfce7;
-            color: #16a34a;
-        }
-
-        .dropdown-item:first-child {
-            border-radius: 6px 6px 0 0;
-        }
-
-        .dropdown-item:last-child {
-            border-radius: 0 0 6px 6px;
-        }
-
-        /* Показываем меню при фокусе или ховере */
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown:hover .dropdown-arrow,
-        .dropdown:focus-within .dropdown-arrow {
-            transform: rotate(180deg);
-        }
+/* Focus styles for accessibility */
+.dresscode-burger:focus,
+.dresscode-btn:focus,
+.dresscode-language-toggle:focus,
+.dresscode-search-input:focus {
+    outline: 2px solid #ffd700 !important;
+    outline-offset: 2px !important;
+}

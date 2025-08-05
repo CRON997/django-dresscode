@@ -27,7 +27,7 @@
                 <span class="price-discount">${{product.price}}</span></div>
             {%endif%}
             <p class="product-description">{{product.description}}</p>
-            <form hx-post="{% url 'cart:cart_add' product.id %}" hx-target="#cart-counter">
+            <form id="addToCartForm" action="{% url 'cart:cart_add' product.id %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <input type="hidden" name="override" value="false">
@@ -41,8 +41,8 @@
                         {%endfor%}
                     </select>
                 </div>
-                <button class="add-to-cart" type="submit">Add to Cart</button>
             </form>
+            <button form="addToCartForm" class="add-to-cart" type="submit">Add to Cart</button>
 
         </div>
     </div>

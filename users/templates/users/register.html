@@ -20,7 +20,7 @@
                 {{form.first_name}}
             </div>
             <div class="input-box">
-                <label for="{{ form.first_name.id_for_label }}">Last Name</label>
+                <label for="{{ form.last_name.id_for_label }}">Last Name</label>
                 {{form.last_name}}
             </div>
             <div class="input-box">
@@ -43,6 +43,7 @@
             <a href="{%url 'users:login'%}">Already have an account? Authorize</a>
         </div>
     </form>
+
 </div>
 {%endblock%}
 

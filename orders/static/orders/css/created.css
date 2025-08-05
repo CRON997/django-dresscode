@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial;
+    background-color: #faf5ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+}
+
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.success-icon {
+    background-color: #1d503a;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.success-icon i {
+    font-size: 40px;
+    color: #faf5ee;
+}
+
+h1 {
+    font-size: 32px;
+    color: #000000;
+    margin: 0;
+    font-weight: 600;
+}
+
+.success-message {
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.payment-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.value {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', Arial;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-weight: 500;
+}
+
+.btn.primary {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+.btn.primary:hover {
+    background-color: #ffd700;
+    color: #1d503a;
+}
+
+.btn.secondary {
+    background-color: #fff;
+    color: #1d503a;
+    border: 2px solid #1d503a;
+}
+
+.btn.secondary:hover {
+    background-color: #1d503a;
+    color: #faf5ee;
+}
+
+.additional-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.additional-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .success-icon i {
+        font-size: 35px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .payment-details {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 20px 15px;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .success-message {
+        font-size: 14px;
+    }
+
+    .success-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .success-icon i {
+        font-size: 30px;
+    }
+
+    .label, .value {
+        font-size: 13px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .payment-details {
+        padding: 12px;
+    }
+
+    .additional-info p {
+        font-size: 13px;
+    }
+}
+
+/* Animation for success icon */
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-icon {
+    animation: checkmark 0.6s ease-out;
+}
+
+/* Hover effects for payment details */
+.detail-row:hover {
+    background-color: rgba(29, 80, 58, 0.05);
+    border-radius: 4px;
+    margin: 0 -8px;
+    padding: 8px;
+}

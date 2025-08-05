@@ -1,0 +1,56 @@
+{%extends 'main/base.html'%}
+{%load static%}
+
+{%block link%}
+<link type="text/css" href="{% static 'orders/css/created.css' %}" rel="stylesheet">
+{%endblock%}
+
+
+{%block header%}
+{%endblock%}
+
+
+{%block content%}
+<body>
+<div class="wrapper">
+    <div class="success-container">
+        <div class="success-icon">
+            <i class='bx bx-check-circle'></i>
+        </div>
+        <h1>Payment Successful!</h1>
+        <p class="success-message">Your payment has been processed successfully.</p>
+
+        <div class="payment-details">
+            <div class="detail-row">
+                <span class="label">Transaction ID:</span>
+                <span class="value">#{{order.id}}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Order Number:</span>
+                <span class="value">#ORD-789456123</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Amount:</span>
+                <span class="value">$99.99</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Date:</span>
+                <span class="value">January 29, 2025</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn primary"><a href="{%url 'main:product_list'%}">Continue Shopping</a></button>
+            <button class="btn secondary">View Order Details</button>
+        </div>
+
+        <div class="additional-info">
+            <p>A confirmation email has been sent to your registered email address.</p>
+        </div>
+    </div>
+</div>
+</body>
+{%endblock%}
+
+{%block footer%}
+{%endblock%}

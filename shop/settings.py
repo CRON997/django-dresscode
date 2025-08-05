@@ -12,6 +12,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+DOMAIN_MAIN = 'http://localhost:8000'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,7 +32,7 @@ INSTALLED_APPS = [
     'rosetta',
     'parler',
     'coupons',
-
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
