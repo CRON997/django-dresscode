@@ -233,47 +233,51 @@
                 </div>
 
                 <div class="orders-list">
-                    <div class="order-item">
+                    {%for order in orders%}
+                    <a href="">
+                        <div class="order-item">
                         <div class="order-main">
                             <div class="order-info">
                                 <div class="order-header-row">
-                                    <span class="order-id">#001</span>
-                                    <span class="order-status delivered">Delivered</span>
+                                    <span class="order-id">#{{order.id}}</span>
+                                    <span class="order-status {%if status == 'delivered'%}delivered{%else%}pending{%endif%}">{{order.status}}</span>
                                 </div>
-                                <h4 class="order-product">England 2025 Match Away</h4>
-                                <p class="order-date">June 02, 2025</p>
+                                <h4 class="order-product">{{order.items}}</h4>
+                                <p class="order-date">{{order.created_at}}</p>
                             </div>
-                            <div class="order-price">$200</div>
+                            <div class="order-price">${{order.price}}</div>
                         </div>
                     </div>
+                    </a>
+                    {%endfor%}
 
-                    <div class="order-item">
-                        <div class="order-main">
-                            <div class="order-info">
-                                <div class="order-header-row">
-                                    <span class="order-id">#002</span>
-                                    <span class="order-status processing">Processing</span>
-                                </div>
-                                <h4 class="order-product">Nike x Jakob</h4>
-                                <p class="order-date">June 03, 2025</p>
-                            </div>
-                            <div class="order-price">$75</div>
-                        </div>
-                    </div>
+                    <!--                    <div class="order-item">-->
+                    <!--                        <div class="order-main">-->
+                    <!--                            <div class="order-info">-->
+                    <!--                                <div class="order-header-row">-->
+                    <!--                                    <span class="order-id">#002</span>-->
+                    <!--                                    <span class="order-status processing">Processing</span>-->
+                    <!--                                </div>-->
+                    <!--                                <h4 class="order-product">Nike x Jakob</h4>-->
+                    <!--                                <p class="order-date">June 03, 2025</p>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="order-price">$75</div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
-                    <div class="order-item">
-                        <div class="order-main">
-                            <div class="order-info">
-                                <div class="order-header-row">
-                                    <span class="order-id">#003</span>
-                                    <span class="order-status pending">Pending</span>
-                                </div>
-                                <h4 class="order-product">Air Jordan 1 Low OG 'Obsidian'</h4>
-                                <p class="order-date">June 04, 2025</p>
-                            </div>
-                            <div class="order-price">$90</div>
-                        </div>
-                    </div>
+                    <!--                    <div class="order-item">-->
+                    <!--                        <div class="order-main">-->
+                    <!--                            <div class="order-info">-->
+                    <!--                                <div class="order-header-row">-->
+                    <!--                                    <span class="order-id">#003</span>-->
+                    <!--                                    <span class="order-status pending">Pending</span>-->
+                    <!--                                </div>-->
+                    <!--                                <h4 class="order-product">Air Jordan 1 Low OG 'Obsidian'</h4>-->
+                    <!--                                <p class="order-date">June 04, 2025</p>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="order-price">$90</div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
         </div>

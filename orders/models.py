@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-from main.models import Product, Size, ProductSize
+from main.models import Product, Size
 
 
 class Order(models.Model):

@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 
 from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserUpdateForm
 from .models import CustomUser
+from orders.models import Order
 
 
 def register(request):
@@ -39,7 +40,8 @@ def login_view(request):
 @login_required
 def profile(request):
     user = CustomUser.objects.get(id=request.user.id)
-    return render(request, 'users/profile.html', {'user': user})
+    orders = Order.objects.filter(user=user)
+    return render(request, 'users/profile.html', {'user': user, 'orders': orders})
 
 
 @login_required
@@ -47,7 +49,8 @@ def profile_view(request):
     """Отображение профиля пользователя"""
     return render(request, 'users/profile.html', {
         'user': request.user,
-        'edit_mode': False
+        'edit_mode': False,
+        'current_tab': 'profile',
     })
 
 
