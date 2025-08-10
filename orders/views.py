@@ -26,6 +26,7 @@ def order_create(request):
                 address1=form.cleaned_data.get('address1'),
                 phone=form.cleaned_data.get('phone'),
                 postal_code=form.cleaned_data.get('postal_code'),
+                total_price=total_price,
             )
             order.save()
 
