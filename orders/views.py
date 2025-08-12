@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from coupons.forms import CouponApplyForm
 from main.models import Size
@@ -37,7 +37,7 @@ def order_create(request):
                 product=item['product'],
                 size=size_instance,
                 quantity=item['quantity'],
-                price=item['price']
+                price=item['total_price']
             )
         try:
             session = stripe.checkout.Session.create(
@@ -89,3 +89,8 @@ def order_success(request):
     cart = Cart(request)
     cart.clear()
     return render(request, 'orders/order_success.html')
+
+
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request, 'orders/order_detail.html', {'order': order})

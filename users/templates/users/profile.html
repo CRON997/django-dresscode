@@ -234,7 +234,7 @@
 
                 <div class="orders-list">
                     {%for order in orders%}
-                    <a href="">
+                    <a href="{%url 'orders:order_detail' order.id %}">
                         <div class="order-item">
                         <div class="order-main">
                             <div class="order-info">
