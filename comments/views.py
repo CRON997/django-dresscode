@@ -7,7 +7,7 @@ from main.models import Product
 from .forms import CommentForm
 
 
-@login_required(login_url='/users/login/')
+@login_required(login_url='login')
 def add_comment(request, product_id, product_slug):
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
@@ -21,5 +21,4 @@ def add_comment(request, product_id, product_slug):
             if request.htmx:
                 comments = product.comments.all().order_by('-created_at')
                 return render(request, 'main/partial/comments_list.html', {'comments': comments})
-
     return redirect('main:product_detail', id=product_id, slug=product_slug)

@@ -6,6 +6,11 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
+class AvailableManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(available=True)
+
+
 class Category(models.Model):
     name = models.CharField(_('name'), max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True)
@@ -39,7 +44,6 @@ class ProductSize(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True)
     image = models.ImageField(upload_to='product/%Y/%m/%d', blank=True)  # blank значит не обезательное добавление
@@ -49,6 +53,11 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)  # будет автоматичесски добавляться
     updated = models.DateTimeField(auto_now=True)
+
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+
+    objects = models.Manager()
+    available_products = AvailableManager()
 
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True,
                                          help_text='Исходная цена до скидки (заполняется автоматически при наличии скидки)')

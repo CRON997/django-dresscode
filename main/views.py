@@ -7,7 +7,7 @@ from main.models import Category, Product, Size
 
 def product_list(request, category_slug=None):
     categories = Category.objects.all()
-    products = Product.objects.filter(available=True)
+    products = Product.available_products.all()
 
     category = None
     if category_slug:
@@ -27,7 +27,8 @@ def product_detail(request, id, slug):
     comments = Comment.objects.filter(product=product)
     form = CommentForm()
     sizes = Size.objects.filter(productsize__product=product)
-    related_products = Product.objects.filter(category=product.category, available=True).exclude(id=product.id)[:4]
+    related_products = Product.available_products.filter(category=product.category, available=True).exclude(
+        id=product.id)[:4]
     context = {'product': product, 'comments': comments, 'related_products': related_products, 'form': form,
                'sizes': sizes}
 

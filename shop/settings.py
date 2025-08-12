@@ -14,30 +14,38 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 DOMAIN_MAIN = 'http://localhost:8000/'
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_htmx',
     'django.contrib.sites',
+]
 
-    'main',
-    'cart',
-    'users',
-    'comments',
-    'orders',
+THIRD_PARTY_APPS = [
+    'django_htmx',
     'rosetta',
     'parler',
-    'coupons',
     'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
+
+LOCAL_APPS = [
+    'main',
+    'cart',
+    'users',
+    'comments',
+    'orders',
+    'coupons',
+]
+
+# Итоговый список
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

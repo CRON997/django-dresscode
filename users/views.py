@@ -17,7 +17,6 @@ def register(request):
             return redirect('users:profile')
     else:
         form = CustomUserCreationForm()
-
     return render(request, 'users/register.html', {'form': form})
 
 
@@ -39,13 +38,12 @@ def login_view(request):
 @login_required
 def profile(request):
     user = CustomUser.objects.get(id=request.user.id)
-    orders = Order.objects.filter(user=user)
+    orders = user.orders.all()
     return render(request, 'users/profile.html', {'user': user, 'orders': orders})
 
 
 @login_required
 def profile_view(request):
-    """Отображение профиля пользователя"""
     return render(request, 'users/profile.html', {
         'user': request.user,
         'edit_mode': False,
@@ -55,7 +53,6 @@ def profile_view(request):
 
 @login_required
 def edit_profile_details(request):
-    """Редактирование профиля пользователя"""
     if request.method == 'POST':
         form = CustomUserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():

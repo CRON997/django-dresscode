@@ -40,7 +40,7 @@ class OrderItem(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.product.name)
 
     def get_total_cost(self):
         return self.price * self.quantity

@@ -13,7 +13,7 @@ stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
 
 def order_create(request):
     cart = Cart(request)
-    total_price = sum(item['price'] for item in cart)
+    total_price = cart.get_total_price_after_discount()
 
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
@@ -37,7 +37,7 @@ def order_create(request):
                 product=item['product'],
                 size=size_instance,
                 quantity=item['quantity'],
-                price=item['total_price']
+                price=item['price']
             )
         try:
             session = stripe.checkout.Session.create(
