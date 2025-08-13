@@ -168,14 +168,18 @@
                     <i class='bx bx-x'></i>
                 </button>
             </div>
-            <div class="dresscode-search-input-container">
-                <i class='bx bx-search dresscode-search-icon'></i>
-                <input type="text" class="dresscode-search-input" placeholder="Search for products..."
+            <form action="{% url 'main:search' %}" method="get">
+                <div class="dresscode-search-input-container">
+                    <button type="submit">
+                        <i class='bx bx-search dresscode-search-icon'></i>
+                    </button>
+                    <input type="text" name='q' class="dresscode-search-input" placeholder="Search for products..."
                        data-search-input>
                 <button class="dresscode-search-clear" data-search-clear type="button" style="cursor:pointer;">
                     <i class='bx bx-x'></i>
                 </button>
             </div>
+            </form>
             <div class="dresscode-search-suggestions">
                 <div class="dresscode-suggestion-item">Popular: T-shirts</div>
                 <div class="dresscode-suggestion-item">Popular: Jeans</div>

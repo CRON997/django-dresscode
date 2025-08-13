@@ -5,7 +5,6 @@ from django.shortcuts import redirect, render
 
 from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserUpdateForm
 from .models import CustomUser
-from orders.models import Order
 
 
 def register(request):
@@ -37,7 +36,7 @@ def login_view(request):
 
 @login_required
 def profile(request):
-    user = CustomUser.objects.get(id=request.user.id)
+    user = request.user
     orders = user.orders.all()
     return render(request, 'users/profile.html', {'user': user, 'orders': orders})
 

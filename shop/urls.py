@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
@@ -15,7 +16,7 @@ urlpatterns = i18n_patterns(
     path('coupons/', include('coupons.urls', namespace='coupons')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
-)
+) + debug_toolbar_urls()
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,6 +12,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 DOMAIN_MAIN = 'http://localhost:8000/'
 
 DJANGO_APPS = [
@@ -33,6 +38,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'debug_toolbar',
 ]
 
 LOCAL_APPS = [
@@ -44,7 +50,6 @@ LOCAL_APPS = [
     'coupons',
 ]
 
-# Итоговый список
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
@@ -58,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 SOCIALACCOUNT_PROVIDERS = {

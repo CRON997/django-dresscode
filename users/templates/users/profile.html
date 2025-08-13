@@ -242,7 +242,7 @@
                                     <span class="order-id">#{{order.id}}</span>
                                     <span class="order-status {%if status == 'delivered'%}delivered{%else%}pending{%endif%} processing">{{order.status}}</span>
                                 </div>
-                                <h4 class="order-product">{{order.items.first}}</h4>
+                                <!--                                <h4 class="order-product"></h4>-->
                                 <p class="order-date">{{order.created_at}}</p>
                             </div>
                             <div class="order-price">${{order.total_price}}</div>
