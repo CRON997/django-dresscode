@@ -1,5 +1,7 @@
 from django.conf import settings
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
 
 from coupons.forms import CouponApplyForm
 from main.models import Size
@@ -7,6 +9,10 @@ from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
 import stripe
+from django.http import HttpResponse
+import weasyprint
+
+from .tasks import payment_completed
 
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
 
@@ -29,6 +35,7 @@ def order_create(request):
                 total_price=total_price,
             )
             order.save()
+            payment_completed(order.id)
 
         for item in cart:
             size_instance = Size.objects.get(name=item['size']['name'])
@@ -58,14 +65,15 @@ def order_create(request):
                 success_url='http://localhost:8000/orders/completed',
                 cancel_url='http://localhost:8000/orders/create'
             )
-
             return redirect(session.url, code=303)
+
         except Exception as e:
             return render(request, 'orders/create.html', {
                 'form': form,
                 'cart': cart,
                 'error': str(e)
             })
+
     form = OrderCreateForm(initial={
         'first_name': request.user.first_name,
         'last_name': request.user.last_name,
@@ -75,6 +83,7 @@ def order_create(request):
         'phone': request.user.phone,
         'postal_code': request.user.postal_code
     })
+
     coupon_form = CouponApplyForm()
 
     return render(request, 'orders/create.html', {
@@ -94,3 +103,13 @@ def order_success(request):
 def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'orders/order_detail.html', {'order': order})
+
+
+@staff_member_required
+def admin_order_pdf(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    html = render_to_string('orders/pdf.html', {'order': order})
+    response = HttpResponse(content_type='applications/pdf')
+    response['Content-Disposition'] = f'filename-order_{order.id}.pdf'
+    weasyprint.HTML(string=html).write_pdf(response)
+    return response
