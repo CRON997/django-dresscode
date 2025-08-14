@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
-from unicodedata import category
 
 from comments.forms import CommentForm
 from comments.models import Comment
@@ -19,10 +18,15 @@ class CatalogView(ListView):
 
         if sort_option == 'name_desc':
             products = Product.objects.all().order_by('-name').select_related('category')
+        elif sort_option == 'price_asc':
+            products = Product.objects.all().order_by('price').select_related('category')
+        elif sort_option == 'price_desc':
+            products = Product.objects.all().order_by('-price').select_related('category')
 
         if category_slug:
             category = get_object_or_404(Category, slug=category_slug)
             products = products.filter(category=category)
+
         return products
 
     def get_context_data(self, **kwargs):

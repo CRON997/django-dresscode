@@ -10,14 +10,16 @@ class ProductSizeInline(admin.TabularInline):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['id', 'name', 'slug']
+    list_display_links = ['id', 'name']
     prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
+    list_display = ['id', 'name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
                     'status_discount', 'percent']
+    list_display_links = ['id', 'name']
     list_filter = ['available', 'created_at', 'updated', 'category', 'status_discount']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
