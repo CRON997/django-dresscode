@@ -15,6 +15,10 @@ class CatalogView(ListView):
     def get_queryset(self):
         products = Product.available_products.all().select_related('category')
         category_slug = self.kwargs.get('category_slug')
+        sort_option = self.request.GET.get('sort', 'name')
+
+        if sort_option == 'name_desc':
+            products = Product.objects.all().order_by('-name').select_related('category')
 
         if category_slug:
             category = get_object_or_404(Category, slug=category_slug)
@@ -24,6 +28,7 @@ class CatalogView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['current_sort'] = self.request.GET.get('sort', 'featured')
         return context
 
     # def get_template_names(self):

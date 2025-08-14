@@ -13,14 +13,20 @@
             </div>
         </div>
 
+
+        <form method="get">
         <div class="sort-section">
             <h3 class="controls-title">Sort by</h3>
-            <select class="sort-select">
-                <option value="featured">Featured</option>
-                <option value="name">Name A-Z</option>
-                <option value="name">Name Z-A</option>
+            <select name="sort" class="sort-select" onchange="this.form.submit()">
+                <option value="featured" {% if current_sort==
+                'featured' %}selected{% endif %}>Featured</option>
+                <option value="name_asc" {% if current_sort==
+                'name_asc' %}selected{% endif %}>Name A-Z</option>
+                <option value="name_desc" {% if current_sort==
+                'name_desc' %}selected{% endif %}>Name Z-A</option>
             </select>
         </div>
+        </form>
     </div>
 
     <div class="products-grid">
