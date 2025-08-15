@@ -16,10 +16,10 @@
     <!-- Tabs Navigation -->
     <div class="tabs-container">
         <div class="tabs-list">
-            <a href="{% url 'users:profile' %}" class="tab-trigger {% if not edit_mode %}active{% endif %}">
+            <button class="tab-trigger" onclick="showTab('profile')">
                 <i class='bx bx-user'></i>
                 Profile
-            </a>
+            </button>
             <button class="tab-trigger" onclick="showTab('orders')">
                 <i class='bx bx-package'></i>
                 Order History

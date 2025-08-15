@@ -2,36 +2,33 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+from django.views.generic import FormView
 
 from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserUpdateForm
 from .models import CustomUser
 
 
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('users:profile')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'users/register.html', {'form': form})
+class Register(FormView):
+    form_class = CustomUserCreationForm
+    template_name = 'users/register.html'
+    success_url = reverse_lazy("users:profile")
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return super().form_valid(form)
 
 
-def login_view(request):
-    if request.method == 'POST':
-        form = CustomUserLoginForm(request=request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('users:profile')
-        else:
-            messages.error(request, 'Ошибка входа в систему')
-            print("Form errors:", form.errors)  # Для отладки
-    else:
-        form = CustomUserLoginForm()
-    return render(request, 'users/login.html', {'form': form})
+class Login(FormView):
+    form_class = CustomUserLoginForm
+    template_name = 'users/login.html'
+    success_url = reverse_lazy("users:profile")
+
+    def form_valid(self, form):
+        user = form.get_user()
+        login(self.request, user)
+        return super().form_valid(form)
 
 
 @login_required

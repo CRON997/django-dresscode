@@ -1,3 +1,5 @@
+from zoneinfo import available_timezones
+
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
@@ -12,26 +14,35 @@ class CatalogView(ListView):
     context_object_name = 'products'
 
     def get_queryset(self):
-        products = Product.available_products.all().select_related('category')
+        products = Product.available_products.filter(available=True).select_related('category')
         category_slug = self.kwargs.get('category_slug')
         sort_option = self.request.GET.get('sort', 'name')
+        min_price = self.request.GET.get('min_price')
+        max_price = self.request.GET.get('max_price')
 
         if sort_option == 'name_desc':
-            products = Product.objects.all().order_by('-name').select_related('category')
+            products = Product.objects.all().order_by('-name').select_related('category').values('name', 'price',
+                                                                                                 'image')
         elif sort_option == 'price_asc':
-            products = Product.objects.all().order_by('price').select_related('category')
+            products = Product.objects.all().order_by('price').select_related('category').values('name', 'price',
+                                                                                                 'image')
         elif sort_option == 'price_desc':
-            products = Product.objects.all().order_by('-price').select_related('category')
+            products = Product.objects.all().order_by('-price').select_related('category').values('name', 'price',
+                                                                                                  'image')
+
+        if min_price and max_price:
+            products = Product.objects.filter(price__lte=max_price, price__gte=min_price).values('name', 'price',
+                                                                                                 'image')
 
         if category_slug:
             category = get_object_or_404(Category, slug=category_slug)
-            products = products.filter(category=category)
+            products = products.filter(category=category).values('name', 'price', 'image')
 
         return products
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.all().values('name')
         context['current_sort'] = self.request.GET.get('sort', 'featured')
         return context
 

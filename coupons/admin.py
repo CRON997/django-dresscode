@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from users.views import register
 from .models import Coupon
 
 
