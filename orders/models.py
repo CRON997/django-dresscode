@@ -39,6 +39,9 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField()
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
 
+    def get_total_price(self):
+        return self.price * self.quantity
+
     def __str__(self):
         return str(self.product.name)
 

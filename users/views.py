@@ -43,7 +43,6 @@ def profile_view(request):
     return render(request, 'users/profile.html', {
         'user': request.user,
         'edit_mode': False,
-        'current_tab': 'profile',
     })
 
 

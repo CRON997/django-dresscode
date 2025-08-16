@@ -33,7 +33,7 @@
                 <div class="profile-header">
                     <div class="profile-info">
                         <div class="avatar">
-                            <img src="/placeholder.svg?height=64&width=64" alt="Profile" class="avatar-image">
+                            <img src="{%static 'users/images/default_ava.png' %}" alt="Profile" class="avatar-image">
                             <div class="avatar-fallback">{{ user.first_name|first }}{{ user.last_name|first }}</div>
                         </div>
                         <div class="profile-text">
@@ -234,13 +234,13 @@
 
                 <div class="orders-list">
                     {%for order in orders%}
-                    <a href="{%url 'orders:order_detail' order.id %}">
+                    <a href="{%url 'orders:order_detail' order.id %}" style="all: unset; cursor: pointer;">
                         <div class="order-item">
                         <div class="order-main">
                             <div class="order-info">
                                 <div class="order-header-row">
                                     <span class="order-id">#{{order.id}}</span>
-                                    <span class="order-status {%if status == 'delivered'%}delivered{%else%}pending{%endif%} processing">{{order.status}}</span>
+                                    <span class="order-status {%if status == 'delivered'%}delivered{%elif status == 'shipping'%}pending{%endif%}processing">{{order.status}}</span>
                                 </div>
                                 <!--                                <h4 class="order-product"></h4>-->
                                 <p class="order-date">{{order.created_at}}</p>
