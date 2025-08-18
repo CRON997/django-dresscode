@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Чек № {{ order.order_number }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        @page {
+            margin: 2cm;
+            background-color: #faf5ee;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #faf5ee;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .receipt-wrapper {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1d503a;
+        }
+
+        .success-icon {
+            background-color: #1d503a;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .success-icon::before {
+            content: '✓';
+            font-size: 30px;
+            color: #faf5ee;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin: 10px 0;
+            color: #1d503a;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #faf5ee;
+            background-color: #1d503a;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .company-info, .order-info {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1d503a;
+        }
+
+        .company-info h3, .order-info h3 {
+            margin: 0 0 15px 0;
+            color: #1d503a;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row:hover {
+            background-color: rgba(29, 80, 58, 0.05);
+            border-radius: 4px;
+            margin: 0 -8px;
+            padding: 8px;
+        }
+
+        .label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            min-width: 150px;
+        }
+
+        .value {
+            font-size: 14px;
+            color: #1d503a;
+            font-weight: 600;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .items-table th {
+            background-color: #1d503a;
+            color: #faf5ee;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .items-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        .items-table tr:nth-child(even) {
+            background-color: #faf5ee;
+        }
+
+        .items-table tr:hover {
+            background-color: rgba(29, 80, 58, 0.05);
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        .totals-section {
+            float: right;
+            width: 350px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #1d503a;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        .total-row:last-child {
+            border-bottom: none;
+        }
+
+        .total-row.final {
+            font-size: 18px;
+            font-weight: 600;
+            background-color: #1d503a;
+            color: #faf5ee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .footer {
+            clear: both;
+            margin-top: 40px;
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-top: 1px solid #e9ecef;
+            background-color: #faf5ee;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        .footer h3 {
+            color: #1d503a;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer .print-date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(29, 80, 58, 0.03);
+            z-index: -1;
+            pointer-events: none;
+            font-weight: 600;
+        }
+
+        /* Адаптивность для печати */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .receipt-wrapper {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .watermark {
+                color: rgba(29, 80, 58, 0.08);
+            }
+        }
+
+        /* Мобильная адаптивность */
+        @media (max-width: 768px) {
+            .receipt-wrapper {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .success-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .success-icon::before {
+                font-size: 25px;
+            }
+
+            .company-info, .order-info {
+                padding: 15px;
+            }
+
+            .totals-section {
+                width: 100%;
+                float: none;
+                margin-top: 20px;
+            }
+
+            .items-table th,
+            .items-table td {
+                padding: 10px 8px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .receipt-wrapper {
+                padding: 20px 15px;
+                margin: 5px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .company-info, .order-info {
+                padding: 12px;
+            }
+
+            .items-table {
+                font-size: 12px;
+            }
+
+            .items-table th,
+            .items-table td {
+                padding: 8px 6px;
+                font-size: 12px;
+            }
+
+            .label, .value {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="watermark">ОПЛАЧЕНО</div>
+
+<div class="receipt-wrapper">
+    <div class="header">
+        <div class="success-icon"></div>
+        <h1>ЧЕК № {{ order.id }}</h1>
+        <span class="badge">{{order.status}}</span>
+    </div>
+
+    <div class="company-info">
+        <h3>Информация о продавце</h3>
+        <div class="info-row">
+            <span class="info-label">Название:</span>
+            <span>{{ company_name }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Адрес:</span>
+            <span>{{ company_address }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">ИНН:</span>
+            <span>1234567890</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Телефон:</span>
+            <span>{{ company_phone }}</span>
+        </div>
+    </div>
+
+    <div class="order-info">
+        <h3>Информация о заказе</h3>
+        <div class="info-row">
+            <span class="info-label">Дата заказа:</span>
+            <span>{{ order.created_at|date:"d.m.Y H:i" }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Дата оплаты:</span>
+            <span>{{ order.paid_at|date:"d.m.Y H:i" }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Клиент:</span>
+            <span>{{ order.first_name}}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Email:</span>
+            <span>{{ order.email }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Телефон:</span>
+            <span>{{ order.phone }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Способ оплаты:</span>
+            <span>{{ order.get_payment_method_display }}</span>
+        </div>
+    </div>
+
+    <table class="items-table">
+        <thead>
+        <tr>
+            <th>Товар</th>
+            <th class="text-center">Артикул</th>
+            <th class="text-center">Количество</th>
+            <th class="text-right">Цена за единицу</th>
+            <th class="text-right">Сумма</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in order.items.all %}
+        <tr>
+            <td>{{ item.product }}</td>
+            <td class="text-center">{{ item.product_sku }}</td>
+            <td class="text-center">{{ item.quantity }}</td>
+            <td class="text-right">${{ item.price|floatformat:2 }}</td>
+            <td class="text-right">{{ item.total_price|floatformat:2 }} ₽</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="clearfix">
+        <div class="totals-section">
+            <div class="total-row">
+                <span>Подытог:</span>
+                <span>{{ order.subtotal|floatformat:2 }} ₽</span>
+            </div>
+            <div class="total-row">
+                <span>Доставка:</span>
+                <span>{{ order.shipping_cost|floatformat:2 }} ₽</span>
+            </div>
+            {% if order.discount_amount > 0 %}
+            <div class="total-row">
+                <span>Скидка:</span>
+                <span>-{{ order.discount_amount|floatformat:2 }} ₽</span>
+            </div>
+            {% endif %}
+            {% if order.tax_amount > 0 %}
+            <div class="total-row">
+                <span>Налог:</span>
+                <span>{{ order.tax_amount|floatformat:2 }} ₽</span>
+            </div>
+            {% endif %}
+            <div class="total-row final">
+                <span>ИТОГО:</span>
+                <span>{{ order.total_price|floatformat:2 }} ₽</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>Спасибо за покупку!</h3>
+        <p>Этот документ является подтверждением оплаты</p>
+        <p class="print-date">Дата печати: {% now "d.m.Y H:i" %}</p>
+        <p style="font-size: 12px; color: #999; margin-top: 15px;">
+            Документ создан автоматически и не требует подписи
+        </p>
+    </div>
+
+</div> <!-- receipt-wrapper -->
+</body>
+</html>

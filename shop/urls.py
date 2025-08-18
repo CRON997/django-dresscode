@@ -8,12 +8,12 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path(_('cart/'), include('cart.urls', namespace='cart')),
-    path('', include('main.urls', namespace='main')),
-    path('user/', include('users.urls', namespace='users')),
-    path('comments/', include('comments.urls', namespace='comments')),
-    path('orders/', include('orders.urls', namespace='orders')),
-    path('coupons/', include('coupons.urls', namespace='coupons')),
+    path(_('cart/'), include('apps.cart.urls', namespace='cart')),
+    path('', include('apps.main.urls', namespace='main')),
+    path('user/', include('apps.users.urls', namespace='users')),
+    path('comments/', include('apps.comments.urls', namespace='comments')),
+    path('orders/', include('apps.orders.urls', namespace='orders')),
+    path('coupons/', include('apps.coupons.urls', namespace='coupons')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
 ) + debug_toolbar_urls()

@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 
-from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL, EMAIL_HOST_PASSWORD
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
@@ -42,12 +41,12 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'main',
-    'cart',
-    'users',
-    'comments',
-    'orders',
-    'coupons',
+    'apps.main',
+    'apps.cart',
+    'apps.users',
+    'apps.comments',
+    'apps.orders',
+    'apps.coupons',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -89,7 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processors.cart'
+                'apps.cart.context_processors.cart'
             ],
         },
     },

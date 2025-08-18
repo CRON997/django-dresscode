@@ -1,0 +1,133 @@
+{%extends 'main/base.html'%}
+{%load static%}
+
+{%block link%}
+<link type="text/css" href="{% static 'orders/css/order_detail.css' %}" rel="stylesheet">
+{%endblock%}
+
+
+{%block header%}
+{%endblock%}
+
+
+{%block content%}
+<body>
+<div class="container">
+    <div class="wrapper">
+        <!-- Order Header -->
+        <div class="order-header">
+            <div class="order-title">
+                <h1>Order Details</h1>
+                <div class="order-number">#{{order.id}}</div>
+            </div>
+            <div class="order-status delivered">
+                <i class='bx bx-check-circle'></i>
+                <span>{{order.status}}</span>
+            </div>
+        </div>
+
+        <!-- Order Info -->
+        <div class="order-info">
+            <div class="info-row">
+                <span class="label">Order Date:</span>
+                <span class="value">{{order.created_at}}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Delivery Date:</span>
+                <span class="value">----</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Payment Method:</span>
+                <span class="value">Credit Card ****4242</span>
+            </div>
+        </div>
+
+        <!-- Order Items -->
+        <div class="order-items">
+            <h2>Order Items</h2>
+            {%for item in order.items.all%}
+            <div class="item">
+                <div class="item-image">
+                    <img src="{{item.product.image.url}}" alt="">
+                </div>
+                <div class="item-details">
+                    <h3>{{item.product}}</h3>
+                    <p class="item-description">{{item.description}}</p>
+                    <div class="item-specs">
+                        <span class="spec">Size: {{item.size}}</span>
+                        <!--                        <span class="spec">Color: Blue</span>-->
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <span class="quantity-label">Qty:</span>
+                    <span class="quantity-value">{{item.quantity}}</span>
+                </div>
+                <div class="item-price">
+                    <div class="unit-price">$85.00 each</div>
+                    <div class="total-price">${{item.price}}</div>
+                </div>
+            </div>
+            {%endfor%}
+
+
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span class="summary-label">Subtotal:</span>
+                <span class="summary-value">${{order.total_price}}</span>
+            </div>
+            <!--            <div class="summary-row">-->
+            <!--                <span class="summary-label">Shipping:</span>-->
+            <!--                <span class="summary-value">$15.00</span>-->
+            <!--            </div>-->
+            <!--            <div class="summary-row">-->
+            <!--                <span class="summary-label">Tax:</span>-->
+            <!--                <span class="summary-value">$18.72</span>-->
+            <!--            </div>-->
+            <div class="summary-row discount">
+                <span class="summary-label">Discount (SAVE10):</span>
+                <span class="summary-value">-$00.00</span>
+            </div>
+            <div class="summary-row total">
+                <span class="summary-label">Total:</span>
+                <span class="summary-value">${{order.total_price}}</span>
+            </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="shipping-info">
+            <h2>Shipping Address</h2>
+            <div class="address">
+                <p><strong>{{order.first_name}} {{order.last_name}}</strong></p>
+                <p>{{order.address1}}</p>
+                <p>New York, NY 10001</p>
+                <p>United States</p>
+                <p>Phone: {{order.phone}}</p>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn secondary" onclick="window.history.back()">
+                <i class='bx bx-arrow-back'></i>
+                Back to Orders
+            </button>
+            <button class="btn primary" onclick="window.print()">
+                <i class='bx bx-printer'></i>
+                Print Order
+            </button>
+            <button class="btn secondary">
+                <i class='bx bx-support'></i>
+                Contact Support
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+{%endblock%}
+
+{%block footer%}
+{%endblock%}
