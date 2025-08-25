@@ -20,8 +20,9 @@ order_pdf.short_description = 'Invoice'
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'email', 'status', 'created_at', 'updated_at', 'total_price', order_pdf)
+    list_display = ('id', 'user', 'email', 'status', 'created_at', 'updated_at', 'total_price', 'order_number',
+                    order_pdf)
     list_filter = ('status', 'first_name', "last_name")
-    search_fields = ('email', 'first_name', "last_name")
-    readonly_fields = ('created_at', 'updated_at', 'total_price')
+    search_fields = ('email', 'first_name', "last_name", 'order_number')
+    readonly_fields = ('created_at', 'updated_at', 'total_price', 'order_number')
     inlines = [OrderItemInline]

@@ -1,5 +1,4 @@
 from decimal import Decimal
-
 from apps.main.models import Product
 from shop import settings
 from apps.coupons.models import Coupon
@@ -14,25 +13,22 @@ class Cart:
         self.cart = cart
         self.coupon_id = self.session.get('coupon_id')
 
-    def add(self, product, size, quantity=1, override_quantity=False):
+    def add(self, product, size=None, quantity=1):
         product_id = str(product.id)
-        size_name = str(size)
 
-        cart_key = f"{product_id}_{size.id}"
+        # Fix: Consistent key generation using size.id
+        cart_key = f"{product_id}_{size.id}" if size else product_id
 
         if cart_key not in self.cart:
             self.cart[cart_key] = {
                 'product_id': product.id,
                 'quantity': 0,
                 'price': float(product.price),
-                'size': size_name
+                'size_id': size.id if size else None,  # Store size_id instead of size name
+                'size_name': size.name if size else None,  # Store size name separately
             }
 
-        if override_quantity:
-            self.cart[cart_key]['quantity'] = quantity
-        else:
-            self.cart[cart_key]['quantity'] += quantity
-
+        self.cart[cart_key]['quantity'] += quantity
         self.save()
 
     def save(self):
@@ -40,8 +36,9 @@ class Cart:
 
     def remove(self, product, size):
         product_id = str(product.id)
-        size_name = str(size)
-        cart_key = f"{product_id}_{size.id}"
+
+        # Fix: Use size.id for consistent key generation
+        cart_key = f"{product_id}_{size.id}" if size else product_id
 
         if cart_key in self.cart:
             del self.cart[cart_key]
@@ -60,14 +57,31 @@ class Cart:
     def __iter__(self):
         product_ids = [item['product_id'] for item in self.cart.values()]
         products = Product.objects.filter(id__in=product_ids)
-        cart = self.cart.copy()
+        products_dict = {product.id: product for product in products}
 
-        for product in products:
-            for cart_key, cart_item in cart.items():
-                if cart_item['product_id'] == str(product.id):
-                    cart_item['product'] = product
-                    cart_item['total_price'] = Decimal(cart_item['price']) * cart_item['quantity']
-                    yield cart_item
+        # Get all unique size IDs from cart items
+        size_ids = [item['size_id'] for item in self.cart.values() if item.get('size_id')]
+        sizes = {}
+        if size_ids:
+            from apps.main.models import Size
+            size_objects = Size.objects.filter(id__in=size_ids)
+            sizes = {size.id: size for size in size_objects}
+
+        for cart_key, cart_item in self.cart.items():
+            product_id = cart_item['product_id']
+
+            if product_id in products_dict:
+                cart_item = cart_item.copy()
+                cart_item['product'] = products_dict[product_id]
+                cart_item['total_price'] = Decimal(str(cart_item['price'])) * cart_item['quantity']
+                cart_item['cart_key'] = cart_key
+
+                # Add size object if exists
+                size_id = cart_item.get('size_id')
+                if size_id and size_id in sizes:
+                    cart_item['size'] = sizes[size_id]
+
+                yield cart_item
 
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
@@ -79,11 +93,11 @@ class Cart:
                 return Coupon.objects.get(id=self.coupon_id)
             except Coupon.DoesNotExist:
                 pass
-            return None
+        return None
 
     def get_discount(self):
         if self.coupon:
-            return (Decimal(self.coupon.discount / Decimal(100)) * Decimal(self.get_total_price()))
+            return (Decimal(self.coupon.discount) / Decimal(100)) * Decimal(self.get_total_price())
         return Decimal(0)
 
     def get_total_price_after_discount(self):

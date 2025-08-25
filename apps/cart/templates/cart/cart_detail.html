@@ -24,7 +24,7 @@
                 <div class="cart-info">
                     <img src="{{item.product.image.url}}" alt="{{item.product.name}}">
                     <div>
-                        <small>{{item.product.name}} (Size:{{item.size.name}})</small>
+                        <small>{{item.product.name}} (Size:{{item.size_name}})</small>
                     </div>
                 </div>
             </td>
@@ -60,7 +60,7 @@
                     <input type="hidden" name="size_id" value="{{ item.size.id }}">
                     {% endif %}
                     <input type="hidden" name="remove_all" value="true">
-                    <button class="remove-btn" data-item="3" aria-label="Remove Air Jordan 1 Low OG 'Obsidian'"><i
+                    <button class="remove-btn" data-item="3" aria-label=""><i
                             class='bx bx-trash'></i></button>
                 </form>
             </td>

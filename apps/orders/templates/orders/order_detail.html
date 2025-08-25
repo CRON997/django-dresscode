@@ -18,7 +18,7 @@
         <div class="order-header">
             <div class="order-title">
                 <h1>Order Details</h1>
-                <div class="order-number">#{{order.id}}</div>
+                <div class="order-number">#{{order.order_number}}</div>
             </div>
             <div class="order-status delivered">
                 <i class='bx bx-check-circle'></i>
@@ -87,10 +87,12 @@
             <!--                <span class="summary-label">Tax:</span>-->
             <!--                <span class="summary-value">$18.72</span>-->
             <!--            </div>-->
+            {%if order.coupon%}
             <div class="summary-row discount">
-                <span class="summary-label">Discount (SAVE10):</span>
+                <span class="summary-label">Discount ({{order.coupon}}):</span>
                 <span class="summary-value">-$00.00</span>
             </div>
+            {%endif%}
             <div class="summary-row total">
                 <span class="summary-label">Total:</span>
                 <span class="summary-value">${{order.total_price}}</span>
@@ -103,8 +105,8 @@
             <div class="address">
                 <p><strong>{{order.first_name}} {{order.last_name}}</strong></p>
                 <p>{{order.address1}}</p>
-                <p>New York, NY 10001</p>
-                <p>United States</p>
+                <p>{{order.city}}</p>
+                <p>{{order.country}}</p>
                 <p>Phone: {{order.phone}}</p>
             </div>
         </div>

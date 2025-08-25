@@ -20,12 +20,6 @@ class CatalogView(ListView):
         in_stock = self.request.GET.get('stock')
         brands = self.request.GET.getlist('brands')
 
-        print(sort_option)
-        print(min_price)
-        print(max_price)
-        print(in_stock)
-        print(brands)
-
         if sort_option == 'name_desc':
             products = Product.objects.all().order_by('-name').select_related('category')
         elif sort_option == 'price_asc':
@@ -54,11 +48,6 @@ class CatalogView(ListView):
         context['current_sort'] = self.request.GET.get('sort', 'featured')
         context['brands'] = Brand.objects.all()
         return context
-
-    # def get_template_names(self):
-    #     if self.request.htmx:
-    #         return ['product_list_partial.html']
-    #     return ['catalog.html']
 
 
 class Search(ListView):

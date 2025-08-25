@@ -7,13 +7,17 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 
 from apps.orders.models import Order
+import logging
+
+logger = logging.getLogger(__name__)
 
 
+@shared_task
 def payment_completed(order_id):
     try:
         order = get_object_or_404(Order, id=order_id)
 
-        subject = f'Dresscode shop - Invoice no {order.id}'
+        subject = f'Dresscode shop - Invoice no {order.order_number}'
         message = 'Please find your order invoice attached.'
         email = EmailMessage(
             subject,
@@ -27,14 +31,14 @@ def payment_completed(order_id):
         weasyprint.HTML(string=html).write_pdf(out)
 
         email.attach(
-            f'order_{order.id}.pdf',
+            f'order_{order.order_number}.pdf',
             out.getvalue(),
             'application/pdf'
         )
 
         email.send()
 
-        return True, f"Invoice sent successfully for order {order.id}"
+        return True, f"Invoice sent successfully for order {order.order_number}"
 
     except Exception as e:
         return False, f"Error sending invoice: {str(e)}"
