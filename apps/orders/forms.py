@@ -4,18 +4,13 @@ from django import forms
 from .models import Order
 
 CITY_CHOICE = [
-    ('kyiv', 'Kyiv'),
-    ('kharkiv', 'Kharkiv'),
-    ('lviv', 'Lviv')
+    ('Kyiv', 'Kyiv'),
+    ('Kharkiv', 'Kharkiv'),
+    ('Lviv', 'Lviv'),
 ]
 
 COUNTRY_PHONE_CODE_CHOICE = [
-    ('+380', 'Ukraine')
-]
-
-COUNTRY_CHOICE = [
-    ('ukraine', 'Ukraine'),
-    ('poland', 'Poland'),
+    ('+380', '+380')
 ]
 
 
@@ -40,9 +35,6 @@ class OrderCreateForm(forms.ModelForm):
     postal_code = forms.CharField(max_length=10, widget=forms.TextInput(attrs={
         'class': 'form-input', "placeholder": 'Postal code',
     }))
-
-    # country = forms.ChoiceField(choices=COUNTRY_CHOICE,
-    #                             widget=forms.Select(attrs={'class': 'form-input', "placeholder": 'Country'}))
 
     class Meta:
         model = Order

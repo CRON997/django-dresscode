@@ -14,7 +14,6 @@
 <body>
 <div class="container">
     <div class="wrapper">
-        <!-- Order Header -->
         <div class="order-header">
             <div class="order-title">
                 <h1>Order Details</h1>
@@ -63,7 +62,7 @@
                     <span class="quantity-value">{{item.quantity}}</span>
                 </div>
                 <div class="item-price">
-                    <div class="unit-price">$85.00 each</div>
+                    <div class="unit-price">${{item.product.price}} each</div>
                     <div class="total-price">${{item.price}}</div>
                 </div>
             </div>

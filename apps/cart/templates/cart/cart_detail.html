@@ -1,94 +1,337 @@
 {%extends "main/base.html" %}
 {%load static%}
+
 {%block link%}
 <link type="text/css" href="{% static 'cart/css/cart.css' %}" rel="stylesheet">
 {%endblock%}
 
-{%block title%}Cart{%endblock%}
+{%block title%}Shopping Cart{%endblock%}
 
 {%block content%}
-<div class="small-container cart-page">
-    <table class="cart-table">
-        <thead>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {%for item in cart%}
-        <tr class="cart-item">
-            <td>
-                <div class="cart-info">
-                    <img src="{{item.product.image.url}}" alt="{{item.product.name}}">
-                    <div>
-                        <small>{{item.product.name}} (Size:{{item.size_name}})</small>
+<div class="cart-container">
+    <h1 class="cart-title">Shopping Cart</h1>
+
+    <div class="small-container cart-page">
+        {% if cart %}
+        <div class="cart-wrapper">
+            <!-- Main Cart Table -->
+            <div class="cart-table-wrapper">
+                <table class="cart-table">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in cart %}
+                    <tr class="cart-item" data-product-id="{{item.product.id}}">
+                        <td>
+                            <div class="cart-info">
+                                <img src="{{item.product.image.url}}"
+                                     alt="{{item.product.name}}"
+                                     class="product-image"
+                                     loading="lazy">
+                                <div class="product-details">
+                                    <h4>{{item.product.name}}</h4>
+                                    <small>Size: {{item.size_name}}</small>
+                                    {% if item.product.brand %}
+                                    <small>Brand: {{item.product.brand}}</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="quantity-controls">
+                                <form action="{% url 'cart:cart_remove_one_quan' item.product.id %}"
+                                      method="post"
+                                      style="display: inline;">
+                                    {% csrf_token %}
+                                    {% if item.size %}
+                                    <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                                    {% endif %}
+                                    <button type="submit"
+                                            class="qty-btn minus-btn"
+                                            aria-label="Decrease quantity"
+                                            {% if item.quantity
+                                    <= 1 %}disabled{% endif %}>
+                                    <i class="bx bx-minus"></i>
+                                    </button>
+                                </form>
+
+                                <span class="quantity" id="qty-{{item.product.id}}">{{item.quantity}}</span>
+
+                                <form action="{% url 'cart:cart_add' item.product.id %}"
+                                      method="post"
+                                      style="display: inline;">
+                                    {% csrf_token %}
+                                    {% if item.size %}
+                                    <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                                    {% endif %}
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="override" value="false">
+                                    <button type="submit"
+                                            class="qty-btn plus-btn"
+                                            aria-label="Increase quantity">
+                                        <i class="bx bx-plus"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        <td class="product-price" id="subtotal-{{item.product.id}}">
+                            ${{item.total_price|floatformat:2}}
+                        </td>
+                        <td>
+                            <form action="{% url 'cart:cart_remove' item.product.id %}"
+                                  method="post"
+                                  style="display: inline;">
+                                {% csrf_token %}
+                                {% if item.size %}
+                                <input type="hidden" name="size_id" value="{{ item.size.id }}">
+                                {% endif %}
+                                <input type="hidden" name="remove_all" value="true">
+                                <button type="submit"
+                                        class="remove-btn"
+                                        aria-label="Remove {{item.product.name}} from cart"
+                                        onclick="return confirm('Are you sure you want to remove this item?')">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total Price Sidebar -->
+            <div class="total-price">
+                <h3>Order Summary</h3>
+
+                <!-- Coupon Section -->
+                <div class="coupon-section">
+                    <h4><i class="bx bx-gift"></i> Promo Code</h4>
+                    <form class="coupon-form" method="post" action="">
+                        {% csrf_token %}
+                        <input type="text"
+                               class="coupon-input"
+                               name="coupon_code"
+                               placeholder="Enter promo code"
+                               maxlength="50">
+                        <button type="submit" class="apply-coupon-btn">Apply</button>
+                    </form>
+                </div>
+
+                <!-- Price Breakdown -->
+                <table>
+                    <tr>
+                        <td>Subtotal ({{cart|length}} item{{cart|length|pluralize}})</td>
+                        <td id="subtotal-amount">${{cart.get_subtotal|floatformat:2}}</td>
+                    </tr>
+                    {% if cart.discount %}
+                    <tr>
+                        <td>Discount</td>
+                        <td class="discount-amount">-${{cart.discount|floatformat:2}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if cart.shipping_cost %}
+                    <tr>
+                        <td>Shipping</td>
+                        <td>${{cart.shipping_cost|floatformat:2}}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>Shipping</td>
+                        <td class="free-shipping">Free</td>
+                    </tr>
+                    {% endif %}
+                    {% if cart.tax %}
+                    <tr>
+                        <td>Tax</td>
+                        <td>${{cart.tax|floatformat:2}}</td>
+                    </tr>
+                    {% endif %}
+                    <tr class="final-total">
+                        <td><strong>Total</strong></td>
+                        <td id="total-price"><strong>${{cart.get_total_price|floatformat:2}}</strong></td>
+                    </tr>
+                </table>
+
+                <!-- Security & Trust Badges -->
+                <div class="security-badges">
+                    <div class="badge">
+                        <i class="bx bx-shield-check"></i>
+                        <span>Secure Checkout</span>
+                    </div>
+                    <div class="badge">
+                        <i class="bx bx-package"></i>
+                        <span>Free Returns</span>
                     </div>
                 </div>
-            </td>
-            <td>
-                <div class="quantity-controls">
-                    <form action="{% url 'cart:cart_remove_one_quan' item.product.id %}" method="post"
-                          style="display: inline;">
-                        {% csrf_token %}
-                        {% if item.size %}
-                        <input type="hidden" name="size_id" value="{{ item.size.id }}">
-                        {% endif %}
-                        <button type="submit" class="qty-btn minus-btn" aria-label="Decrease quantity">-</button>
-                    </form>
 
-                    <span class="quantity">{{item.quantity}}</span>
+                <!-- Checkout Button -->
+                <a href="{%url 'orders:order_create'%}" style="all: unset; cursor: pointer;">
+                    <button class="checkout-btn" aria-label="Proceed to Checkout">
+                        <i class="bx bx-credit-card"></i>
+                        <span>Proceed to Checkout</span>
+                    </button>
+                </a>
 
-                    <form action="{% url 'cart:cart_add' item.product.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        {% if item.size %}
-                        <input type="hidden" name="size_id" value="{{ item.size.id }}">
-                        {% endif %}
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="override" value="false">
-                        <button type="submit" class="qty-btn plus-btn" aria-label="Increase quantity">+</button>
-                    </form>
+                <!-- Continue Shopping Link -->
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="" class="continue-shopping-link">
+                        <i class="bx bx-arrow-back"></i>
+                        Continue Shopping
+                    </a>
                 </div>
-            </td>
-            <td id="subtotal-{{item.product.id}}">${{item.total_price}}</td>
-            <td>
-                <form action="{% url 'cart:cart_remove' item.product.id %}" method="post" style="display: inline;">
-                    {% csrf_token %}
-                    {% if item.size %}
-                    <input type="hidden" name="size_id" value="{{ item.size.id }}">
-                    {% endif %}
-                    <input type="hidden" name="remove_all" value="true">
-                    <button class="remove-btn" data-item="3" aria-label=""><i
-                            class='bx bx-trash'></i></button>
-                </form>
-            </td>
-        </tr>
-        {%empty%}
-        <tr>
-            <td colspan="4" style="text-align: center;">
-                Basket is empty
-            </td>
-        </tr>
-        {%endfor%}
-        </tbody>
-    </table>
+            </div>
+        </div>
 
-    {%if cart%}
-    <div class="total-price">
-        <table>
-            <tr>
-                <td>Total</td>
-                <td id="total-price">${{cart.get_total_price}}</td>
-            </tr>
-        </table>
-        <a href="{%url 'orders:order_create'%}" style="all: unset; cursor: pointer;">
-            <button class="checkout-btn" aria-label="Proceed to Checkout">Checkout</button>
-        </a>
+        <!-- Cart Actions -->
+        <div class="cart-actions">
+            <form method="post" action="" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit"
+                        class="clear-cart-btn"
+                        onclick="return confirm('Are you sure you want to clear your entire cart?')">
+                    <i class="bx bx-trash-alt"></i>
+                    Clear Cart
+                </button>
+            </form>
+
+            <button type="button" class="save-for-later-btn">
+                <i class="bx bx-heart"></i>
+                Save for Later
+            </button>
+        </div>
+
+        {% else %}
+        <!-- Empty Cart State -->
+        <div class="empty-cart">
+            <div class="empty-cart-icon">
+                <i class="bx bx-cart"></i>
+            </div>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added anything to your cart yet.</p>
+            <a href="" class="continue-shopping-btn">
+                <i class="bx bx-shopping-bag"></i>
+                Start Shopping
+            </a>
+        </div>
+        {% endif %}
     </div>
-    {%endif%}
+
+    <!-- Recently Viewed Products (Optional) -->
+    {% if recently_viewed %}
+    <div class="recently-viewed">
+        <h3>Recently Viewed</h3>
+        <div class="products-grid">
+            {% for product in recently_viewed %}
+            <div class="product-card">
+                <a href="{% url 'products:product_detail' product.slug %}">
+                    <img src="{{product.image.url}}" alt="{{product.name}}">
+                    <h4>{{product.name}}</h4>
+                    <p class="price">${{product.price}}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Loading Overlay -->
+
 </div>
+
+<!-- Toast Messages -->
+{% if messages %}
+<div class="toast-container">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}" id="message-{{ forloop.counter }}">
+        {% if message.tags == 'success' %}
+        <i class="bx bx-check-circle"></i>
+        {% elif message.tags == 'error' %}
+        <i class="bx bx-error-circle"></i>
+        {% elif message.tags == 'warning' %}
+        <i class="bx bx-error"></i>
+        {% else %}
+        <i class="bx bx-info-circle"></i>
+        {% endif %}
+        <span>{{ message }}</span>
+        <button onclick="this.parentElement.remove()" class="close-message">
+            <i class="bx bx-x"></i>
+        </button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script>
+    // Enhanced cart functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show loading overlay for form submissions
+        const forms = document.querySelectorAll('.cart-item form');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        forms.forEach(form => {
+            form.addEventListener('submit', function() {
+                if (loadingOverlay) {
+                    loadingOverlay.style.display = 'flex';
+                }
+            });
+        });
+
+        // Auto-hide messages
+        const messages = document.querySelectorAll('.message');
+        messages.forEach(message => {
+            setTimeout(() => {
+                message.style.opacity = '0';
+                setTimeout(() => {
+                    message.remove();
+                }, 300);
+            }, 5000);
+        });
+
+        // Quantity input validation
+        const quantityInputs = document.querySelectorAll('input[type="number"]');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value < 1) {
+                    this.value = 1;
+                }
+                if (this.value > 99) {
+                    this.value = 99;
+                }
+            });
+        });
+
+        // Smooth scroll to top after cart update
+        if (window.location.hash === '#cart-updated') {
+            document.querySelector('.cart-title').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    // CSRF token for AJAX requests
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
 {%endblock%}
 
 {%block footer%}{%endblock%}

@@ -88,7 +88,7 @@ def order_create(request):
                     metadata={'order_id': order.id}  # Add order ID to metadata
                 )
 
-                payment_completed(order.id)  # Use .delay() if it's a Celery task
+                payment_completed(order.id)
 
                 return redirect(session.url, code=303)
 
@@ -109,7 +109,6 @@ def order_create(request):
         else:
             messages.error(request, 'Please correct the errors below.')
 
-    # GET request or form validation failed
     form = OrderCreateForm(initial={
         'first_name': getattr(request.user, 'first_name', ''),
         'last_name': getattr(request.user, 'last_name', ''),
@@ -136,8 +135,8 @@ def order_success(request):
     return render(request, 'orders/order_success.html')
 
 
-def order_detail(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
+def order_detail(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
     return render(request, 'orders/order_detail.html', {'order': order})
 
 
@@ -145,7 +144,7 @@ def order_detail(request, order_id):
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     html = render_to_string('orders/pdf.html', {'order': order})
-    response = HttpResponse(content_type='application/pdf')  # Fixed typo: was 'applications/pdf'
-    response['Content-Disposition'] = f'attachment; filename=order_{order.id}.pdf'  # Fixed format
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename=order_{order.id}.pdf'
     weasyprint.HTML(string=html).write_pdf(response)
     return response

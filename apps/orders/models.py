@@ -2,6 +2,7 @@ import uuid
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 from apps.main.models import Product, Size
 
@@ -48,6 +49,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Order:{self.id}'
+
+    def get_absolute_url(self):
+        return reverse('orders:order_detail', args=[self.order_number])
 
 
 class OrderItem(models.Model):
