@@ -18,15 +18,21 @@ INTERNAL_IPS = [
 
 DOMAIN_MAIN = 'http://localhost:8000/'
 
-DJANGO_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-]
+DJANGO_APPS = ['unfold',
+               'unfold.contrib.filters',
+               'unfold.contrib.forms',
+               'unfold.contrib.inlines',
+               'unfold.contrib.import_export',
+               'unfold.contrib.guardian',
+               'unfold.contrib.simple_history',
+               'django.contrib.admin',
+               'django.contrib.auth',
+               'django.contrib.contenttypes',
+               'django.contrib.sessions',
+               'django.contrib.messages',
+               'django.contrib.staticfiles',
+               'django.contrib.sites',
+               ]
 
 THIRD_PARTY_APPS = [
     'django_htmx',
@@ -38,6 +44,8 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'debug_toolbar',
+    'rest_framework',
+    'django_filters',
 ]
 
 LOCAL_APPS = [
@@ -81,7 +89,7 @@ ROOT_URLCONF = 'shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -191,4 +199,102 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
+# REST API
 SITE_URL = 'http://127.0.0.1:8000'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  # Разрешить доступ всем
+    ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',  # Ограничение запросов для анонимных пользователей
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/hour',  # Лимит запросов для анонимных пользователей
+    },
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',  # Рендеринг в JSON
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',  # Парсинг JSON-данных
+    ],
+}
+
+# Настройка CORS для разработки и продакшена
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+else:
+    CORS_ALLOWED_ORIGINS = [  # Разрешенные источники
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+    ]
+
+# Настройки безопасности
+SECURE_BROWSER_XSS_FILTER = True  # Защита от XSS-атак
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Запрет MIME-типов
+X_FRAME_OPTIONS = 'DENY'  # Защита от кликджекинга
+
+# Настройки логирования
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',  # Уровень логирования
+            'class': 'logging.FileHandler',  # Логирование в файл
+            'filename': BASE_DIR / 'debug.log',  # Путь к файлу логов
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],  # Используемый обработчик
+            'level': 'INFO',  # Уровень логирования
+            'propagate': True,  # Передача логов родительским логгерам
+        },
+    },
+}
+
+# settings.py
+# settings.py
+
+UNFOLD = {
+    "SITE_TITLE": "DressCode Admin",
+    "SITE_HEADER": "DressCode Administration",
+
+    # Логотип
+
+    # Светлая тема
+    "THEME": "light",
+    "SHOW_THEME_SWITCH": False,
+
+    # Цветовая схема по вашему дизайну
+    "COLORS": {
+        "primary": {
+            "50": "250 245 238",  # #faf5ee - основной фон
+            "100": "248 243 236",  # светлее основного фона
+            "200": "240 235 228",
+            "300": "220 215 208",
+            "400": "180 175 168",  # промежуточный
+            "500": "29 80 58",  # #1d503a - основной зеленый
+            "600": "25 70 50",  # темнее основного
+            "700": "20 60 42",
+            "800": "15 50 35",
+            "900": "10 40 28",  # самый темный зеленый
+        },
+
+        # Дополнительные цвета
+        "gray": {
+            "50": "250 245 238",  # #faf5ee
+            "100": "248 249 250",  # #f8f9fa
+            "200": "224 224 224",  # #e0e0e0
+            "300": "178 126 126",  # #827e7e
+            "400": "130 126 126",  # #827e7e
+            "500": "51 51 51",  # #333333
+            "600": "0 0 0",  # #000000
+        }
+    },
+
+    # Дополнительные настройки
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+}

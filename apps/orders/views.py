@@ -3,6 +3,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.contrib import messages
+from rest_framework import viewsets
 
 from apps.coupons.forms import CouponApplyForm
 from apps.main.models import Size
@@ -13,6 +14,7 @@ import stripe
 from django.http import HttpResponse
 import weasyprint
 
+from .serializers import OrderSerializer
 from .tasks import payment_completed
 
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
@@ -148,3 +150,12 @@ def admin_order_pdf(request, order_id):
     response['Content-Disposition'] = f'attachment; filename=order_{order.id}.pdf'
     weasyprint.HTML(string=html).write_pdf(response)
     return response
+
+
+# ----------------------api------------------------
+
+
+class OrderApiView(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    http_method_names = ['get']

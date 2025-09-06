@@ -5,6 +5,9 @@ from django.contrib import admin
 from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
 from debug_toolbar.toolbar import debug_toolbar_urls
+from rest_framework import routers
+
+router = routers.DefaultRouter()
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
@@ -16,6 +19,7 @@ urlpatterns = i18n_patterns(
     path('coupons/', include('apps.coupons.urls', namespace='coupons')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
+    path('api/', include(router.urls))
 ) + debug_toolbar_urls()
 
 if settings.DEBUG:

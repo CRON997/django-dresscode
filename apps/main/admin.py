@@ -1,5 +1,4 @@
-from itertools import product
-
+from unfold.admin import ModelAdmin
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
@@ -12,19 +11,19 @@ class ProductSizeInline(admin.TabularInline):
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(ModelAdmin):
     list_display = ['id', 'name', 'slug']
     list_display_links = ['id', 'name']
     prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Brand)
-class BrandAdmin(admin.ModelAdmin):
+class BrandAdmin(ModelAdmin):
     list_display = ['id', 'name']
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ModelAdmin):
     list_display = ['id', 'name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
                     'status_discount', 'percent', 'image', 'product_image']
     list_display_links = ['id', 'name']
