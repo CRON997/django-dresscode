@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
-from django.http import JsonResponse
 
 from apps.main.models import Size, Product
 from .cart import Cart
@@ -15,7 +14,6 @@ def cart_add(request, product_id):
 
     size_id = request.POST.get('size_id')
 
-    # Validate size_id
     if not size_id or size_id == '':
         messages.error(request, 'Please select a size!')
         return redirect(current_page)
@@ -27,7 +25,6 @@ def cart_add(request, product_id):
         messages.error(request, 'Invalid size selected!')
         return redirect(current_page)
 
-    # Get quantity, default to 1
     try:
         quantity = int(request.POST.get('quantity', 1))
         if quantity <= 0:

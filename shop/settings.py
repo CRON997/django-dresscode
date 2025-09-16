@@ -34,19 +34,18 @@ DJANGO_APPS = ['unfold',
                'django.contrib.sites',
                ]
 
-THIRD_PARTY_APPS = [
-    'django_htmx',
-    'rosetta',
-    'parler',
-    'widget_tweaks',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'debug_toolbar',
-    'rest_framework',
-    'django_filters',
-]
+THIRD_PARTY_APPS = ['django_htmx',
+                    'rosetta',
+                    'parler',
+                    'widget_tweaks',
+                    'allauth',
+                    'allauth.account',
+                    'allauth.socialaccount',
+                    'allauth.socialaccount.providers.google',
+                    'debug_toolbar',
+                    'rest_framework',
+                    'django_filters',
+                    ]
 
 LOCAL_APPS = [
     'apps.main',

@@ -23,16 +23,27 @@ class BrandAdmin(ModelAdmin):
 
 
 @admin.register(Product)
-class ProductAdmin(ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'category', 'price', 'available', 'created_at', 'updated', 'original_price',
                     'status_discount', 'percent', 'image', 'product_image']
     list_display_links = ['id', 'name']
     list_filter = ['available', 'created_at', 'updated', 'category', 'status_discount']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
-    readonly_fields = ('original_price', 'product_image')
+    readonly_fields = ('original_price', 'product_image', 'created_at', 'updated')
     inlines = [ProductSizeInline]
     save_on_top = True
+
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('name', 'slug', 'category', 'price', 'available', 'image', 'product_image', 'original_price',
+                       'created_at', 'updated')
+        }),
+        ('Скидка', {
+            'fields': ('status_discount', 'percent'),
+            'classes': ('collapse',)
+        })
+    )
 
     @admin.display(description='Image of product')
     def product_image(self, product: Product):

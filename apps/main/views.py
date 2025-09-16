@@ -1,12 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
-from rest_framework import viewsets
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter
+
 from apps.comments.forms import CommentForm
 from apps.comments.models import Comment
 from apps.main.models import Category, Product, Size, Brand
-from apps.main.serializers import CategorySerializer, ProductSerializer
 
 
 class CatalogView(ListView):
@@ -83,21 +80,3 @@ def product_detail(request, id, slug):
 
 def about(request):
     return render(request, 'main/about.html')
-
-
-# ----------------------api------------------------
-
-
-class CategoryApiView(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    http_method_names = ['get']
-
-
-class ProductApiView(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    http_method_names = ['get']
-    filter_backends = [DjangoFilterBackend, SearchFilter]
-    search_fields = ['name', 'description']
-    filterset_fields = ['price']

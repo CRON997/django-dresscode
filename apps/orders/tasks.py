@@ -7,11 +7,9 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 
 from apps.orders.models import Order
-import logging
-
-logger = logging.getLogger(__name__)
 
 
+@shared_task
 def payment_completed(order_id):
     try:
         order = get_object_or_404(Order, id=order_id)

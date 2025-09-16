@@ -5,11 +5,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
 from debug_toolbar.toolbar import debug_toolbar_urls
-from rest_framework import routers
 
-router = routers.DefaultRouter()
+api_patterns = [
+    path('api/', include('api.urls')),
+]
 
-urlpatterns = i18n_patterns(
+# Основные маршруты С обработкой языков
+main_patterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path(_('cart/'), include('apps.cart.urls', namespace='cart')),
     path('', include('apps.main.urls', namespace='main')),
@@ -19,8 +21,11 @@ urlpatterns = i18n_patterns(
     path('coupons/', include('apps.coupons.urls', namespace='coupons')),
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
-    path('api/', include(router.urls))
-) + debug_toolbar_urls()
+)
+
+# Объединяем паттерны
+urlpatterns = api_patterns + main_patterns
 
 if settings.DEBUG:
+    urlpatterns += debug_toolbar_urls()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
