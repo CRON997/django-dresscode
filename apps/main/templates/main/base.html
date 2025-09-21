@@ -7,130 +7,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}{%endblock title%}</title>
-    <link type="text/css" href="{% static 'main/css/header.css' %}" rel="stylesheet">
-    <link type="text/css" href="{% static 'main/css/footer.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'main/css/catalog.css' %}" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     {%block link%}{%endblock link%}
 </head>
 <body>
     {%block header%}
-    <header class="dresscode-header">
-        <!-- Logo -->
-        <a class="dresscode-logo" href="{%url 'main:product_list'%}">DressCode</a>
+    <header class="header">
+        <div class="header__container">
+            <!-- Logo -->
+            <a class="header__logo" href="{%url 'main:product_list'%}">DressCode</a>
 
-        <!-- Desktop Navigation -->
-        <div class="dresscode-nav-container">
-            <nav class="dresscode-nav">
-                <ul class="dresscode-nav-links">
-                    <li><a href="{%url 'main:product_list'%}">Catalog</a></li>
-                    <li><a href="{%url 'users:profile'%}" class="dresscode-profile-link">Profile</a></li>
-                    <li>
-                        <a href="{%url 'cart:cart_detail'%}" class="dresscode-cart-link">
-                            Basket
-                            <span class="dresscode-cart-counter">{%with total_items=cart|length%}{{total_items}}
-                                {%endwith%}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#search" class="dresscode-search-trigger" data-search-trigger>
-                            <i class='bx bx-search'></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            <!-- Desktop Navigation -->
+            <div class="header__nav">
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item"><a class="header__nav-link" href="{%url 'main:product_list'%}">Catalog</a>
+                        </li>
+                        <li class="header__nav-item"><a class="header__nav-link"
+                                                        href="{%url 'users:profile'%}">Profile</a></li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link header__nav-link--cart" href="{%url 'cart:cart_detail'%}">
+                                Basket
+                                <span class="header__cart-counter">{%with total_items=cart|length%}{{total_items}}
+                                    {%endwith%}</span>
+                            </a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" href="#search" data-search-trigger>
+                                <i class='bx bx-search'></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-        <!-- Desktop Controls -->
-        <div class="dresscode-desktop-controls">
-            {%get_current_language as LANGUAGE_CODE%}
-            {%get_available_languages as LANGUAGES%}
-            {%get_language_info_list for LANGUAGES as languages%}
+            <!-- Desktop Controls -->
+            <div class="header__controls">
+                {%get_current_language as LANGUAGE_CODE%}
+                {%get_available_languages as LANGUAGES%}
+                {%get_language_info_list for LANGUAGES as languages%}
 
-            <div class="dresscode-language-dropdown">
-                <!-- Кнопка с текущим языком -->
+                <div class="header__language">
+                    <!-- Кнопка с текущим языком -->
                     {%for language in languages%}
-                {%if language.code == LANGUAGE_CODE%}
-                <button class="dresscode-language-toggle" type="button">
-                    <span class="dresscode-current-lang">{{language.code}}</span>
-                    <i class='bx bx-chevron-down dresscode-dropdown-arrow'></i>
-                </button>
-                {%endif%}
+                    {%if language.code == LANGUAGE_CODE%}
+                    <button class="header__language-toggle" type="button">
+                        <span class="header__current-lang">{{language.code}}</span>
+                        <i class='bx bx-chevron-down header__language-arrow'></i>
+                    </button>
+                    {%endif%}
                     {%endfor%}
 
-                <!-- Выпадающее меню со всеми языками -->
-                <div class="dresscode-language-menu">
-                    {%for language in languages%}
-                    <a href="/{{language.code}}/" style="text-decoration: none;">
-                        <button class="dresscode-language-item {%if language.code == LANGUAGE_CODE%}active{%endif%}"
-                                data-lang="{{language.code}}"
-                                type="button">
-                            {{language.code|upper}}
-                        </button>
+                    <!-- Выпадающее меню со всеми языками -->
+                    <div class="header__language-menu">
+                        {%for language in languages%}
+                        <a href="/{{language.code}}/" style="text-decoration: none;">
+                            <button class="header__language-item {%if language.code == LANGUAGE_CODE%}header__language-item--active{%endif%}"
+                                    data-lang="{{language.code}}"
+                                    type="button">
+                                {{language.code|upper}}
+                            </button>
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="header__auth">
+                    <a href="{%url 'users:register'%}">
+                        <button class="header__btn header__btn--signup" type="button">Sign Up</button>
                     </a>
-                    {%endfor%}
+                    <a href="{%url 'users:login'%}">
+                        <button class="header__btn header__btn--login" type="button">Login</button>
+                    </a>
                 </div>
             </div>
 
-            <!-- Auth Buttons -->
-            <div class="dresscode-auth-buttons">
-                <a href="{%url 'users:register'%}">
-                    <button class="dresscode-btn dresscode-btn-signup" type="button">Sign Up</button>
-                </a>
-                <a href="{%url 'users:login'%}">
-                    <button class="dresscode-btn dresscode-btn-login" type="button">Login</button>
-                </a>
+            <!-- Mobile Burger Menu -->
+            <div class="header__burger-container">
+                <button class="header__burger" data-burger-toggle type="button" aria-label="Toggle menu">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
             </div>
-        </div>
-
-        <!-- Mobile Burger Menu -->
-        <div class="dresscode-burger-container">
-            <button class="dresscode-burger" data-burger-toggle type="button" aria-label="Toggle menu">
-                <span class="dresscode-burger-line"></span>
-                <span class="dresscode-burger-line"></span>
-                <span class="dresscode-burger-line"></span>
-            </button>
         </div>
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div class="dresscode-mobile-overlay" data-mobile-overlay></div>
+    <div class="header__mobile-overlay" data-mobile-overlay></div>
 
     <!-- Mobile Menu -->
-    <div class="dresscode-mobile-menu" data-mobile-menu>
-        <div class="dresscode-mobile-menu-header">
-            <div class="dresscode-mobile-logo">Menu</div>
-            <button class="dresscode-mobile-close" data-mobile-close type="button">
+    <div class="header__mobile-menu" data-mobile-menu>
+        <div class="header__mobile-header">
+            <div class="header__mobile-logo">Menu</div>
+            <button class="header__mobile-close" data-mobile-close type="button">
                 <i class='bx bx-x'></i>
             </button>
         </div>
 
-        <div class="dresscode-mobile-menu-content">
+        <div class="header__mobile-content">
             <!-- Mobile Navigation -->
-            <nav class="dresscode-mobile-nav">
-                <ul class="dresscode-mobile-nav-links">
-                    <li>
-                        <a href="{%url 'main:product_list'%}" class="dresscode-mobile-nav-link">
+            <nav class="header__mobile-nav">
+                <ul class="header__mobile-nav-list">
+                    <li class="header__mobile-nav-item">
+                        <a class="header__mobile-nav-link" href="{%url 'main:product_list'%}">
                             <i class='bx bx-grid-alt'></i>
                             <span>Catalog</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{%url 'users:profile'%}" class="dresscode-mobile-nav-link">
+                    <li class="header__mobile-nav-item">
+                        <a class="header__mobile-nav-link" href="{%url 'users:profile'%}">
                             <i class='bx bx-user'></i>
                             <span>Profile</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{%url 'cart:cart_detail'%}" class="dresscode-mobile-nav-link">
+                    <li class="header__mobile-nav-item">
+                        <a class="header__mobile-nav-link" href="{%url 'cart:cart_detail'%}">
                             <i class='bx bx-shopping-bag'></i>
                             <span>Basket</span>
-                            <span class="dresscode-mobile-cart-counter">{%with total_items=cart|length%}{{total_items}}
+                            <span class="header__mobile-cart-counter">{%with total_items=cart|length%}{{total_items}}
                                 {%endwith%}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#search" class="dresscode-mobile-nav-link dresscode-search-trigger"
-                           data-search-trigger>
+                    <li class="header__mobile-nav-item">
+                        <a class="header__mobile-nav-link" href="#search" data-search-trigger>
                             <i class='bx bx-search'></i>
                             <span>Search</span>
                         </a>
@@ -139,16 +141,16 @@
             </nav>
 
             <!-- Mobile Language Selection -->
-            <div class="dresscode-mobile-language">
+            <div class="header__mobile-language">
                 {%get_current_language as LANGUAGE_CODE%}
                 {%get_available_languages as LANGUAGES%}
                 {%get_language_info_list for LANGUAGES as languages%}
-                <h3>Language</h3>
+                <h3 class="header__mobile-language-title">Language</h3>
                 {%for language in languages%}
                 {%if language.code == LANGUAGE_CODE%}
-                <div class="dresscode-mobile-language-options">
+                <div class="header__mobile-language-options">
                     <a href="/{{language.code}}/" style="text-decoration: none;">
-                        <button class="dresscode-mobile-lang-btn {%if language.code == LANGUAGE_CODE%}active{%endif%}"
+                        <button class="header__mobile-language-btn {%if language.code == LANGUAGE_CODE%}header__mobile-language-btn--active{%endif%}"
                                 data-lang="{{language.code}}" type="button">{{language.name}}
                         </button>
                     </a>
@@ -158,46 +160,45 @@
             </div>
 
             <!-- Mobile Auth Buttons -->
-            <div class="dresscode-mobile-auth">
+            <div class="header__mobile-auth">
                 <a href="{%url 'users:register'%}">
-                    <button class="dresscode-btn dresscode-btn-signup dresscode-mobile-btn" type="button">Sign Up
+                    <button class="header__btn header__btn--signup header__mobile-btn" type="button">Sign Up
                     </button>
                 </a>
                 <a href="{%url 'users:login'%}">
-                    <button class="dresscode-btn dresscode-btn-login dresscode-mobile-btn" type="button">Login</button>
+                    <button class="header__btn header__btn--login header__mobile-btn" type="button">Login</button>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="dresscode-search-modal" data-search-modal>
-        <div class="dresscode-search-modal-content">
-            <div class="dresscode-search-header">
-                <h3>Search Products</h3>
-                <button class="dresscode-search-close" data-search-close type="button" style="cursor:pointer;">
+    <div class="header__search-modal" data-search-modal>
+        <div class="header__search-content">
+            <div class="header__search-header">
+                <h3 class="header__search-title">Search Products</h3>
+                <button class="header__search-close" data-search-close type="button" style="cursor:pointer;">
                     <i class='bx bx-x'></i>
                 </button>
             </div>
             <form action="{% url 'main:search' %}" method="get">
-                <div class="dresscode-search-input-container">
+                <div class="header__search-input-container">
                     <button type="submit">
-                        <i class='bx bx-search dresscode-search-icon'></i>
+                        <i class='bx bx-search header__search-icon'></i>
                     </button>
-                    <input type="text" name='q' class="dresscode-search-input" placeholder="Search for products..."
+                    <input type="text" name='q' class="header__search-input" placeholder="Search for products..."
                        data-search-input>
-                <button class="dresscode-search-clear" data-search-clear type="button" style="cursor:pointer;">
-                    <i class='bx bx-x'></i>
-                </button>
-            </div>
+                    <button class="header__search-clear" data-search-clear type="button" style="cursor:pointer;">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
             </form>
-            <div class="dresscode-search-suggestions">
-                <div class="dresscode-suggestion-item">Popular: T-shirts</div>
-                <div class="dresscode-suggestion-item">Popular: Jeans</div>
-                <div class="dresscode-suggestion-item">Popular: Sneakers</div>
+            <div class="header__search-suggestions">
+                <div class="header__suggestion-item">Popular: T-shirts</div>
+                <div class="header__suggestion-item">Popular: Jeans</div>
+                <div class="header__suggestion-item">Popular: Sneakers</div>
             </div>
         </div>
-    </div>
     </div>
     {%endblock header%}
 
@@ -206,30 +207,33 @@
 
     {%block footer%}
         <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3 class="footer-h3">{%trans 'Quick Links'%}</h3>
-                    <ul>
-                        <li><a href="{% url 'main:about' %}">{%trans 'About Us'%}</a></li>
-                        <li><a href="contact.html">{%trans 'Contact'%}</a></li>
+            <div class="footer__container">
+                <div class="footer__section">
+                    <h3 class="footer__title">{%trans 'Quick Links'%}</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a class="footer__link" href="{% url 'main:about' %}">{%trans
+                            'About Us'%}</a></li>
+                        <li class="footer__list-item"><a class="footer__link" href="contact.html">{%trans
+                            'Contact'%}</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-h3">{%trans 'Contact Us'%}</h3>
-                    <p class="footer-p">{%trans 'Email'%}: dresscode-support@gmail.com</p>
-                    <p class="footer-p">{%trans 'Phone'%}: +1-800-DRESSCODE</p>
-                    <p class="footer-p">{%trans 'Address'%}: 123 Fashion St, Style City, SC 12345</p>
+                <div class="footer__section">
+                    <h3 class="footer__title">{%trans 'Contact Us'%}</h3>
+                    <p class="footer__text">{%trans 'Email'%}: dresscode-support@gmail.com</p>
+                    <p class="footer__text">{%trans 'Phone'%}: +1-800-DRESSCODE</p>
+                    <p class="footer__text">{%trans 'Address'%}: 123 Fashion St, Style City, SC 12345</p>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-h3">{%trans 'Follow Us'%}</h3>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
-                        <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
-                        <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <div class="footer__section">
+                    <h3 class="footer__title">{%trans 'Follow Us'%}</h3>
+                    <div class="footer__social-links">
+                        <a class="footer__social-link" href="#" aria-label="Facebook"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a class="footer__social-link" href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                        <a class="footer__social-link" href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer__bottom">
                 <p>© 2025 DressCode. {%trans 'All rights reserved'%}. | {%trans 'Current time'%}: <span id="current-time"></span></p>
             </div>
         </footer>

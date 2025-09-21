@@ -1,0 +1,1625 @@
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38290
+"GET /static/main/css/header.css HTTP/1.1" 200 18375
+"GET /static/main/css/footer.css HTTP/1.1" 200 2831
+"GET /static/main/css/catalog.css HTTP/1.1" 200 14029
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29468
+"GET /static/main/js/burger.js HTTP/1.1" 200 8406
+"GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14879
+"GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4700
+"GET /media/product/2025/08/22/Alright-Hoodie-BL-F.webp HTTP/1.1" 200 37506
+"GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/cart/ HTTP/1.1" 200 23584
+"GET /static/cart/css/cart.css HTTP/1.1" 200 3450
+"GET /ru/ HTTP/1.1" 200 38289
+C:\All documents\Projects\DressCode\shop\shop\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 200 23714
+"GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+"GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 200 164
+"GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 200 4647
+"GET /static/unfold/css/styles.css HTTP/1.1" 200 159921
+"GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 200 837
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 200 15524
+"GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 200 37891
+"GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 200 44758
+"GET /static/unfold/js/app.js HTTP/1.1" 200 13454
+"GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 200 50918
+"GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 200 27176
+"GET /static/unfold/js/chart/chart.js HTTP/1.1" 200 200633
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+"GET /static/unfold/fonts/inter/Inter-Medium.woff2 HTTP/1.1" 200 114348
+"GET /static/unfold/fonts/inter/Inter-Regular.woff2 HTTP/1.1" 200 111268
+"GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 274228
+"POST /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 200 24631
+"POST /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 200 76535
+"GET /ru/admin/comments/comment/ HTTP/1.1" 200 61143
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/main/product/ HTTP/1.1" 200 89524
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+Internal Server Error: /ru/admin/main/product/2/change/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+        opts.model,
+    ...<11 lines>...
+        form_declared_fields=new_class.declared_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'created_at' cannot be specified for Product model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\unfold\mixins\base_model_admin.py", line 42, in changeform_view
+    return super().changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\unfold\mixins\action_model_admin.py", line 92, in changeform_view
+    return super().changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'created_at' cannot be specified for Product model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class ProductAdmin.
+"GET /ru/admin/main/product/2/change/ HTTP/1.1" 500 187069
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /ru/admin/main/product/2/change/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+        opts.model,
+    ...<11 lines>...
+        form_declared_fields=new_class.declared_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'updated' cannot be specified for Product model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\unfold\mixins\base_model_admin.py", line 42, in changeform_view
+    return super().changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\unfold\mixins\action_model_admin.py", line 92, in changeform_view
+    return super().changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+        request, obj, change=not add, fields=flatten_fieldsets(fieldsets)
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: 'updated' cannot be specified for Product model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class ProductAdmin.
+"GET /ru/admin/main/product/2/change/ HTTP/1.1" 500 186753
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 61649)
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /ru/admin/main/product/ HTTP/1.1" 200 87290
+- Broken pipe from ('127.0.0.1', 61701)
+- Broken pipe from ('127.0.0.1', 61699)
+"GET /ru/admin/comments/comment/ HTTP/1.1" 200 61143
+"GET /ru/admin/main/product/ HTTP/1.1" 200 87290
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+- Broken pipe from ('127.0.0.1', 61703)
+"GET /media/product/2025/08/22/Alright-Hoodie-BL-F.webp HTTP/1.1" 200 37506
+"GET /ru/admin/main/product/2/change/ HTTP/1.1" 200 79581
+"GET /static/admin/js/inlines.js HTTP/1.1" 200 16222
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/main/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 30126
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/products/cats HTTP/1.1" 302 0
+"GET /en/api/products/cats/ HTTP/1.1" 200 81
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38289
+- Broken pipe from ('127.0.0.1', 50790)
+- Broken pipe from ('127.0.0.1', 50794)
+"GET /api/products/cats HTTP/1.1" 302 0
+Not Found: /en/api/products/cats/
+"GET /en/api/products/cats/ HTTP/1.1" 404 23
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/categories
+"GET /api/categories HTTP/1.1" 404 15637
+Not Found: /api/categories/
+"GET /api/categories/ HTTP/1.1" 404 15641
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17256
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17256
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17255
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38289
+- Broken pipe from ('127.0.0.1', 50884)
+- Broken pipe from ('127.0.0.1', 50886)
+- Broken pipe from ('127.0.0.1', 50887)
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17255
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17257
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38290
+- Broken pipe from ('127.0.0.1', 51564)
+- Broken pipe from ('127.0.0.1', 51568)
+- Broken pipe from ('127.0.0.1', 51569)
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /en/categories/
+"GET /en/categories/ HTTP/1.1" 404 17256
+Not Found: /api/categories/
+"GET /api/categories/ HTTP/1.1" 404 15641
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /ru/cart/ HTTP/1.1" 200 23586
+- Broken pipe from ('127.0.0.1', 51637)
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 51639)
+"GET /product/ HTTP/1.1" 302 0
+Not Found: /en/product/
+"GET /en/product/ HTTP/1.1" 404 17244
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /products/ HTTP/1.1" 302 0
+Not Found: /en/products/
+"GET /en/products/ HTTP/1.1" 404 17249
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38289
+- Broken pipe from ('127.0.0.1', 51789)
+- Broken pipe from ('127.0.0.1', 51793)
+"GET /categories/ HTTP/1.1" 302 0
+Not Found: /ru/categories/
+"GET /ru/categories/ HTTP/1.1" 404 18233
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /ru/
+"GET /ru/ HTTP/1.1" 404 18613
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 51815)
+"GET /api/products HTTP/1.1" 302 0
+Not Found: /ru/api/products/
+"GET /ru/api/products/ HTTP/1.1" 404 18258
+"GET /api/products HTTP/1.1" 302 0
+Not Found: /ru/api/products/
+"GET /ru/api/products/ HTTP/1.1" 404 18257
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\orders\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 16544
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29468
+- Broken pipe from ('127.0.0.1', 51928)
+Not Found: /api/products
+"GET /api/products HTTP/1.1" 404 16610
+Not Found: /api/products/
+"GET /api/products/ HTTP/1.1" 404 16614
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/products/ HTTP/1.1" 302 0
+"GET /ru/api/products/ HTTP/1.1" 200 380
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 16605
+"GET /api/products/ HTTP/1.1" 302 0
+"GET /en/api/products/ HTTP/1.1" 200 380
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/categories/
+"GET /api/categories/ HTTP/1.1" 404 15641
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\apps\main\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38290
+- Broken pipe from ('127.0.0.1', 52900)
+- Broken pipe from ('127.0.0.1', 52903)
+- Broken pipe from ('127.0.0.1', 52904)
+- Broken pipe from ('127.0.0.1', 52905)
+"GET /api/products/ HTTP/1.1" 302 0
+"GET /en/api/products/ HTTP/1.1" 200 380
+C:\All documents\Projects\DressCode\shop\api\serializers\main.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /api/products/ HTTP/1.1" 302 0
+"GET /en/api/products/ HTTP/1.1" 200 380
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38289
+- Broken pipe from ('127.0.0.1', 53589)
+"GET /media/product/2025/08/22/Alright-Hoodie-BL-F.webp HTTP/1.1" 200 37506
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 200 76535
+"GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+- Broken pipe from ('127.0.0.1', 53613)
+- Broken pipe from ('127.0.0.1', 53615)
+- Broken pipe from ('127.0.0.1', 53614)
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+- Broken pipe from ('127.0.0.1', 53616)
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+C:\All documents\Projects\DressCode\shop\api\serializers\main.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 81
+C:\All documents\Projects\DressCode\shop\api\serializers\main.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/products/ HTTP/1.1" 302 0
+"GET /en/api/products/ HTTP/1.1" 200 380
+"POST /api/products/ HTTP/1.1" 302 0
+"GET /en/api/products/ HTTP/1.1" 200 380
+C:\All documents\Projects\DressCode\shop\api\serializers\main.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 50
+Watching for file changes with StatReloader
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 50
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38289
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 200 76535
+"GET /ru/admin/main/category/ HTTP/1.1" 200 64987
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"POST /api/categories/ HTTP/1.1" 302 0
+"GET /en/api/categories/ HTTP/1.1" 200 50
+"POST /ru/api/categories/ HTTP/1.1" 201 31
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /ru/api/categories/
+"POST /ru/api/categories/ HTTP/1.1" 404 20394
+"GET /ru/admin/main/category/ HTTP/1.1" 200 68494
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219852
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/categories/ HTTP/1.1" 200 82
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219803
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219802
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/categories/ HTTP/1.1" 200 82
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219803
+Not Found: /ru/api/categories/
+"POST /ru/api/categories/ HTTP/1.1" 404 20394
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219803
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219802
+Internal Server Error: /api/categories/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 18, in post
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "main_category_slug_key"
+DETAIL:  Ключ "(slug)=()" уже существует.
+
+"POST /api/categories/ HTTP/1.1" 500 219802
+C:\All documents\Projects\DressCode\shop\api\serializers\main.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/categories/ HTTP/1.1" 201 62
+Watching for file changes with StatReloader
+"GET /api/category/1/ HTTP/1.1" 200 40
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/category/1/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: CategoryApiView.get() got an unexpected keyword argument 'pk'
+"GET /api/category/1/ HTTP/1.1" 500 108484
+Internal Server Error: /api/category/1/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: CategoryApiView.get() got an unexpected keyword argument 'pk'
+"GET /api/category/1/ HTTP/1.1" 500 108483
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/category/1/ HTTP/1.1" 200 40
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38785
+- Broken pipe from ('127.0.0.1', 55532)
+- Broken pipe from ('127.0.0.1', 55535)
+- Broken pipe from ('127.0.0.1', 55536)
+- Broken pipe from ('127.0.0.1', 55537)
+"GET /api/category/1/ HTTP/1.1" 200 40
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38785
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 200 76535
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+"GET /static/unfold/fonts/inter/Inter-Regular.woff2 HTTP/1.1" 200 111268
+"GET /ru/admin/main/category/ HTTP/1.1" 200 72052
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"PUT /api/category/1/ HTTP/1.1" 201 40
+"GET /ru/admin/main/category/ HTTP/1.1" 200 72052
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"PUT /api/category/1/ HTTP/1.1" 201 40
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+"PUT /api/category/1/ HTTP/1.1" 201 40
+C:\All documents\Projects\DressCode\shop\api\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /api/product/1/
+"GET /api/product/1/ HTTP/1.1" 404 48
+Not Found: /api/product/1/
+"GET /api/product/1/ HTTP/1.1" 404 48
+Not Found: /api/product/1/
+"GET /api/product/1/ HTTP/1.1" 404 48
+"GET /api/category/1/ HTTP/1.1" 200 40
+Not Found: /api/product/1/
+"GET /api/product/1/ HTTP/1.1" 404 48
+"GET /api/product/2/ HTTP/1.1" 200 378
+Bad Request: /api/product/2/
+"PUT /api/product/2/ HTTP/1.1" 400 85
+Watching for file changes with StatReloader
+"GET /api/category/1/ HTTP/1.1" 200 40
+"GET /api/category/3/ HTTP/1.1" 200 41
+"GET /api/category/11/ HTTP/1.1" 200 62
+"GET /api/delete/category/11/ HTTP/1.1" 200 62
+Internal Server Error: /api/delete/category/11/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 51, in delete
+    return Response(status=status.HTTP_284_NO_CONTENT)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'rest_framework.status' has no attribute 'HTTP_284_NO_CONTENT'. Did you mean: 'HTTP_204_NO_CONTENT'?
+"DELETE /api/delete/category/11/ HTTP/1.1" 500 113242
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/delete/category/11/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\api\views\main.py", line 47, in delete
+    product = Category.objects.get(id=pk)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.main.models.Category.DoesNotExist: Category matching query does not exist.
+"DELETE /api/delete/category/11/ HTTP/1.1" 500 121631
+Not Found: /api/delete/category//
+"DELETE /api/delete/category// HTTP/1.1" 404 17072
+"DELETE /api/delete/category/0/ HTTP/1.1" 200 39
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38532
+- Broken pipe from ('127.0.0.1', 64978)
+"GET /ru/user/profile/ HTTP/1.1" 200 46255
+"GET /static/users/css/profile.css HTTP/1.1" 200 7473
+"GET /static/users/images/default_ava.png HTTP/1.1" 200 15320
+"GET /ru/cart/ HTTP/1.1" 200 23583
+"GET /static/cart/css/cart.css HTTP/1.1" 304 0
+"GET /ru/user/profile/ HTTP/1.1" 200 46254
+"GET /ru/orders/order/ORD-A7AE3387/ HTTP/1.1" 200 18861
+"GET /static/orders/css/order_detail.css HTTP/1.1" 200 8120
+"GET /ru/ HTTP/1.1" 200 38532
+"GET /ru/ HTTP/1.1" 200 38532
+"GET /ru/user/profile/ HTTP/1.1" 200 46254
+"GET /ru/ HTTP/1.1" 200 38532
+"GET /ru/user/login/ HTTP/1.1" 200 15900
+"GET /static/users/css/login.css HTTP/1.1" 200 4270
+"GET /ru/accounts/google/login/ HTTP/1.1" 200 16243
+"POST /ru/accounts/google/login/ HTTP/1.1" 302 0
+"GET /ru/accounts/google/login/callback/?state=aQBh09Ij95tkdtUq&code=4%2F0AVGzR1DlNOTFRK6MUHavbK81qt_UnnNbBpJCIygVew7KAVGs5tgwCa8T6dghbZSlSl6Z5A&scope=profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile HTTP/1.1" 302 0
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 38531
+"GET /ru/user/profile/ HTTP/1.1" 200 36706
+"GET /ru/cart/ HTTP/1.1" 200 23583
+"GET /ru/ HTTP/1.1" 200 38531
+"GET /ru/2/zip-hoodie-oversized-unorthodox HTTP/1.1" 200 25702
+"GET /static/main/css/detail.css HTTP/1.1" 200 7217
+"POST /ru/cart/add/2/ HTTP/1.1" 302 0
+"GET /ru/2/zip-hoodie-oversized-unorthodox HTTP/1.1" 200 25702
+"GET /ru/cart/ HTTP/1.1" 200 26227
+"GET /ru/orders/create/ HTTP/1.1" 200 35999
+"GET /static/orders/css/create.css HTTP/1.1" 200 13738
+"GET /ru/ HTTP/1.1" 200 38531
+"GET /ru/ HTTP/1.1" 200 38531
+"GET /ru/user/profile/ HTTP/1.1" 200 36706
+"GET /ru/ HTTP/1.1" 200 38531
+"DELETE /api/delete/category/1/ HTTP/1.1" 204 0
+"GET /ru/ HTTP/1.1" 200 37020
+"GET /ru/ HTTP/1.1" 200 37020
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\api\views\main.py changed, reloading.
+Watching for file changes with StatReloader
+Bad Request: /api/delete/category/0/
+"DELETE /api/delete/category/0/ HTTP/1.1" 400 49
+Not Found: /api/delete/category//
+"DELETE /api/delete/category// HTTP/1.1" 404 17072
+Not Found: /api/delete/category/a/
+"DELETE /api/delete/category/a/ HTTP/1.1" 404 17076
+C:\All documents\Projects\DressCode\shop\apps\main\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37748
+- Broken pipe from ('127.0.0.1', 65450)
+- Broken pipe from ('127.0.0.1', 65454)
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /ru/ HTTP/1.1" 200 37748
+"GET /static/main/css/catalog.css HTTP/1.1" 200 33941
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29468
+"GET /static/main/js/burger.js HTTP/1.1" 200 8406
+"GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14879
+"GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4700
+"GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 16752
+"GET /ru/cart/ HTTP/1.1" 200 24273
+"GET /static/main/css/catalog.css HTTP/1.1" 304 0
+"GET /static/cart/css/cart.css HTTP/1.1" 200 3450
+"GET /ru/user/profile/ HTTP/1.1" 200 37197
+"GET /static/main/css/catalog.css HTTP/1.1" 304 0
+"GET /static/users/css/profile.css HTTP/1.1" 200 7473
+"GET /static/users/images/default_ava.png HTTP/1.1" 200 15320
+"GET /ru/ HTTP/1.1" 200 37748
+"GET /ru/user/profile/ HTTP/1.1" 200 37196
+"GET /static/main/css/catalog.css HTTP/1.1" 304 0
+"GET /ru/cart/ HTTP/1.1" 200 24272
+"GET /static/main/css/catalog.css HTTP/1.1" 304 0
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /ru/cart/ HTTP/1.1" 200 24273
+"GET /static/main/css/catalog.css HTTP/1.1" 200 33941
+"GET /ru/orders/create/ HTTP/1.1" 200 36004
+"GET /static/orders/css/create.css HTTP/1.1" 200 13738
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /static/main/css/catalog.css HTTP/1.1" 304 0
+"GET /ru/cart/ HTTP/1.1" 200 24272
+"GET /ru/ HTTP/1.1" 200 37747
+"GET /ru/?stock=all&sort= HTTP/1.1" 200 37767
+"GET /ru/?stock=all&sort= HTTP/1.1" 200 37767
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 200 23712
+"GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+"GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 200 164
+"GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 200 4647
+"GET /static/unfold/css/styles.css HTTP/1.1" 200 159921
+"GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 200 837
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 200 15524
+"GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 200 37891
+"GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 200 44758
+"GET /static/unfold/js/app.js HTTP/1.1" 200 13454
+"GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 200 50918
+"GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 200 27176
+"GET /static/unfold/js/chart/chart.js HTTP/1.1" 200 200633
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+"GET /static/unfold/fonts/inter/Inter-Medium.woff2 HTTP/1.1" 200 114348
+"GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 274228
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 53090)
