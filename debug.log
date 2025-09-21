@@ -1623,3 +1623,469 @@ Watching for file changes with StatReloader
 "GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 274228
 Not Found: /favicon.ico
 - Broken pipe from ('127.0.0.1', 53090)
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37925
+"GET /static/main/css/catalog.css HTTP/1.1" 200 33941
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29468
+"GET /static/main/js/burger.js HTTP/1.1" 200 8406
+"GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14879
+"GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4700
+"GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18368
+"GET /ru/swagger HTTP/1.1" 301 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+- Broken pipe from ('127.0.0.1', 51462)
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 51510)
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 51513)
+"GET /ru/user/profile/ HTTP/1.1" 302 0
+"GET /accounts/login/?next=/ru/user/profile/ HTTP/1.1" 302 0
+"GET /ru/accounts/login/?next=/ru/user/profile/ HTTP/1.1" 200 17072
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 200 23714
+"GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+"GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 200 164
+"GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 200 4647
+"GET /static/unfold/css/styles.css HTTP/1.1" 200 159921
+"GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 200 837
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 200 15524
+"GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 200 37891
+"GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 200 44758
+"GET /static/unfold/js/app.js HTTP/1.1" 200 13454
+"GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 200 50918
+"GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 200 27176
+"GET /static/unfold/js/chart/chart.js HTTP/1.1" 200 200633
+"GET /static/unfold/fonts/inter/Inter-Medium.woff2 HTTP/1.1" 200 114348
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+"GET /static/unfold/fonts/inter/Inter-Regular.woff2 HTTP/1.1" 200 111268
+"GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 274228
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37925
+- Broken pipe from ('127.0.0.1', 51659)
+"GET /ru/cart/ HTTP/1.1" 200 24140
+"GET /static/cart/css/cart.css HTTP/1.1" 200 3450
+"GET /ru/user/profile/ HTTP/1.1" 302 0
+"GET /accounts/login/?next=/ru/user/profile/ HTTP/1.1" 302 0
+"GET /ru/accounts/login/?next=/ru/user/profile/ HTTP/1.1" 200 17072
+"GET /ru/ HTTP/1.1" 200 37925
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37926
+- Broken pipe from ('127.0.0.1', 51710)
+"GET /ru/cart/ HTTP/1.1" 200 24139
+- Broken pipe from ('127.0.0.1', 51714)
+"GET /ru/ HTTP/1.1" 200 37925
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37924
+"GET /static/main/js/burger.js HTTP/1.1" 200 8406
+"GET /static/main/css/catalog.css HTTP/1.1" 200 33941
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29468
+"GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14879
+"GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4700
+"GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 16752
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18368
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+Not Found: /ru/rosseta/
+"GET /ru/rosseta/ HTTP/1.1" 404 18367
+"GET /swagger/ HTTP/1.1" 302 0
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+"GET /redoc/ HTTP/1.1" 302 0
+Not Found: /ru/redoc/
+"GET /ru/redoc/ HTTP/1.1" 404 18359
+Not Found: /en/swagger/
+"GET /en/swagger/ HTTP/1.1" 404 17390
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18367
+C:\All documents\Projects\DressCode\shop\shop\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18368
+"GET /ru/ HTTP/1.1" 200 37925
+- Broken pipe from ('127.0.0.1', 51828)
+C:\All documents\Projects\DressCode\shop\shop\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /ru/swagger/
+"GET /ru/swagger/ HTTP/1.1" 404 18368
+Watching for file changes with StatReloader
+"GET /swagger/ HTTP/1.1" 200 16317
+"GET /static/drf-yasg/style.css HTTP/1.1" 200 1047
+"GET /static/drf-yasg/insQ.min.js HTTP/1.1" 200 2093
+"GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 200 15480
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 200 145206
+"GET /static/drf-yasg/immutable.min.js HTTP/1.1" 200 56904
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 200 322863
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 200 1046583
+"GET /static/drf-yasg/swagger-ui-dist/favicon-32x32.png HTTP/1.1" 200 628
+"GET /swagger/?format=openapi HTTP/1.1" 200 2793
+"GET /__debug__/history_sidebar/?request_id=6408d89f4fcc430d8fa809e3dd188b92 HTTP/1.1" 200 13190
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37925
+- Broken pipe from ('127.0.0.1', 51914)
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 51917)
+"GET /swagger/ HTTP/1.1" 200 16316
+"GET /static/drf-yasg/style.css HTTP/1.1" 200 1047
+"GET /static/drf-yasg/insQ.min.js HTTP/1.1" 200 2093
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 304 0
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 304 0
+"GET /static/drf-yasg/immutable.min.js HTTP/1.1" 304 0
+"GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 304 0
+"GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 200 145206
+- Broken pipe from ('127.0.0.1', 52023)
+"GET /swagger/?format=openapi HTTP/1.1" 200 2793
+"GET /__debug__/history_sidebar/?request_id=39c42dbdfee44a60b3e82c09b2812c92 HTTP/1.1" 200 13191
+"GET /redoc/ HTTP/1.1" 200 15023
+"GET /static/drf-yasg/redoc-init.js HTTP/1.1" 200 2566
+"GET /static/drf-yasg/style.css HTTP/1.1" 200 1047
+"GET /static/drf-yasg/insQ.min.js HTTP/1.1" 200 2093
+"GET /static/drf-yasg/redoc/redoc.min.js HTTP/1.1" 200 1042511
+"GET /redoc/?format=openapi HTTP/1.1" 200 2793
+"GET /static/drf-yasg/redoc/redoc-logo.png HTTP/1.1" 200 4969
+"GET /__debug__/history_sidebar/?request_id=5885b3e2c27a496b86a754aeb22435ce HTTP/1.1" 200 13188
+"GET /redoc/?format=openapi HTTP/1.1" 200 2793
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37925
+- Broken pipe from ('127.0.0.1', 52126)
+Not Found: /favicon.ico
+- Broken pipe from ('127.0.0.1', 52128)
+"GET /admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 200 23714
+"GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+"GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 200 164
+"GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 200 4647
+"GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 200 837
+"GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+"GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 200 15524
+"GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 200 37891
+"GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 200 44758
+"GET /static/unfold/js/app.js HTTP/1.1" 200 13454
+"GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 200 50918
+"GET /static/unfold/css/styles.css HTTP/1.1" 200 159921
+"GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 200 27176
+"GET /static/unfold/js/chart/chart.js HTTP/1.1" 200 200633
+"GET /static/unfold/fonts/inter/Inter-Medium.woff2 HTTP/1.1" 200 114348
+"GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+"GET /static/unfold/fonts/inter/Inter-Regular.woff2 HTTP/1.1" 200 111268
+"GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 274228
+"POST /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 302 0
+"GET /ru/admin/ HTTP/1.1" 200 76535
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 17303
+"GET /ru/admin/main/product/ HTTP/1.1" 200 65368
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9222
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /ru/admin/main/product/add/ HTTP/1.1" 200 71298
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/js/inlines.js HTTP/1.1" 200 16222
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+Internal Server Error: /ru/admin/main/product/add/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "brand_id" отношения "main_product" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (4, продукт, produkt, product/2025/09/21/images1000x700.jpg, , 12.00, t, 2025-09-21 09:55:58.114463+00, 2025-09-21 09:55:58.114477+00, null, f, 0, null, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\apps\main\models.py", line 91, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "brand_id" отношения "main_product" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (4, продукт, produkt, product/2025/09/21/images1000x700.jpg, , 12.00, t, 2025-09-21 09:55:58.114463+00, 2025-09-21 09:55:58.114477+00, null, f, 0, null, 2).
+
+"POST /ru/admin/main/product/add/ HTTP/1.1" 500 252395
+"GET /ru/admin/main/product/add/ HTTP/1.1" 200 71298
+"POST /ru/admin/main/product/add/ HTTP/1.1" 200 72049
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+Not Found: /media/5a8.jpeg
+"GET /media/5a8.jpeg HTTP/1.1" 404 17518
+Internal Server Error: /ru/admin/main/product/add/
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "brand_id" отношения "main_product" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (5, аваівів, avaiviv, , , 123.00, t, 2025-09-21 09:56:58.217014+00, 2025-09-21 09:56:58.217029+00, null, f, 0, null, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "C:\All documents\Projects\DressCode\shop\apps\main\models.py", line 91, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 234, in execute
+    return self._record(super().execute, sql, params)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\debug_toolbar\panels\sql\tracking.py", line 160, in _record
+    return method(sql, params)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\All documents\Projects\DressCode\shop\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "brand_id" отношения "main_product" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (5, аваівів, avaiviv, , , 123.00, t, 2025-09-21 09:56:58.217014+00, 2025-09-21 09:56:58.217029+00, null, f, 0, null, 2).
+
+"POST /ru/admin/main/product/add/ HTTP/1.1" 500 251560
+"GET /ru/admin/main/product/add/ HTTP/1.1" 200 71298
+"GET /ru/admin/main/brand/ HTTP/1.1" 200 61747
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/orders/order/ HTTP/1.1" 200 252869
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/main/product/ HTTP/1.1" 200 65368
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/orders/order/ HTTP/1.1" 200 252869
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/orders/order/4/change/ HTTP/1.1" 200 80335
+"GET /ru/admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /ru/admin/orders/order/ HTTP/1.1" 200 252869
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37925
+"GET /ru/user/profile/ HTTP/1.1" 200 46810
+"GET /static/users/css/profile.css HTTP/1.1" 200 7473
+"GET /static/users/images/default_ava.png HTTP/1.1" 200 15320
+"GET /ru/cart/ HTTP/1.1" 200 24139
+"GET /static/cart/css/cart.css HTTP/1.1" 200 3450
+"GET /ru/ HTTP/1.1" 200 37925
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /ru/ HTTP/1.1" 200 37926
+- Broken pipe from ('127.0.0.1', 53591)
+- Broken pipe from ('127.0.0.1', 53594)
+"GET /ru/ HTTP/1.1" 200 37925

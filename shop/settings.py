@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = ['django_htmx',
                     'debug_toolbar',
                     'rest_framework',
                     'django_filters',
+                    'drf_yasg',
                     ]
 
 LOCAL_APPS = [
