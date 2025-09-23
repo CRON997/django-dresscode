@@ -69,15 +69,13 @@ class CustomUserUpdateForm(forms.ModelForm):
     email = forms.EmailField(max_length=66,
                              widget=forms.EmailInput(
                                  attrs={'class': ""}))
-    address1 = forms.CharField(max_length=66,
+    address1 = forms.CharField(max_length=66, required=False,
                                widget=forms.TextInput(
                                    attrs={'class': ''}))
-    address2 = forms.CharField(max_length=66,
+    address2 = forms.CharField(max_length=66, required=False,
                                widget=forms.TextInput(
                                    attrs={'class': ''}))
-    city = forms.CharField(max_length=66,
-                           widget=forms.TextInput(
-                               attrs={'class': ''}))
+    city = forms.CharField(max_length=66, required=False, widget=forms.TextInput(attrs={'class': ''}))
     phone = forms.CharField(max_length=66,
                             widget=forms.TextInput(
                                 attrs={'class': ''}))

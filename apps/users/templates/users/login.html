@@ -1,4 +1,4 @@
-{%extends "users/base.html"%}
+{%extends "main/base.html"%}
 {%load socialaccount%}
 {%load static%}
 {%load i18n%}
@@ -15,16 +15,24 @@
     <form id="login-form" method="POST">
         {%csrf_token%}
         <h1>Login</h1>
+        <!--        <div class="input-box">-->
+        <!--            <label for="{{ form.username.id_for_label }}">Email</label>-->
+        <!--            {{form.username}}-->
+        <!--            <i class='bx bx-envelope'></i>-->
+        <!--        </div>-->
+        <!--        <div class="input-box">-->
+        <!--            <label for="{{ form.password.id_for_label }}">Password</label>-->
+        <!--            {{form.password}}-->
+        <!--            <i class='bx bx-lock'></i>-->
+        <!--        </div>-->
+        {%for field in form%}
         <div class="input-box">
-            <label for="{{ form.username.id_for_label }}">Email</label>
-            {{form.username}}
-            <i class='bx bx-envelope'></i>
-        </div>
-        <div class="input-box">
-            <label for="{{ form.password.id_for_label }}">Password</label>
-            {{form.password}}
+            {{field.as_field_group}}
             <i class='bx bx-lock'></i>
         </div>
+        {%endfor%}
+
+
         <div class="remember">
             <input id="remember" type="checkbox">
             <label for="remember">Remember me</label>

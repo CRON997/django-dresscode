@@ -10,6 +10,333 @@
 
 {%block content%}
 <div id="product-container">
-    {% include 'main/partial/product_list_partial.html' %}
+    <button class="filter-toggle" onclick="toggleFilter()">
+        <span>☰</span>
+        <span>Фильтры</span>
+    </button>
+
+    <div class="filter-overlay" onclick="closeFilter()"></div>
+
+    <div class="container">
+        <div class="main-layout">
+            <div class="controls" id="filterSidebar">
+                <button class="filter-close" onclick="closeFilter()">×</button>
+
+                <div class="filters">
+                    <h3 class="controls-title">Categories</h3>
+                    <div class="filter-buttons">
+                        {%for category in categories%}
+                        <a href="{{category.get_absolute_url}}" style="all: unset; cursor: pointer;">
+                            <button class="filter-btn">
+                                {{category.name}}
+                            </button>
+                        </a>
+                        {%endfor%}
+                    </div>
+                </div>
+
+                <form method="get" name="filterForm" action="">
+                    <div class="price-filter">
+                        <h3 class="controls-title">Price</h3>
+                        <div class="price-range">
+                            <input name="min_price" type="number" class="price-input" id="minPrice" placeholder="От"
+                                   min="0"
+                                   step="1">
+                            <span class="price-separator">—</span>
+                            <input name="max_price" type="number" class="price-input" id="maxPrice" placeholder="До"
+                                   min="0"
+                                   step="1">
+                        </div>
+                        <div class="price-labels">
+                            <span>$0</span>
+                            <span>$1000</span>
+                        </div>
+                    </div>
+
+                    <div class="brand-filter">
+                        <h3 class="controls-title">Brand</h3>
+                        <div class="brand-list">
+                            {%for brand in brands%}
+                            <div class="brand-item">
+                                <input type="checkbox" class="brand-checkbox" id="{{brand.id}}" name="brands"
+                                       value="{{brand.id}}">
+                                <label for="{{brand.id}}" class="brand-label">
+                                    {{brand.name}}
+                                    <span class="brand-count">1</span>
+                                </label>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+
+                    <div class="stock-filter">
+                        <h3 class="controls-title">Stock</h3>
+                        <div class="stock-options">
+                            <div class="stock-option active">
+                                <input type="radio" class="stock-radio" id="all-stock" name="stock" value="all" checked>
+                                <label for="all-stock" class="stock-label">Все товары</label>
+                            </div>
+                            <div class="stock-option">
+                                <input type="radio" class="stock-radio" id="in-stock" name="stock" value="in-stock">
+                                <label for="in-stock" class="stock-label">В наличии</label>
+                            </div>
+                            <div class="stock-option">
+                                <input type="radio" class="stock-radio" id="on-sale" name="stock" value="on-sale">
+                                <label for="on-sale" class="stock-label">Со скидкой</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sort-section">
+                        <h3 class="controls-title">Сортировка</h3>
+                        <select name="sort" class="sort-select" onchange="applyFilters()">
+                            <!--                        -->
+                        </select>
+                    </div>
+                </form>
+
+                <div class="filter-actions">
+                    <button type="submit" form="filterForm" class="apply-filters" onclick="applyFilters()">Apply
+                    </button>
+                    <button class="clear-filters" onclick="clearFilters()">Clear</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="results-info">
+                    <p>Найдено товаров: <strong>{{products.count}}</strong></p>
+                </div>
+
+                <div class="products-grid">
+                    {%for product in products%}
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <a href="{{product.get_absolute_url}}">
+                                <img src="{{product.image.url}}" alt="{{product.name}}"
+                                     class="product-image">
+                            </a>
+                            {%if product.status_discount%}
+                            <div class="discount-badge">-{{product.percent}}%</div>
+                            {%endif%}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">{{product.category}}</div>
+                            <a href="{{product.get_absolute_url}}" style="text-decoration: none;">
+                                <h3 class="product-name">{{product.name}}</h3>
+                            </a>
+                            <p class="product-description"></p>
+                            <div class="product-pricing">
+                                {%if product.status_discount%}
+                                <span class="current-price">${{product.price}}</span>
+                                <span class="original-price">${{product.original_price}}</span>
+                                {%else%}
+                                <span class="current-price">${{product.price}}</span>
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentFilters = {
+            category: null,
+            minPrice: null,
+            maxPrice: null,
+            brands: [],
+            stock: 'all',
+            sort: 'featured'
+        };
+
+        function toggleFilter() {
+            const sidebar = document.getElementById('filterSidebar');
+            const overlay = document.querySelector('.filter-overlay');
+
+            sidebar.classList.add('open');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilter() {
+            const sidebar = document.getElementById('filterSidebar');
+            const overlay = document.querySelector('.filter-overlay');
+
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Обработка изменения цены
+        document.getElementById('minPrice').addEventListener('input', function() {
+            currentFilters.minPrice = this.value;
+        });
+
+        document.getElementById('maxPrice').addEventListener('input', function() {
+            currentFilters.maxPrice = this.value;
+        });
+
+        // Обработка выбора брендов
+        document.querySelectorAll('.brand-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    currentFilters.brands.push(this.value);
+                } else {
+                    currentFilters.brands = currentFilters.brands.filter(brand => brand !== this.value);
+                }
+            });
+        });
+
+        // Обработка выбора наличия
+        document.querySelectorAll('.stock-radio').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    currentFilters.stock = this.value;
+                    // Обновляем визуальное состояние
+                    document.querySelectorAll('.stock-option').forEach(option => {
+                        option.classList.remove('active');
+                    });
+                    this.closest('.stock-option').classList.add('active');
+                }
+            });
+        });
+
+        function applyFilters() {
+            const form = document.getElementById('filterForm');
+            const formData = new FormData();
+
+            // Добавляем все фильтры в форму
+            if (currentFilters.minPrice) formData.append('min_price', currentFilters.minPrice);
+            if (currentFilters.maxPrice) formData.append('max_price', currentFilters.maxPrice);
+            if (currentFilters.brands.length > 0) {
+                currentFilters.brands.forEach(brand => formData.append('brands', brand));
+            }
+            formData.append('stock', currentFilters.stock);
+            formData.append('sort', document.querySelector('.sort-select').value);
+
+            // Создаем URL с параметрами
+            const params = new URLSearchParams();
+            for (let [key, value] of formData.entries()) {
+                params.append(key, value);
+            }
+
+            // Перенаправляем с фильтрами
+            window.location.search = params.toString();
+        }
+
+        function clearFilters() {
+            // Очищаем поля цены
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+
+            // Снимаем выбор с брендов
+            document.querySelectorAll('.brand-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            // Сбрасываем наличие на "Все товары"
+            document.getElementById('all-stock').checked = true;
+            document.querySelectorAll('.stock-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            document.querySelector('#all-stock').closest('.stock-option').classList.add('active');
+
+            // Сбрасываем сортировку
+            document.querySelector('.sort-select').value = 'featured';
+
+            // Очищаем объект фильтров
+            currentFilters = {
+                category: null,
+                minPrice: null,
+                maxPrice: null,
+                brands: [],
+                stock: 'all',
+                sort: 'featured'
+            };
+
+            // Применяем очищенные фильтры
+            applyFilters();
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Читаем текущие параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Устанавливаем значения из URL
+            if (urlParams.get('min_price')) {
+                document.getElementById('minPrice').value = urlParams.get('min_price');
+                currentFilters.minPrice = urlParams.get('min_price');
+            }
+
+            if (urlParams.get('max_price')) {
+                document.getElementById('maxPrice').value = urlParams.get('max_price');
+                currentFilters.maxPrice = urlParams.get('max_price');
+            }
+
+            // Устанавливаем выбранные бренды
+            const selectedBrands = urlParams.getAll('brands');
+            selectedBrands.forEach(brand => {
+                const checkbox = document.getElementById(brand);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    currentFilters.brands.push(brand);
+                }
+            });
+
+            // Устанавливаем наличие
+            const stockValue = urlParams.get('stock') || 'all';
+            const stockRadio = document.querySelector(`input[value="${stockValue}"]`);
+            if (stockRadio) {
+                stockRadio.checked = true;
+                currentFilters.stock = stockValue;
+                document.querySelectorAll('.stock-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                stockRadio.closest('.stock-option').classList.add('active');
+            }
+        });
+
+        // Закрытие фильтра при нажатии Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeFilter();
+            }
+        });
+
+        // Обновление счетчика товаров (можно связать с вашим бэкендом)
+        function updateResultsCount() {
+            // Здесь можно добавить AJAX запрос для получения актуального количества товаров
+            // с учетом примененных фильтров
+        }
+    </script>
+
+    <script>
+        function toggleFilter() {
+            const sidebar = document.getElementById('filterSidebar');
+            const overlay = document.querySelector('.filter-overlay');
+
+            sidebar.classList.add('open');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFilter() {
+            const sidebar = document.getElementById('filterSidebar');
+            const overlay = document.querySelector('.filter-overlay');
+
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Закрытие фильтра при нажатии Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeFilter();
+            }
+        });
+    </script>
 </div>
 {%endblock%}
